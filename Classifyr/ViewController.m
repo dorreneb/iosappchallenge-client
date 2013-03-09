@@ -28,7 +28,7 @@
 
 - (IBAction)joinButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"canvasSegue" sender:nil];
+    [self performSegueWithIdentifier:@"canvasSegue" sender:sender];
 }
 
 @end

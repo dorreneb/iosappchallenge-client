@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CanvasView.h"
 
-@interface CanvasViewController : UIViewController
+@interface CanvasViewController : UIViewController <UIScrollViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) CanvasView *canvasView;
+
+- (IBAction)canvasTapped:(UITapGestureRecognizer *)recognizer;
 
 @end
