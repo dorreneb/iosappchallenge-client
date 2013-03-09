@@ -10,4 +10,6 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)joinButtonPressed:(id)sender;
+
 @end

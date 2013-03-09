@@ -26,4 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)joinButtonPressed:(id)sender
+{
+    [self performSegueWithIdentifier:@"canvasSegue" sender:nil];
+}
+
 @end
