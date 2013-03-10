@@ -37,13 +37,12 @@ static ConnectionDelegate* instance;
     NSLog(@"Initializing Server");
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:connectAddress]]];
     _webSocket.delegate = self;
-    NSLog(@"Opening Connection...");
+    NSLog(@"Checking Connection...");
     [_webSocket open];
-    NSLog(@"Return from open");
     
 }
 
--(void) stopServer {
+-(void) closeConnection {
     NSLog(@"Stopping Server...");
     [_webSocket close];
 }
@@ -64,6 +63,8 @@ static ConnectionDelegate* instance;
 - (void)webSocket:(SRWebSocket *)socket didReceiveMessage:(id)message;
 {
     NSLog(@"Received \"%@\"", message);
+    NSLog(@"Open graph listener here");
+    [self closeConnection];
 }
 
 - (void)webSocket:(SRWebSocket *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;

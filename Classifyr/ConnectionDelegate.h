@@ -13,8 +13,7 @@
 }
 
 -(void) startServer;
-
--(void) stopServer;
+-(void) closeConnection;
 
 + (ConnectionDelegate *)mainConnectionDelegate;
 

@@ -7,6 +7,7 @@
 //
 
 #import "CanvasView.h"
+#import "ConnectionDelegate.h"
 
 @implementation CanvasView
 
@@ -22,6 +23,9 @@
 - (void) addUMLComponent:(UMLComponent *)component
 {
     [self addSubview:component];
+    
+    //ConnectionDelegate *del = [ConnectionDelegate mainConnectionDelegate];
+    //[del sendMessage:@"df"];
 }
 
 @end

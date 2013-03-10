@@ -37,7 +37,7 @@
 }
 
 - (IBAction)disconnectAll:(id)sender {
-    [_web stopServer];
+    [_web closeConnection];
 }
 
 @end
