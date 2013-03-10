@@ -8,6 +8,7 @@
 
 #import "ConnectionDelegate.h"
 #import <SRWebSocket.h>
+#import "GraphListenerDelegate.h"
 
 @interface ConnectionDelegate() <SRWebSocketDelegate>
 @end
@@ -34,16 +35,16 @@ static ConnectionDelegate* instance;
 -(void) startServer {
     NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/create-session";
     
-    NSLog(@"Initializing Server");
+    NSLog(@"Initializing auth connection");
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:connectAddress]]];
     _webSocket.delegate = self;
-    NSLog(@"Checking Connection...");
+    NSLog(@"Checking connection...");
     [_webSocket open];
     
 }
 
 -(void) closeConnection {
-    NSLog(@"Stopping Server...");
+    NSLog(@"Stopping auth connection...");
     [_webSocket close];
 }
 
@@ -51,25 +52,46 @@ static ConnectionDelegate* instance;
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket;
 {
-    NSLog(@"Websocket Connected");
+    NSLog(@"Session auth websocket connected");
 }
 
 - (void)webSocket:(SRWebSocket *)socket didFailWithError:(NSError *)error;
 {
-    NSLog(@"%@", error);
+    NSLog(@"Session auth error: %@", error);
     socket = nil;
 }
 
 - (void)webSocket:(SRWebSocket *)socket didReceiveMessage:(id)message;
 {
-    NSLog(@"Received \"%@\"", message);
-    NSLog(@"Open graph listener here");
-    [self closeConnection];
+    NSLog(@"Session auth received \"%@\"", message);
+    
+    //parse json message
+    NSError *jsonParsingError = nil;
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
+    NSString *sessionid;
+    
+    //graph listener delegate
+    GraphListenerDelegate *graphListener;
+    
+    //parse message and if valid start the graph listener
+    if (!jsonArray) {
+        NSLog(@"Session auth error parsing JSON: %@", jsonParsingError);
+    } else {
+        [self closeConnection];
+        sessionid = [jsonArray objectForKey:@"session-id"];
+        
+        if (sessionid != nil) {
+            graphListener = [GraphListenerDelegate mainGraphListenerDelegate];
+            [graphListener openConnection:sessionid];
+        }
+        
+    } 
 }
 
 - (void)webSocket:(SRWebSocket *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 {
-    NSLog(@"WebSocket closed");
+    NSLog(@"Session auth WebSocket closed");
     socket = nil;
 }
 

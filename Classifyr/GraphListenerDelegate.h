@@ -11,6 +11,8 @@
 
 @interface GraphListenerDelegate : NSObject
 
+-(void)openConnection:(NSString*)graphId;
+-(void) closeConnection;
 -(void)sendMessage:(NSString*)message;
 
 + (GraphListenerDelegate *)mainGraphListenerDelegate;

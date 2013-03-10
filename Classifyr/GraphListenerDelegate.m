@@ -16,7 +16,7 @@
 }
 
 #pragma mark - GraphListenerMethods
-SRWebSocket *_webSocket;
+SRWebSocket *graphSocket;
 static dispatch_once_t graphGuarantee;
 static GraphListenerDelegate* instance;
 
@@ -27,6 +27,18 @@ static GraphListenerDelegate* instance;
     });
     
     return instance;
+}
+
+-(void)openConnection:(NSString *)graphId {
+    NSString *connectAddress = [NSString stringWithFormat:@"%@/%@", @"ws://jotspec.student.rit.edu:8080/graph", graphId];
+    NSLog(@"graph connect url: %@", connectAddress);
+    graphSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:connectAddress]]];
+    graphSocket.delegate = self;
+    [graphSocket open];
+}
+
+-(void)closeConnection {
+    [graphSocket close];
 }
 
 -(void)sendMessage:(NSString *)message {
