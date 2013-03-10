@@ -12,10 +12,10 @@
 @interface ConnectionDelegate : NSObject {
 }
 
-@property (strong, nonatomic, readonly) SRWebSocket *webSocket;
-
 -(void) startServer;
 
 -(void) stopServer;
+
++ (ConnectionDelegate *)mainConnectionDelegate;
 
 @end

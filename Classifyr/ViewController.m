@@ -33,7 +33,6 @@
 
 - (IBAction)joinButtonPressed:(id)sender
 {
-    [_web startServer];
     [self performSegueWithIdentifier:@"canvasSegue" sender:sender];
 }
 

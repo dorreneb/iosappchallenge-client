@@ -13,11 +13,26 @@
 @end
 
 @implementation ConnectionDelegate {
+
 }
 
 #pragma mark - public accessors
+
+SRWebSocket *_webSocket;
+static dispatch_once_t guarantee;
+static ConnectionDelegate* instance;
+
++ (ConnectionDelegate *)mainConnectionDelegate
+{
+    dispatch_once(&guarantee, ^{
+        instance = [[ConnectionDelegate alloc] init];
+    });
+    
+    return instance;
+}
+
 -(void) startServer {
-    NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/graph";
+    NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/create-session";
     
     NSLog(@"Initializing Server");
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:connectAddress]]];
@@ -25,6 +40,7 @@
     NSLog(@"Opening Connection...");
     [_webSocket open];
     NSLog(@"Return from open");
+    
 }
 
 -(void) stopServer {
