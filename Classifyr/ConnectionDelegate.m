@@ -13,15 +13,14 @@
 @end
 
 @implementation ConnectionDelegate {
-     //SRWebSocket *_webSocket;
 }
-
-@synthesize webSocket = _webSocket;
 
 #pragma mark - public accessors
 -(void) startServer {
+    NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/graph";
+    
     NSLog(@"Initializing Server");
-    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://jotspec.student.rit.edu:8080/graph"]]];
+    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:connectAddress]]];
     _webSocket.delegate = self;
     NSLog(@"Opening Connection...");
     [_webSocket open];
@@ -29,7 +28,7 @@
 }
 
 -(void) stopServer {
-    
+    [_webSocket close];
 }
 
 #pragma mark - SRWebSocketDelegate

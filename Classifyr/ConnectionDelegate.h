@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <SRWebSocket.h>
 
-@interface ConnectionDelegate : NSObject
+@interface ConnectionDelegate : NSObject {
+}
 
-@property (strong, nonatomic) SRWebSocket *webSocket;
+@property (strong, nonatomic, readonly) SRWebSocket *webSocket;
 
 -(void) startServer;
 
