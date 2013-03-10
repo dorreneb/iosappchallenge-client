@@ -7,12 +7,23 @@
 //
 
 #import "ViewController.h"
+#import <SRWebSocket.h>
 
-@interface ViewController ()
+@interface ClassifyrMessage : NSObject
+
+- (id)initWithMessage:(NSString *)message fromMe:(BOOL)fromMe;
+
+@property (nonatomic, retain, readonly) NSString *message;
+@property (nonatomic, readonly)  BOOL fromMe;
 
 @end
 
-@implementation ViewController
+@interface ViewController () <SRWebSocketDelegate, UITextViewDelegate>
+@end
+
+@implementation ViewController {
+    SRWebSocket *_webSocket;
+}
 
 - (void)viewDidLoad
 {
@@ -28,7 +39,14 @@
 
 - (IBAction)joinButtonPressed:(id)sender
 {
-    [self performSegueWithIdentifier:@"canvasSegue" sender:nil];
+    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://localhost:9000/chat"]]];
+    _webSocket.delegate = self;
+    //[self performSegueWithIdentifier:@"canvasSegue" sender:nil];
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
+{
+    
 }
 
 @end

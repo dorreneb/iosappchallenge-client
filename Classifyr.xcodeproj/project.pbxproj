@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53C8818416EC0A52007098C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818316EC0A52007098C9 /* CFNetwork.framework */; };
+		53C8818616EC0A5C007098C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818516EC0A5C007098C9 /* Security.framework */; };
+		53C8818816EC0A6E007098C9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818716EC0A6E007098C9 /* libicucore.dylib */; };
+		53C8819116EC0B51007098C9 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 53C8818A16EC0B51007098C9 /* base64.c */; };
+		53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8818D16EC0B51007098C9 /* NSData+SRB64Additions.m */; };
+		53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819016EC0B51007098C9 /* SRWebSocket.m */; };
 		5854E6FD16EAD0E300068C59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FC16EAD0E300068C59 /* UIKit.framework */; };
 		5854E6FF16EAD0E300068C59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FE16EAD0E300068C59 /* Foundation.framework */; };
 		5854E70116EAD0E300068C59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E70016EAD0E300068C59 /* CoreGraphics.framework */; };
@@ -23,6 +29,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53C8818316EC0A52007098C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		53C8818516EC0A5C007098C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		53C8818716EC0A6E007098C9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		53C8818A16EC0B51007098C9 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		53C8818B16EC0B51007098C9 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		53C8818C16EC0B51007098C9 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		53C8818D16EC0B51007098C9 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		53C8818E16EC0B51007098C9 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		53C8818F16EC0B51007098C9 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		53C8819016EC0B51007098C9 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		5854E6F916EAD0E300068C59 /* Classifyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5854E6FC16EAD0E300068C59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5854E6FE16EAD0E300068C59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53C8818816EC0A6E007098C9 /* libicucore.dylib in Frameworks */,
+				53C8818616EC0A5C007098C9 /* Security.framework in Frameworks */,
+				53C8818416EC0A52007098C9 /* CFNetwork.framework in Frameworks */,
 				5854E6FD16EAD0E300068C59 /* UIKit.framework in Frameworks */,
 				5854E6FF16EAD0E300068C59 /* Foundation.framework in Frameworks */,
 				5854E70116EAD0E300068C59 /* CoreGraphics.framework in Frameworks */,
@@ -58,9 +77,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		53C8818916EC0B51007098C9 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				53C8818A16EC0B51007098C9 /* base64.c */,
+				53C8818B16EC0B51007098C9 /* base64.h */,
+				53C8818C16EC0B51007098C9 /* NSData+SRB64Additions.h */,
+				53C8818D16EC0B51007098C9 /* NSData+SRB64Additions.m */,
+				53C8818E16EC0B51007098C9 /* SocketRocket-Prefix.pch */,
+				53C8818F16EC0B51007098C9 /* SRWebSocket.h */,
+				53C8819016EC0B51007098C9 /* SRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
 		5854E6F016EAD0E300068C59 = {
 			isa = PBXGroup;
 			children = (
+				53C8818916EC0B51007098C9 /* SocketRocket */,
+				53C8818716EC0A6E007098C9 /* libicucore.dylib */,
+				53C8818516EC0A5C007098C9 /* Security.framework */,
+				53C8818316EC0A52007098C9 /* CFNetwork.framework */,
 				5854E70216EAD0E300068C59 /* Classifyr */,
 				5854E6FB16EAD0E300068C59 /* Frameworks */,
 				5854E6FA16EAD0E300068C59 /* Products */,
@@ -186,6 +223,9 @@
 				5854E70D16EAD0E300068C59 /* AppDelegate.m in Sources */,
 				5854E71C16EAD0E300068C59 /* ViewController.m in Sources */,
 				5854E72416EB9A3400068C59 /* CanvasViewController.m in Sources */,
+				53C8819116EC0B51007098C9 /* base64.c in Sources */,
+				53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */,
+				53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +322,16 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Classifyr/Classifyr-Prefix.pch";
+				HEADER_SEARCH_PATHS = "../../libraries/**";
 				INFOPLIST_FILE = "Classifyr/Classifyr-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/UnittWebSocketClient/bin/Debug-iphoneos\"",
+					"\"$(SRCROOT)/UnittWebSocketClient/bin/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/UnittWebSocketClient/bin/Release-iphoneos\"",
+					"\"$(SRCROOT)/UnittWebSocketClient/bin/Release-iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -293,7 +342,16 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Classifyr/Classifyr-Prefix.pch";
+				HEADER_SEARCH_PATHS = "../../libraries/**";
 				INFOPLIST_FILE = "Classifyr/Classifyr-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/UnittWebSocketClient/bin/Debug-iphoneos\"",
+					"\"$(SRCROOT)/UnittWebSocketClient/bin/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/UnittWebSocketClient/bin/Release-iphoneos\"",
+					"\"$(SRCROOT)/UnittWebSocketClient/bin/Release-iphonesimulator\"",
+				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
