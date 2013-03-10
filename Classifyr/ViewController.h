@@ -11,5 +11,6 @@
 @interface ViewController : UIViewController
 
 - (IBAction)joinButtonPressed:(id)sender;
+- (IBAction)disconnectAll:(id)sender;
 
 @end

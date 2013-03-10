@@ -7,17 +7,22 @@
 //
 
 #import "ViewController.h"
+#import "ConnectionDelegate.h"
 
-@interface ViewController ()
-
+@interface ViewController () <UITextViewDelegate>
 @end
 
-@implementation ViewController
+@implementation ViewController {
+    __strong ConnectionDelegate *_web;
+    NSMutableArray *_messages;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    
+    _web = [[ConnectionDelegate alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -28,7 +33,12 @@
 
 - (IBAction)joinButtonPressed:(id)sender
 {
+    [_web startServer];
     [self performSegueWithIdentifier:@"canvasSegue" sender:sender];
+}
+
+- (IBAction)disconnectAll:(id)sender {
+    [_web stopServer];
 }
 
 @end
