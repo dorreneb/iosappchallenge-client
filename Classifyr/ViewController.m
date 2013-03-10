@@ -9,20 +9,12 @@
 #import "ViewController.h"
 #import <SRWebSocket.h>
 
-@interface ClassifyrMessage : NSObject
-
-- (id)initWithMessage:(NSString *)message fromMe:(BOOL)fromMe;
-
-@property (nonatomic, retain, readonly) NSString *message;
-@property (nonatomic, readonly)  BOOL fromMe;
-
-@end
-
 @interface ViewController () <SRWebSocketDelegate, UITextViewDelegate>
 @end
 
 @implementation ViewController {
     SRWebSocket *_webSocket;
+    NSMutableArray *_messages;
 }
 
 - (void)viewDidLoad
@@ -39,14 +31,43 @@
 
 - (IBAction)joinButtonPressed:(id)sender
 {
-    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://localhost:9000/chat"]]];
+    NSLog(@"Initializing Server");
+    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"ws://jotspec.student.rit.edu:8080/graph"]]];
     _webSocket.delegate = self;
+    NSLog(@"Opening Connection...");
+    [_webSocket open];
+    NSLog(@"Return from open");
     //[self performSegueWithIdentifier:@"canvasSegue" sender:nil];
 }
 
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
+
+
+#pragma mark - SRWebSocketDelegate
+
+- (void)webSocketDidOpen:(SRWebSocket *)webSocket;
 {
+    NSLog(@"Websocket Connected");
+    self.title = @"Connected!";
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error;
+{
+    NSLog(@"%@", error);
     
+    self.title = @"Connection Failed! (see logs)";
+    _webSocket = nil;
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;
+{
+    NSLog(@"Received \"%@\"", message);
+}
+
+- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
+{
+    NSLog(@"WebSocket closed");
+    self.title = @"Connection Closed! (see logs)";
+    _webSocket = nil;
 }
 
 @end
