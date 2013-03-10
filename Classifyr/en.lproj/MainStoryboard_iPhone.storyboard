@@ -25,11 +25,27 @@
                                     <action selector="joinButtonPressed:" destination="2" eventType="touchUpInside" id="aM0-p4-cLt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l78-GE-0Qb">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Disconnect">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="disconnectAll:" destination="2" eventType="touchUpInside" id="ON3-a6-Wmd"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="rFF-Nm-cS8" secondAttribute="centerX" type="user" id="F2U-Zb-Yq7"/>
-                            <constraint firstAttribute="centerY" secondItem="rFF-Nm-cS8" secondAttribute="centerY" type="user" id="QcQ-zK-blJ"/>
+                            <constraint firstAttribute="bottom" secondItem="l78-GE-0Qb" secondAttribute="bottom" constant="193" id="84W-tL-rOt"/>
+                            <constraint firstItem="l78-GE-0Qb" firstAttribute="trailing" secondItem="rFF-Nm-cS8" secondAttribute="trailing" type="default" id="A1t-SG-iqH"/>
+                            <constraint firstItem="l78-GE-0Qb" firstAttribute="centerX" secondItem="yuA-2N-ztx" secondAttribute="centerX" type="default" id="I27-sW-NRJ"/>
+                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="177" id="L1d-p7-mYt"/>
+                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="leading" secondItem="l78-GE-0Qb" secondAttribute="leading" type="default" id="wTZ-La-fLf"/>
                         </constraints>
                     </view>
                     <connections>
@@ -66,6 +82,7 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
+                <relationship kind="action" name="disconnectAll:"/>
                 <relationship kind="action" name="joinButtonPressed:"/>
             </relationships>
         </class>

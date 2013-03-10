@@ -37,4 +37,8 @@
     //[self performSegueWithIdentifier:@"canvasSegue" sender:nil];
 }
 
+- (IBAction)disconnectAll:(id)sender {
+    [_web stopServer];
+}
+
 @end

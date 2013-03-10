@@ -28,6 +28,7 @@
 }
 
 -(void) stopServer {
+    NSLog(@"Stopping Server...");
     [_webSocket close];
 }
 
