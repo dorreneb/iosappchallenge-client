@@ -13,6 +13,7 @@
 		53C8819116EC0B51007098C9 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 53C8818A16EC0B51007098C9 /* base64.c */; };
 		53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8818D16EC0B51007098C9 /* NSData+SRB64Additions.m */; };
 		53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819016EC0B51007098C9 /* SRWebSocket.m */; };
+		53C8819616EC203B007098C9 /* ConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819516EC203B007098C9 /* ConnectionDelegate.m */; };
 		5854E6FD16EAD0E300068C59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FC16EAD0E300068C59 /* UIKit.framework */; };
 		5854E6FF16EAD0E300068C59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FE16EAD0E300068C59 /* Foundation.framework */; };
 		5854E70116EAD0E300068C59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E70016EAD0E300068C59 /* CoreGraphics.framework */; };
@@ -39,6 +40,8 @@
 		53C8818E16EC0B51007098C9 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		53C8818F16EC0B51007098C9 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		53C8819016EC0B51007098C9 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		53C8819416EC203B007098C9 /* ConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionDelegate.h; sourceTree = "<group>"; };
+		53C8819516EC203B007098C9 /* ConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionDelegate.m; sourceTree = "<group>"; };
 		5854E6F916EAD0E300068C59 /* Classifyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5854E6FC16EAD0E300068C59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5854E6FE16EAD0E300068C59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -134,6 +137,8 @@
 				5854E71A16EAD0E300068C59 /* ViewController.h */,
 				5854E71B16EAD0E300068C59 /* ViewController.m */,
 				5854E70316EAD0E300068C59 /* Supporting Files */,
+				53C8819416EC203B007098C9 /* ConnectionDelegate.h */,
+				53C8819516EC203B007098C9 /* ConnectionDelegate.m */,
 			);
 			path = Classifyr;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				53C8819116EC0B51007098C9 /* base64.c in Sources */,
 				53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */,
 				53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */,
+				53C8819616EC203B007098C9 /* ConnectionDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
