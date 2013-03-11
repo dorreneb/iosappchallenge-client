@@ -14,6 +14,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) CanvasView *canvasView;
 
-- (IBAction)canvasTapped:(UITapGestureRecognizer *)recognizer;
+- (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 
 @end

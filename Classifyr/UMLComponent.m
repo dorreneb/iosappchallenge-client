@@ -12,9 +12,10 @@
 
 - (id)initWithLocation:(CGPoint)location
 {
-    CGRect frame = CGRectMake(location.x, location.y, 70.0f, 50.0f);
+    CGRect frame = CGRectMake(0.0f, 0.0f, 70.0f, 50.0f);
     self = [super initWithFrame:frame];
     if (self) {
+        self.center = location;
         self.backgroundColor = [UIColor blueColor];
     }
     return self;

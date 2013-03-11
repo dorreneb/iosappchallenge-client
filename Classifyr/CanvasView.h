@@ -11,7 +11,7 @@
 
 @interface CanvasView : UIView
 
-//@property(strong, nonatomic) UIPinchGestureRecognizer *pinchRecognizer;
+@property(strong, nonatomic) UITapGestureRecognizer *tapRecognizer;
 
 - (void) addUMLComponent: (UMLComponent *)component;
 

@@ -65,7 +65,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <gestureRecognizers/>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="IbB-aw-4iE" appends="YES" id="usD-nr-hqL"/>
+                            <outletCollection property="gestureRecognizers" destination="DG0-wi-f3R" appends="YES" id="R2j-yA-Vj6"/>
                         </connections>
                     </scrollView>
                     <navigationItem key="navigationItem" id="4AO-WG-SFf"/>
@@ -74,11 +74,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZg-m5-a40" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="IbB-aw-4iE">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="DG0-wi-f3R">
                     <connections>
-                        <action selector="canvasTapped:" destination="vU6-vA-xeA" id="rfR-RL-x6x"/>
+                        <action selector="cavnasTapped:" destination="vU6-vA-xeA" id="qJY-vP-3I9"/>
                     </connections>
-                </tapGestureRecognizer>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="457" y="160"/>
         </scene>
@@ -88,6 +88,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CanvasViewController.h"/>
             <relationships>
                 <relationship kind="action" name="canvasTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="cavnasTapped:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>

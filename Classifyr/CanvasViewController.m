@@ -52,7 +52,7 @@
     return self.canvasView;
 }
 
-- (IBAction)canvasTapped:(UITapGestureRecognizer *)recognizer
+- (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 {
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         CGPoint location = [recognizer locationInView:self.canvasView];
