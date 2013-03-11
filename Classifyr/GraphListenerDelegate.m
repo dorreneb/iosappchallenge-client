@@ -8,6 +8,12 @@
 
 #import "GraphListenerDelegate.h"
 
+typedef enum{
+    RED = 0,
+    BLUE,
+    Green
+} MessageTypes;
+
 @interface GraphListenerDelegate() <SRWebSocketDelegate>
 @end
 
@@ -42,7 +48,10 @@ static GraphListenerDelegate* instance;
 }
 
 -(void)sendMessage:(NSString *)message {
-    NSLog(@"Hello from sendmessage");
+    NSString *message2 = [NSString stringWithFormat:@"%@", message];
+    NSLog(@"Hello from sendmessage: %@", message2);
+    [graphSocket send:message2];
+
 }
 
 #pragma mark - GraphListenerSRWebSocketDelegate
@@ -61,6 +70,21 @@ static GraphListenerDelegate* instance;
 - (void)webSocket:(SRWebSocket *)socket didReceiveMessage:(id)message;
 {
     NSLog(@"Graph Listener Received: \"%@\"", message);
+    
+    // convert the message to json
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    //get message type
+    NSString* latestLoans = [json objectForKey:@"type"];
+    
+    //act based on the message type
+    if ([latestLoans isEqualToString:@"init"]) {
+        NSLog(@"Initialize board");
+    } else if ([latestLoans isEqualToString:@"create"]) {
+        NSLog(@"Create square");
+    }
+    
 }
 
 - (void)webSocket:(SRWebSocket *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
@@ -68,6 +92,8 @@ static GraphListenerDelegate* instance;
     NSLog(@"Graph Listener WebSocket closed");
     socket = nil;
 }
+
+
 
 
 

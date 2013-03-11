@@ -7,6 +7,7 @@
 //
 
 #import "CanvasViewController.h"
+#import "GraphListenerDelegate.h"
 
 @implementation CanvasViewController
 
@@ -60,6 +61,13 @@
         // Create an UML component at the tapped location
         UMLComponent *uml = [[UMLComponent alloc] initWithLocation:location];
         [self.canvasView addUMLComponent:uml];
+        
+        NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"ted\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", location.x, location.y];
+        
+        
+        //send message to the server
+        GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
+        [del sendMessage:x];
     }
 }
 
