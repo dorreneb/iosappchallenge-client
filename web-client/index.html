@@ -1,37 +1,37 @@
+<!DOCTYPE html>
 <html>
     <head>
       <script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-      <script type="text/javascript" src="jquery.websocket-0.0.1.js"></script>
 
       <link rel="stylesheet" media="screen" href="theme.css"/>
 
       <script>
-        var ws = $.websocket("ws://localhost:8080/graph/b2be8eaf-fb99-4a51-846e-9644dc8b5726");
+        var ws = new WebSocket("ws://localhost:8080/graph/f0af005a-d42a-4348-9352-68b05d40688d");
         ws.onopen = function() { console.log("Connection established."); }
         
         ws.onmessage = function(e) {
             console.log(e["data"]);
-            var data = JSON.parse(e["data"]);
+            // var data = JSON.parse(e["data"]);
 
-            if (data["type"] == "init") {
-              var body = data["body"];
+            // if (data["type"] == "init") {
+            //   var body = data["body"];
 
-              for (i = 0; i < body.length; i++) {
-                  var block = body[i];
-                  var location = block["location"];
-                  var y = location["x"];
-                  var x = location["y"];
+            //   for (i = 0; i < body.length; i++) {
+            //       var block = body[i];
+            //       var location = block["location"];
+            //       var y = location["x"];
+            //       var x = location["y"];
 
-                  $("body").append("<div class=\"block\" style=\"top: " + x + "px; left: " + y + "px\"></div>");
-              }
-            } else if (data["type"] == "create") {
-                  var block = data["body"];
-                  var location = block["location"];
-                  var y = location["x"];
-                  var x = location["y"];
+            //       $("body").append("<div class=\"block\" style=\"top: " + x + "px; left: " + y + "px\"></div>");
+            //   }
+            // } else if (data["type"] == "create") {
+            //       var block = data["body"];
+            //       var location = block["location"];
+            //       var y = location["x"];
+            //       var x = location["y"];
 
-                  $("body").append("<div class=\"block\" style=\"top: " + x + "px; left: " + y + "px\"></div>");                
-            }
+            //       $("body").append("<div class=\"block\" style=\"top: " + x + "px; left: " + y + "px\"></div>");                
+            // }
         }
       </script>
     </head>
