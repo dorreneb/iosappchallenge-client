@@ -31,7 +31,6 @@ NSArray *allSessions;
     NSLog(@"Checking connection...");
     [_webSocket open];
     CFRunLoopRun();
-    
     return allSessions;
 }
 

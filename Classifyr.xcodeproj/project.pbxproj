@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5370926616ED0F6B00B51746 /* GraphListenerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5370926516ED0F6B00B51746 /* GraphListenerDelegate.m */; };
 		537095C016EEBA2A00B51746 /* Original_218x75.png in Resources */ = {isa = PBXBuildFile; fileRef = 537095BF16EEBA2900B51746 /* Original_218x75.png */; };
+		537095CC16EEC04E00B51746 /* SelectSessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537095CB16EEC04E00B51746 /* SelectSessionController.m */; };
 		53C8818416EC0A52007098C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818316EC0A52007098C9 /* CFNetwork.framework */; };
 		53C8818616EC0A5C007098C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818516EC0A5C007098C9 /* Security.framework */; };
 		53C8818816EC0A6E007098C9 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818716EC0A6E007098C9 /* libicucore.dylib */; };
@@ -37,6 +38,8 @@
 		5370926416ED0F6B00B51746 /* GraphListenerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphListenerDelegate.h; sourceTree = "<group>"; };
 		5370926516ED0F6B00B51746 /* GraphListenerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphListenerDelegate.m; sourceTree = "<group>"; };
 		537095BF16EEBA2900B51746 /* Original_218x75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Original_218x75.png; path = Classifyr/Original_218x75.png; sourceTree = "<group>"; };
+		537095CA16EEC04E00B51746 /* SelectSessionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSessionController.h; sourceTree = "<group>"; };
+		537095CB16EEC04E00B51746 /* SelectSessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSessionController.m; sourceTree = "<group>"; };
 		53C8818316EC0A52007098C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		53C8818516EC0A5C007098C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		53C8818716EC0A6E007098C9 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -157,6 +160,8 @@
 				53C8819516EC203B007098C9 /* ConnectionDelegate.m */,
 				5370926416ED0F6B00B51746 /* GraphListenerDelegate.h */,
 				5370926516ED0F6B00B51746 /* GraphListenerDelegate.m */,
+				537095CA16EEC04E00B51746 /* SelectSessionController.h */,
+				537095CB16EEC04E00B51746 /* SelectSessionController.m */,
 			);
 			path = Classifyr;
 			sourceTree = "<group>";
@@ -254,6 +259,7 @@
 				53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */,
 				53C8819616EC203B007098C9 /* ConnectionDelegate.m in Sources */,
 				5370926616ED0F6B00B51746 /* GraphListenerDelegate.m in Sources */,
+				537095CC16EEC04E00B51746 /* SelectSessionController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ConnectionDelegate.h"
+#import "SelectSessionController.h"
 
 @interface ViewController () <UITextViewDelegate>
 @end
@@ -37,13 +38,25 @@
 }
 
 - (IBAction)disconnectAll:(id)sender {
-    //[_web closeConnection];
+    [_web closeConnection];
 }
 
 - (IBAction)getExistingSpecs:(id)sender {
     NSArray *sessions = [_web startConnection];
-    
     NSLog(@"From view controller: %@", sessions);
+    [_web closeConnection];
+    [self performSegueWithIdentifier:@"selectSession" sender:sessions];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"selectSession"]) {
+        NSLog(@"about to segue to table view");
+        
+        SelectSessionController *dest = (SelectSessionController *)[segue destinationViewController];
+        dest.data = (NSArray*)sender;
+        
+        NSLog(@"%@", dest.data);
+    }
 }
 
 @end
