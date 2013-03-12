@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CanvasView.h"
+
+#import "UMLComponentView.h"
 
 @interface CanvasViewController : UIViewController <UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) CanvasView *canvasView;
+@property (strong, nonatomic) IBOutlet UIView *canvasView;
+@property (strong, nonatomic) IBOutlet UIView *addComponentView;
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
+- (IBAction)newClassTapped:(UIButton *)button;
 
 @end

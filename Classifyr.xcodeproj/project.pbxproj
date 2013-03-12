@@ -27,8 +27,11 @@
 		5854E71916EAD0E300068C59 /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5854E71716EAD0E300068C59 /* MainStoryboard_iPad.storyboard */; };
 		5854E71C16EAD0E300068C59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E71B16EAD0E300068C59 /* ViewController.m */; };
 		5854E72416EB9A3400068C59 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E72316EB9A3300068C59 /* CanvasViewController.m */; };
-		5854E72716EBD37900068C59 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E72616EBD37900068C59 /* CanvasView.m */; };
-		5854E72A16EBEAF900068C59 /* UMLComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E72916EBEAF900068C59 /* UMLComponent.m */; };
+		5854E72E16EEA5B100068C59 /* UMLComponentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5854E72D16EEA5B100068C59 /* UMLComponentView.xib */; };
+		5854E73116EEA6BB00068C59 /* UMLComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E73016EEA6BB00068C59 /* UMLComponentView.m */; };
+		5854E73516EEAF7700068C59 /* UMLPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E73416EEAF7700068C59 /* UMLPlaceholderView.m */; };
+		5854E73716EEAF8500068C59 /* UMLPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5854E73616EEAF8500068C59 /* UMLPlaceholderView.xib */; };
+		5854E73916EEB08C00068C59 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5854E73816EEB08C00068C59 /* loading.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,10 +66,13 @@
 		5854E71B16EAD0E300068C59 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		5854E72216EB9A3300068C59 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
 		5854E72316EB9A3300068C59 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
-		5854E72516EBD37900068C59 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
-		5854E72616EBD37900068C59 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
-		5854E72816EBEAF900068C59 /* UMLComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLComponent.h; sourceTree = "<group>"; };
-		5854E72916EBEAF900068C59 /* UMLComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLComponent.m; sourceTree = "<group>"; };
+		5854E72D16EEA5B100068C59 /* UMLComponentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMLComponentView.xib; sourceTree = "<group>"; };
+		5854E72F16EEA6BB00068C59 /* UMLComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLComponentView.h; sourceTree = "<group>"; };
+		5854E73016EEA6BB00068C59 /* UMLComponentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLComponentView.m; sourceTree = "<group>"; };
+		5854E73316EEAF7700068C59 /* UMLPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLPlaceholderView.h; sourceTree = "<group>"; };
+		5854E73416EEAF7700068C59 /* UMLPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLPlaceholderView.m; sourceTree = "<group>"; };
+		5854E73616EEAF8500068C59 /* UMLPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMLPlaceholderView.xib; sourceTree = "<group>"; };
+		5854E73816EEB08C00068C59 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,14 +140,12 @@
 		5854E70216EAD0E300068C59 /* Classifyr */ = {
 			isa = PBXGroup;
 			children = (
+				5854E73816EEB08C00068C59 /* loading.gif */,
+				5854E73216EEAF4800068C59 /* UML Components */,
 				5854E70B16EAD0E300068C59 /* AppDelegate.h */,
 				5854E70C16EAD0E300068C59 /* AppDelegate.m */,
 				5854E71416EAD0E300068C59 /* MainStoryboard_iPhone.storyboard */,
 				5854E72216EB9A3300068C59 /* CanvasViewController.h */,
-				5854E72516EBD37900068C59 /* CanvasView.h */,
-				5854E72816EBEAF900068C59 /* UMLComponent.h */,
-				5854E72916EBEAF900068C59 /* UMLComponent.m */,
-				5854E72616EBD37900068C59 /* CanvasView.m */,
 				5854E72316EB9A3300068C59 /* CanvasViewController.m */,
 				5854E71716EAD0E300068C59 /* MainStoryboard_iPad.storyboard */,
 				5854E71A16EAD0E300068C59 /* ViewController.h */,
@@ -165,6 +169,19 @@
 				5854E71216EAD0E300068C59 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5854E73216EEAF4800068C59 /* UML Components */ = {
+			isa = PBXGroup;
+			children = (
+				5854E72D16EEA5B100068C59 /* UMLComponentView.xib */,
+				5854E72F16EEA6BB00068C59 /* UMLComponentView.h */,
+				5854E73016EEA6BB00068C59 /* UMLComponentView.m */,
+				5854E73316EEAF7700068C59 /* UMLPlaceholderView.h */,
+				5854E73416EEAF7700068C59 /* UMLPlaceholderView.m */,
+				5854E73616EEAF8500068C59 /* UMLPlaceholderView.xib */,
+			);
+			name = "UML Components";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +241,9 @@
 				5854E71316EAD0E300068C59 /* Default-568h@2x.png in Resources */,
 				5854E71616EAD0E300068C59 /* MainStoryboard_iPhone.storyboard in Resources */,
 				5854E71916EAD0E300068C59 /* MainStoryboard_iPad.storyboard in Resources */,
+				5854E72E16EEA5B100068C59 /* UMLComponentView.xib in Resources */,
+				5854E73716EEAF8500068C59 /* UMLPlaceholderView.xib in Resources */,
+				5854E73916EEB08C00068C59 /* loading.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,12 +258,12 @@
 				5854E70D16EAD0E300068C59 /* AppDelegate.m in Sources */,
 				5854E71C16EAD0E300068C59 /* ViewController.m in Sources */,
 				5854E72416EB9A3400068C59 /* CanvasViewController.m in Sources */,
-				5854E72716EBD37900068C59 /* CanvasView.m in Sources */,
-				5854E72A16EBEAF900068C59 /* UMLComponent.m in Sources */,
 				53C8819116EC0B51007098C9 /* base64.c in Sources */,
 				53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */,
 				53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */,
 				53C8819616EC203B007098C9 /* ConnectionDelegate.m in Sources */,
+				5854E73116EEA6BB00068C59 /* UMLComponentView.m in Sources */,
+				5854E73516EEAF7700068C59 /* UMLPlaceholderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

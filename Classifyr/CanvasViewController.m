@@ -26,8 +26,6 @@
     [super viewDidLoad];
     
     // Set up the canvas view
-    self.canvasView = [[CanvasView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 1600.0f, 800.0f)];
-    self.canvasView.backgroundColor = [UIColor whiteColor];
     self.view.backgroundColor = [UIColor darkGrayColor];
     
     // Set up the scroll view
@@ -37,7 +35,6 @@
     self.scrollView.clipsToBounds = YES;
     self.scrollView.scrollEnabled = YES;
     
-    [self.scrollView addSubview:self.canvasView];
     [self.scrollView setContentSize:CGSizeMake(1600.0f, 800.0f)];
 }
 
@@ -55,12 +52,22 @@
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 {
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-        CGPoint location = [recognizer locationInView:self.canvasView];
-    
-        // Create an UML component at the tapped location
-        UMLComponent *uml = [[UMLComponent alloc] initWithLocation:location];
-        [self.canvasView addUMLComponent:uml];
+        if (self.addComponentView.isHidden == YES) {
+            CGPoint location = [recognizer locationInView:self.canvasView];
+            self.addComponentView.center = location;
+            self.addComponentView.hidden = NO;
+        } else {
+            self.addComponentView.hidden = YES;
+        }
     }
+}
+
+- (IBAction)newClassTapped:(UIButton *)button
+{
+    self.addComponentView.hidden = YES;
+    UMLComponentView *uml = [UMLComponentView viewFromNib];
+    uml.center = self.addComponentView.center;
+    [self.canvasView addSubview:uml];
 }
 
 @end
