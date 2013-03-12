@@ -20,27 +20,19 @@
 #pragma mark - public accessors
 
 SRWebSocket *_webSocket;
-static dispatch_once_t guarantee;
-static ConnectionDelegate* instance;
+NSArray *allSessions;
 
-+ (ConnectionDelegate *)mainConnectionDelegate
-{
-    dispatch_once(&guarantee, ^{
-        instance = [[ConnectionDelegate alloc] init];
-    });
-    
-    return instance;
-}
-
--(void) startServer {
-    NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/create-session";
+-(NSArray*) startConnection {
+    NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/sessions";
     
     NSLog(@"Initializing auth connection");
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:connectAddress]]];
     _webSocket.delegate = self;
     NSLog(@"Checking connection...");
     [_webSocket open];
+    CFRunLoopRun();
     
+    return allSessions;
 }
 
 -(void) closeConnection {
@@ -65,6 +57,16 @@ static ConnectionDelegate* instance;
 {
     NSLog(@"Session auth received \"%@\"", message);
     
+    // convert the message to json
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    //get message type
+    allSessions = [json objectForKey:@"sessions"];
+    
+    CFRunLoopStop(CFRunLoopGetMain());
+    
+    /*
     //parse json message
     NSError *jsonParsingError = nil;
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
@@ -87,6 +89,7 @@ static ConnectionDelegate* instance;
         }
         
     } 
+     */
 }
 
 - (void)webSocket:(SRWebSocket *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;

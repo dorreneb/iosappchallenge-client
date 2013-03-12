@@ -23,9 +23,6 @@
 - (void) addUMLComponent:(UMLComponent *)component
 {
     [self addSubview:component];
-    
-    //ConnectionDelegate *del = [ConnectionDelegate mainConnectionDelegate];
-    //[del sendMessage:@"df"];
 }
 
 @end

@@ -12,9 +12,7 @@
 @interface ConnectionDelegate : NSObject {
 }
 
--(void) startServer;
+-(NSArray*) startConnection;
 -(void) closeConnection;
-
-+ (ConnectionDelegate *)mainConnectionDelegate;
 
 @end

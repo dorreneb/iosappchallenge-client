@@ -37,7 +37,13 @@
 }
 
 - (IBAction)disconnectAll:(id)sender {
-    [_web closeConnection];
+    //[_web closeConnection];
+}
+
+- (IBAction)getExistingSpecs:(id)sender {
+    NSArray *sessions = [_web startConnection];
+    
+    NSLog(@"From view controller: %@", sessions);
 }
 
 @end

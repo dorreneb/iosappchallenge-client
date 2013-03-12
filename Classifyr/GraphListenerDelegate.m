@@ -76,12 +76,12 @@ static GraphListenerDelegate* instance;
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
     //get message type
-    NSString* latestLoans = [json objectForKey:@"type"];
+    NSString* messageType = [json objectForKey:@"type"];
     
     //act based on the message type
-    if ([latestLoans isEqualToString:@"init"]) {
+    if ([messageType isEqualToString:@"init"]) {
         NSLog(@"Initialize board");
-    } else if ([latestLoans isEqualToString:@"create"]) {
+    } else if ([messageType isEqualToString:@"create"]) {
         NSLog(@"Create square");
     }
     
