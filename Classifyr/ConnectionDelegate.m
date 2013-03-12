@@ -8,6 +8,7 @@
 
 #import "ConnectionDelegate.h"
 #import "SRWebSocket.h"
+#import "GraphListenerDelegate.h"
 
 @interface ConnectionDelegate() <SRWebSocketDelegate>
 @end
@@ -19,32 +20,22 @@
 #pragma mark - public accessors
 
 SRWebSocket *_webSocket;
-static dispatch_once_t guarantee;
-static ConnectionDelegate* instance;
+NSArray *allSessions;
 
-+ (ConnectionDelegate *)mainConnectionDelegate
-{
-    dispatch_once(&guarantee, ^{
-        instance = [[ConnectionDelegate alloc] init];
-    });
+-(NSArray*) startConnection {
+    NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/sessions";
     
-    return instance;
-}
-
--(void) startServer {
-    NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/create-session";
-    
-    NSLog(@"Initializing Server");
+    NSLog(@"Initializing auth connection");
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:connectAddress]]];
     _webSocket.delegate = self;
-    NSLog(@"Opening Connection...");
+    NSLog(@"Checking connection...");
     [_webSocket open];
-    NSLog(@"Return from open");
-    
+    CFRunLoopRun();
+    return allSessions;
 }
 
--(void) stopServer {
-    NSLog(@"Stopping Server...");
+-(void) closeConnection {
+    NSLog(@"Stopping auth connection...");
     [_webSocket close];
 }
 
@@ -52,23 +43,32 @@ static ConnectionDelegate* instance;
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket;
 {
-    NSLog(@"Websocket Connected");
+    NSLog(@"Session auth websocket connected");
 }
 
 - (void)webSocket:(SRWebSocket *)socket didFailWithError:(NSError *)error;
 {
-    NSLog(@"%@", error);
+    NSLog(@"Session auth error: %@", error);
     socket = nil;
 }
 
 - (void)webSocket:(SRWebSocket *)socket didReceiveMessage:(id)message;
 {
-    NSLog(@"Received \"%@\"", message);
+    NSLog(@"Session auth received \"%@\"", message);
+    
+    // convert the message to json
+    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
+    id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    
+    //get message type
+    allSessions = [json objectForKey:@"sessions"];
+    
+    CFRunLoopStop(CFRunLoopGetMain());
 }
 
 - (void)webSocket:(SRWebSocket *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
 {
-    NSLog(@"WebSocket closed");
+    NSLog(@"Session auth WebSocket closed");
     socket = nil;
 }
 

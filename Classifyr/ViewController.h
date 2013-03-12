@@ -12,5 +12,6 @@
 
 - (IBAction)joinButtonPressed:(id)sender;
 - (IBAction)disconnectAll:(id)sender;
+- (IBAction)getExistingSpecs:(id)sender;
 
 @end

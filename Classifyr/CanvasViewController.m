@@ -7,6 +7,7 @@
 //
 
 #import "CanvasViewController.h"
+#import "GraphListenerDelegate.h"
 
 @implementation CanvasViewController
 
@@ -68,6 +69,13 @@
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = self.addComponentView.center;
     [self.canvasView addSubview:uml];
+
+        NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"ted\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", location.x, location.y];
+        
+        
+        //send message to the server
+        GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
+        [del sendMessage:x];
 }
 
 @end
