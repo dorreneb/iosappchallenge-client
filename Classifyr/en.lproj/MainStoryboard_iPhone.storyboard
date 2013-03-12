@@ -100,6 +100,9 @@
                             <outlet property="delegate" destination="NzV-fF-Ny0" id="ikY-dx-wM5"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="vU6-vA-xeA" kind="modal" identifier="showExistingSpec" id="fVS-mf-8zf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha5-en-kMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,7 +132,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="581" y="160"/>
+            <point key="canvasLocation" x="1109" y="160"/>
         </scene>
     </scenes>
     <resources>
@@ -163,4 +166,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="fVS-mf-8zf"/>
+    </inferredMetricsTieBreakers>
 </document>
