@@ -70,7 +70,7 @@
     uml.center = self.addComponentView.center;
     [self.canvasView addSubview:uml];
 
-        NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"ted\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", location.x, location.y];
+        NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"ted\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", uml.center.x, uml.center.y];
         
         
         //send message to the server
