@@ -64,31 +64,6 @@ NSArray *allSessions;
     allSessions = [json objectForKey:@"sessions"];
     
     CFRunLoopStop(CFRunLoopGetMain());
-    
-    /*
-    //parse json message
-    NSError *jsonParsingError = nil;
-    NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *jsonArray = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonParsingError];
-    NSString *sessionid;
-    
-    //graph listener delegate
-    GraphListenerDelegate *graphListener;
-    
-    //parse message and if valid start the graph listener
-    if (!jsonArray) {
-        NSLog(@"Session auth error parsing JSON: %@", jsonParsingError);
-    } else {
-        [self closeConnection];
-        sessionid = [jsonArray objectForKey:@"session-id"];
-        
-        if (sessionid != nil) {
-            graphListener = [GraphListenerDelegate mainGraphListenerDelegate];
-            [graphListener openConnection:sessionid];
-        }
-        
-    } 
-     */
 }
 
 - (void)webSocket:(SRWebSocket *)socket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;
