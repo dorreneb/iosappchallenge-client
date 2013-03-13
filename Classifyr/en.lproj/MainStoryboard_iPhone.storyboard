@@ -25,27 +25,8 @@
                                     <action selector="joinButtonPressed:" destination="2" eventType="touchUpInside" id="aM0-p4-cLt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvQ-Mc-R8f">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="EJT-YF-8xx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Load Existing Spec">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="getExistingSpecs:" destination="2" eventType="touchUpInside" id="d88-hY-1Gp"/>
-                                </connections>
-                            </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Original_218x75.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vbm-2X-bD2"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0J-Qq-C12">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="QC5-1P-utm"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Create New Spec">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -58,20 +39,32 @@
                                     <action selector="createNewSpec:" destination="2" eventType="touchUpInside" id="IG3-Oj-gEV"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4M-Rn-NAu">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Load Existing Spec">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="getExistingSpecs:" destination="2" eventType="touchUpInside" id="qto-0e-zxw"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q0J-Qq-C12" firstAttribute="leading" secondItem="qvQ-Mc-R8f" secondAttribute="leading" type="default" id="01W-SE-lhk"/>
-                            <constraint firstAttribute="bottom" secondItem="qvQ-Mc-R8f" secondAttribute="bottom" constant="180" id="2uR-Uy-hWW"/>
-                            <constraint firstItem="Vbm-2X-bD2" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="65" id="3pm-gm-kIi"/>
-                            <constraint firstItem="qvQ-Mc-R8f" firstAttribute="leading" secondItem="rFF-Nm-cS8" secondAttribute="leading" type="default" id="GFK-af-djx"/>
-                            <constraint firstItem="q0J-Qq-C12" firstAttribute="trailing" secondItem="qvQ-Mc-R8f" secondAttribute="trailing" type="default" id="Nca-KP-g5H"/>
-                            <constraint firstItem="qvQ-Mc-R8f" firstAttribute="baseline" secondItem="q0J-Qq-C12" secondAttribute="baseline" type="default" id="U6S-JZ-O2S"/>
-                            <constraint firstAttribute="bottom" secondItem="rFF-Nm-cS8" secondAttribute="bottom" constant="118" id="XLm-vO-cla"/>
-                            <constraint firstItem="q0J-Qq-C12" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="174" id="Y7H-5e-OpO"/>
+                            <constraint firstItem="W4M-Rn-NAu" firstAttribute="leading" secondItem="rFF-Nm-cS8" secondAttribute="leading" type="default" id="4Wc-Iq-AVP"/>
+                            <constraint firstItem="W4M-Rn-NAu" firstAttribute="leading" secondItem="q0J-Qq-C12" secondAttribute="leading" type="default" id="4tU-l8-X3k"/>
+                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="trailing" secondItem="W4M-Rn-NAu" secondAttribute="trailing" type="default" id="9VV-cq-51X"/>
+                            <constraint firstItem="W4M-Rn-NAu" firstAttribute="trailing" secondItem="q0J-Qq-C12" secondAttribute="trailing" type="default" id="Lcq-ZM-bSA"/>
+                            <constraint firstItem="W4M-Rn-NAu" firstAttribute="centerX" secondItem="yuA-2N-ztx" secondAttribute="centerX" type="default" id="TQR-xL-A1z"/>
+                            <constraint firstItem="W4M-Rn-NAu" firstAttribute="top" secondItem="q0J-Qq-C12" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cBm-VU-4FC"/>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="199" id="hBz-S4-dVB"/>
+                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="top" secondItem="W4M-Rn-NAu" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rId-xE-Ocl"/>
                             <constraint firstItem="q0J-Qq-C12" firstAttribute="centerX" secondItem="Vbm-2X-bD2" secondAttribute="centerX" type="default" id="v0C-JN-B1e"/>
-                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="trailing" secondItem="qvQ-Mc-R8f" secondAttribute="trailing" type="default" id="vUJ-CZ-hSP"/>
-                            <constraint firstItem="q0J-Qq-C12" firstAttribute="centerX" secondItem="yuA-2N-ztx" secondAttribute="centerX" type="default" id="zMJ-sJ-cbZ"/>
+                            <constraint firstItem="Vbm-2X-bD2" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="64" id="yPp-DS-ByH"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
