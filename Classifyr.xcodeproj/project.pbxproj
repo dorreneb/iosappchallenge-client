@@ -65,6 +65,7 @@
 		58079A5916F0EABA00178C35 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		58079A5B16F0ED1700178C35 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		58079A5F16F0EF8C00178C35 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
+		58079A6116F1109700178C35 /* UMLComponentDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMLComponentDelegate.h; sourceTree = "<group>"; };
 		5854E6F916EAD0E300068C59 /* Classifyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5854E6FC16EAD0E300068C59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5854E6FE16EAD0E300068C59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -174,6 +175,7 @@
 				5876387416EF974B00C3C659 /* loading.gif */,
 				5876387516EF974B00C3C659 /* UMLComponentView.h */,
 				5876387616EF974B00C3C659 /* UMLComponentView.m */,
+				58079A6116F1109700178C35 /* UMLComponentDelegate.h */,
 				5876387716EF974B00C3C659 /* UMLComponentView.xib */,
 				5876387816EF974B00C3C659 /* UMLPlaceholderView.h */,
 				5876387916EF974B00C3C659 /* UMLPlaceholderView.m */,

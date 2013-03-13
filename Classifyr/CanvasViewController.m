@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-    
+        self.connectMode = NO;
     }
     return self;
 }
@@ -80,6 +80,14 @@
 
 - (IBAction)connectButtonPressed:(id)sender
 {
+    if (self.connectMode == NO) {
+        self.helpLabel.text = @"Select components to connect";
+        self.helpLabel.hidden = NO;
+        self.connectMode = YES;
+    } else {
+        self.helpLabel.hidden = YES;
+        self.connectMode = NO;
+    }
 }
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
@@ -107,6 +115,7 @@
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = self.addComponentView.center;
     uml.classNameLabel.text = name;
+    uml.delegate = self;
     [self.canvasView addSubview:uml];
     
     [editViewController dismissViewControllerAnimated:true completion:nil];
@@ -116,9 +125,10 @@
     //send message to the server
     GraphListener *del = [GraphListener mainGraphListener];
     [del sendMessage:x];
+    del = nil;
 }
 
--(void)graphListener:(id)gl initializeBoardWithJson:(id)json
+- (void)graphListener:(id)gl initializeBoardWithJson:(id)json
 {
     NSArray *components = (NSArray *)json;
     if (!components) {
@@ -128,6 +138,7 @@
             UMLComponentView *uml = [UMLComponentView viewFromNib];
             uml.center = self.addComponentView.center;
             uml.classNameLabel.text = [item objectForKey:@"name"];
+            uml.delegate = self;
             
             NSDictionary *location = [item objectForKey:@"location"];
             NSNumber *x = [location objectForKey:@"x"];
@@ -136,6 +147,13 @@
             
             [self.canvasView addSubview:uml];
         }
+    }
+}
+
+-(void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer
+{
+    if (self.connectMode == YES) {
+        component.selected = !component.selected;
     }
 }
 
