@@ -77,7 +77,7 @@
                     <connections>
                         <segue destination="vU6-vA-xeA" kind="modal" identifier="canvasSegue" id="kIV-Sh-ASc"/>
                         <segue destination="NzV-fF-Ny0" kind="modal" identifier="selectSession" id="HW6-la-38k"/>
-                        <segue destination="gKl-fd-99q" kind="modal" id="JfK-Fd-8Ik"/>
+                        <segue destination="gKl-fd-99q" kind="modal" identifier="newSpecParams" id="JfK-Fd-8Ik"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
@@ -119,13 +119,57 @@
         <!--View Controller-->
         <scene sceneID="Cd3-G7-N9P">
             <objects>
-                <viewController id="gKl-fd-99q" sceneMemberID="viewController">
+                <viewController id="gKl-fd-99q" customClass="ViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jev-Y5-TzV">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bg2-M7-TRc">
+                                <items>
+                                    <navigationItem title="Create New Spec" id="yfy-Ne-878"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spec Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B32-Re-ccr">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7rn-FL-j0x">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="generateSpecButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhP-my-NCw">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="generateSpec:" destination="gKl-fd-99q" eventType="touchUpInside" id="qL2-rW-x76"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7rn-FL-j0x" firstAttribute="top" secondItem="B32-Re-ccr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="A8g-9I-JtK"/>
+                            <constraint firstItem="FhP-my-NCw" firstAttribute="top" secondItem="Jev-Y5-TzV" secondAttribute="top" constant="177" id="ALG-f9-mhW"/>
+                            <constraint firstItem="B32-Re-ccr" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OT8-f3-ghe"/>
+                            <constraint firstAttribute="trailing" secondItem="7rn-FL-j0x" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RbN-5N-hBV"/>
+                            <constraint firstItem="B32-Re-ccr" firstAttribute="top" secondItem="Jev-Y5-TzV" secondAttribute="top" constant="101" id="UCw-Tv-P5H"/>
+                            <constraint firstItem="bg2-M7-TRc" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" type="default" id="UoI-Zm-VCH"/>
+                            <constraint firstItem="7rn-FL-j0x" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WK0-wr-hQe"/>
+                            <constraint firstItem="bg2-M7-TRc" firstAttribute="trailing" secondItem="Jev-Y5-TzV" secondAttribute="trailing" type="default" id="bve-wS-iqB"/>
+                            <constraint firstItem="FhP-my-NCw" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="taS-Pn-pWt"/>
+                            <constraint firstItem="bg2-M7-TRc" firstAttribute="top" secondItem="Jev-Y5-TzV" secondAttribute="top" type="default" id="zhU-8f-Q5v"/>
+                        </constraints>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="specNameField" destination="7rn-FL-j0x" id="7ts-WL-YGa"/>
+                        <segue destination="vU6-vA-xeA" kind="modal" identifier="loadNewSpec" id="ckc-zP-Eua"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfd-tE-jh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -209,38 +253,12 @@
     <resources>
         <image name="Original_218x75.png" width="218" height="75"/>
     </resources>
-    <classes>
-        <class className="CanvasViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CanvasViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cavnasTapped:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="newClassTapped:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="addComponentView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="canvasView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SelectSessionController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectSessionController.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="createNewSpec:"/>
-                <relationship kind="action" name="getExistingSpecs:"/>
-                <relationship kind="action" name="joinButtonPressed:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="kIV-Sh-ASc"/>
+        <segue reference="ckc-zP-Eua"/>
     </inferredMetricsTieBreakers>
 </document>

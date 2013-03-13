@@ -45,10 +45,10 @@ NSString *specID;
     [_webSocket close];
 }
 
--(NSString*) startNewGraph {
+-(NSString*) startNewGraph:name {
     [self startSessionConnection];
     CFRunLoopRun();
-    NSString *x = @"{\"type\": \"create\", \"spec-name\": \"George's Spec\"}";
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"spec-name\": \"%@\"}", name];
     [_webSocket send:x];
     CFRunLoopRun();
     NSLog(@"end of start new graph");

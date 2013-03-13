@@ -19,6 +19,8 @@
     NSMutableArray *_messages;
 }
 
+@synthesize specNameField;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -48,13 +50,17 @@
 }
 
 - (IBAction)createNewSpec:(id)sender {
+    [self performSegueWithIdentifier:@"newSpecParams" sender:nil];
+}
+
+- (IBAction)generateSpec:(id)sender {
     ConnectionDelegate *newSpec = [[ConnectionDelegate alloc] init];
-    NSString *newId = [newSpec startNewGraph];
-    
-    GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
-    [del openConnection:newId];
-    
-    [self performSegueWithIdentifier:@"canvasSegue" sender:nil];
+    NSString *newId = [newSpec startNewGraph:[specNameField text]];
+     
+     GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
+     [del openConnection:newId];
+     
+     [self performSegueWithIdentifier:@"loadNewSpec" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
