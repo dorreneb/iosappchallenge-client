@@ -126,8 +126,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //get the spec id
+    NSString *specId = [[data objectAtIndex:indexPath.row] objectForKey:@"session-id"];
+    
     GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
-    [del openConnection:[data objectAtIndex:indexPath.row]];
+    [del openConnection:specId];
     [self performSegueWithIdentifier:@"showExistingSpec" sender:nil];
     // Navigation logic may go here. Create and push another view controller.
     /*

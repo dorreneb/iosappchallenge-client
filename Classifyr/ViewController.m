@@ -45,6 +45,8 @@
     NSArray *sessions = [_web startConnection];
     NSLog(@"From view controller: %@", sessions);
     [_web closeConnection];
+    
+    //pull out session names into an array
     [self performSegueWithIdentifier:@"selectSession" sender:sessions];
 }
 
