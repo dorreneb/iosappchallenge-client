@@ -19,6 +19,10 @@
 @property (strong, nonatomic) UIView *canvasView;
 @property (strong, nonatomic) UMLAddView *addComponentView;
 
+- (IBAction)backButtonPressed:(id)sender;
+- (IBAction)settingsButtonPressed:(id)sender;
+- (IBAction)connectButtonPressed:(id)sender;
+
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 - (IBAction)newClassTapped:(UIButton *)button;
 

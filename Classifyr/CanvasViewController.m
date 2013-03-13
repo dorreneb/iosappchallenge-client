@@ -68,6 +68,19 @@
     ((EditComponentViewController *)(segue.destinationViewController)).delegate = self;
 }
 
+- (IBAction)backButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (IBAction)settingsButtonPressed:(id)sender
+{
+}
+
+- (IBAction)connectButtonPressed:(id)sender
+{
+}
+
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 {
     if (recognizer.state == UIGestureRecognizerStateEnded) {

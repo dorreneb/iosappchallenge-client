@@ -17,6 +17,9 @@
 		53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8818D16EC0B51007098C9 /* NSData+SRB64Additions.m */; };
 		53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819016EC0B51007098C9 /* SRWebSocket.m */; };
 		53C8819616EC203B007098C9 /* ServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819516EC203B007098C9 /* ServerConnection.m */; };
+		58079A5A16F0EABA00178C35 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5916F0EABA00178C35 /* back.png */; };
+		58079A5C16F0ED1700178C35 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5B16F0ED1700178C35 /* settings.png */; };
+		58079A6016F0EF8C00178C35 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5F16F0EF8C00178C35 /* connect.png */; };
 		5854E6FD16EAD0E300068C59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FC16EAD0E300068C59 /* UIKit.framework */; };
 		5854E6FF16EAD0E300068C59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FE16EAD0E300068C59 /* Foundation.framework */; };
 		5854E70116EAD0E300068C59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E70016EAD0E300068C59 /* CoreGraphics.framework */; };
@@ -59,6 +62,9 @@
 		53C8819016EC0B51007098C9 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		53C8819416EC203B007098C9 /* ServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConnection.h; sourceTree = "<group>"; };
 		53C8819516EC203B007098C9 /* ServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerConnection.m; sourceTree = "<group>"; };
+		58079A5916F0EABA00178C35 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		58079A5B16F0ED1700178C35 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		58079A5F16F0EF8C00178C35 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
 		5854E6F916EAD0E300068C59 /* Classifyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5854E6FC16EAD0E300068C59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5854E6FE16EAD0E300068C59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -162,6 +168,9 @@
 		5854E70216EAD0E300068C59 /* Classifyr */ = {
 			isa = PBXGroup;
 			children = (
+				58079A5F16F0EF8C00178C35 /* connect.png */,
+				58079A5B16F0ED1700178C35 /* settings.png */,
+				58079A5916F0EABA00178C35 /* back.png */,
 				5876387416EF974B00C3C659 /* loading.gif */,
 				5876387516EF974B00C3C659 /* UMLComponentView.h */,
 				5876387616EF974B00C3C659 /* UMLComponentView.m */,
@@ -272,6 +281,9 @@
 				5876387F16EF974B00C3C659 /* UMLPlaceholderView.xib in Resources */,
 				5876388816F011A900C3C659 /* UMLAddView.xib in Resources */,
 				5876388F16F01AE500C3C659 /* grid.jpg in Resources */,
+				58079A5A16F0EABA00178C35 /* back.png in Resources */,
+				58079A5C16F0ED1700178C35 /* settings.png in Resources */,
+				58079A6016F0EF8C00178C35 /* connect.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
