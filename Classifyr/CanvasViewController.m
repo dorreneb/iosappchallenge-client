@@ -150,7 +150,9 @@
 
 -(void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer
 {
-    NSLog(@"boop");
+    if (self.connectMode == YES) {
+        component.selected = !component.selected;
+    }
 }
 
 @end

@@ -41,4 +41,14 @@
     }
 }
 
+- (void)setSelected:(BOOL)value
+{
+    _selected = value;
+    if (value == YES) {
+        self.layer.borderColor = [UIColor blackColor].CGColor;
+    } else {
+        self.layer.borderColor = [UIColor blueColor].CGColor;
+    }
+}
+
 @end

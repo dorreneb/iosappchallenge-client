@@ -14,6 +14,7 @@
 @property (strong, nonatomic) NSString *id;
 @property (strong, nonatomic) NSString *name;
 
+@property (nonatomic) BOOL selected;
 @property (strong, nonatomic) IBOutlet UILabel *classNameLabel;
 @property (weak, nonatomic) UIViewController *viewController;
 
