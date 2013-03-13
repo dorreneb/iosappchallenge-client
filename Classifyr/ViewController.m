@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ConnectionDelegate.h"
 #import "SelectSessionController.h"
+#import "GraphListenerDelegate.h"
 
 @interface ViewController () <UITextViewDelegate>
 @end
@@ -48,7 +49,10 @@
 
 - (IBAction)createNewSpec:(id)sender {
     ConnectionDelegate *newSpec = [[ConnectionDelegate alloc] init];
-    [newSpec startNewGraph];
+    NSString *newId = [newSpec startNewGraph];
+    
+    GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
+    [del openConnection:newId];
     
     [self performSegueWithIdentifier:@"canvasSegue" sender:nil];
 }

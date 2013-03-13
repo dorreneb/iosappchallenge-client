@@ -45,13 +45,14 @@ NSString *specID;
     [_webSocket close];
 }
 
--(void) startNewGraph {
+-(NSString*) startNewGraph {
     [self startSessionConnection];
     CFRunLoopRun();
-    NSString *x = @"{\"type\": \"create\", \"spec-name\": \"Fred's Spec\"}";
+    NSString *x = @"{\"type\": \"create\", \"spec-name\": \"George's Spec\"}";
     [_webSocket send:x];
     CFRunLoopRun();
-    
+    NSLog(@"end of start new graph");
+    return specID;
     
 }
 
@@ -83,9 +84,9 @@ NSString *specID;
         //get list of specs
         allSessions = [json objectForKey:@"sessions"];
     } else if ([messageType isEqualToString:@"new-spec"]) {
-        NSLog(@"recieved new spec");
+        specID = [json objectForKey:@"session-id"];
     }
-    
+    NSLog(@"%@", specID);
     CFRunLoopStop(CFRunLoopGetMain());
 }
 
