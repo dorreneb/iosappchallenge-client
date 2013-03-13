@@ -26,17 +26,27 @@
 {
     [super viewDidLoad];
     
-    // Set up the canvas view
     self.view.backgroundColor = [UIColor darkGrayColor];
+    
+    // Set up the canvas view
+    self.canvasView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 1600.0f, 800.0f)];
+    self.canvasView.backgroundColor = [UIColor whiteColor];
+    
+    // Add the add component view / button
+    self.addComponentView = [UMLAddView viewFromNib];
+    [self.addComponentView.addClassButton addTarget:self action:@selector(newClassTapped:) forControlEvents:UIControlEventTouchUpInside];
+    self.addComponentView.hidden = YES;
+    [self.canvasView addSubview:self.addComponentView];
     
     // Set up the scroll view
     self.scrollView.delegate = self;
-    self.scrollView.minimumZoomScale=0.5;
-    self.scrollView.maximumZoomScale=6.0;
+    self.scrollView.minimumZoomScale = 0.5;
+    self.scrollView.maximumZoomScale = 6.0;
     self.scrollView.clipsToBounds = YES;
     self.scrollView.scrollEnabled = YES;
     
-    [self.scrollView setContentSize:CGSizeMake(1600.0f, 800.0f)];
+    [self.scrollView setContentSize:self.canvasView.bounds.size];
+    [self.scrollView addSubview:self.canvasView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,17 +75,17 @@
 
 - (IBAction)newClassTapped:(UIButton *)button
 {
+    NSLog(@"test");
     self.addComponentView.hidden = YES;
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = self.addComponentView.center;
     [self.canvasView addSubview:uml];
 
-        NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"ted\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", location.x, location.y];
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"ted\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", uml.center.x, uml.center.y];
         
-        
-        //send message to the server
-        GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
-        [del sendMessage:x];
+    //send message to the server
+    GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
+    [del sendMessage:x];
 }
 
 @end
