@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ServerConnection.h"
 #import "SelectSessionController.h"
+#import "GraphListener.h"
 
 @interface ViewController () <UITextViewDelegate>
 @end
@@ -17,6 +18,8 @@
     __strong ServerConnection *_web;
     NSMutableArray *_messages;
 }
+
+@synthesize specNameField;
 
 - (void)viewDidLoad
 {
@@ -37,10 +40,6 @@
     [self performSegueWithIdentifier:@"canvasSegue" sender:sender];
 }
 
-- (IBAction)disconnectAll:(id)sender {
-    [_web closeConnection];
-}
-
 - (IBAction)getExistingSpecs:(id)sender {
     NSArray *sessions = [_web startConnection];
     NSLog(@"From view controller: %@", sessions);
@@ -48,6 +47,20 @@
     
     //pull out session names into an array
     [self performSegueWithIdentifier:@"selectSession" sender:sessions];
+}
+
+- (IBAction)createNewSpec:(id)sender {
+    [self performSegueWithIdentifier:@"newSpecParams" sender:nil];
+}
+
+- (IBAction)generateSpec:(id)sender {
+    ServerConnection *newSpec = [[ServerConnection alloc] init];
+    NSString *newId = [newSpec startNewGraph:[specNameField text]];
+     
+     GraphListener *del = [GraphListener mainGraphListenerDelegate];
+     [del openConnection:newId];
+     
+     [self performSegueWithIdentifier:@"loadNewSpec" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {

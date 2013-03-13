@@ -11,7 +11,11 @@
 @interface ViewController : UIViewController
 
 - (IBAction)joinButtonPressed:(id)sender;
-- (IBAction)disconnectAll:(id)sender;
 - (IBAction)getExistingSpecs:(id)sender;
+- (IBAction)createNewSpec:(id)sender;
+- (IBAction)generateSpec:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITextField *specNameField;
+
 
 @end

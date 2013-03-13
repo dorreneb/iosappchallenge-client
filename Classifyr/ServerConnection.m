@@ -15,8 +15,9 @@
 
 SRWebSocket *_webSocket;
 NSArray *allSessions;
+NSString *specID;
 
--(NSArray*) startConnection {
+-(void) startSessionConnection {
     NSString *connectAddress = @"ws://jotspec.student.rit.edu:8080/sessions";
     
     NSLog(@"Initializing auth connection");
@@ -24,6 +25,11 @@ NSArray *allSessions;
     _webSocket.delegate = self;
     NSLog(@"Checking connection...");
     [_webSocket open];
+
+}
+
+-(NSArray*) startConnection {
+    [self startSessionConnection];
     CFRunLoopRun();
     return allSessions;
 }
@@ -31,6 +37,17 @@ NSArray *allSessions;
 -(void) closeConnection {
     NSLog(@"Stopping auth connection...");
     [_webSocket close];
+}
+
+-(NSString*) startNewGraph:name {
+    [self startSessionConnection];
+    CFRunLoopRun();
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"spec-name\": \"%@\"}", name];
+    [_webSocket send:x];
+    CFRunLoopRun();
+    NSLog(@"end of start new graph");
+    return specID;
+    
 }
 
 #pragma mark - SRWebSocketDelegate
@@ -54,9 +71,16 @@ NSArray *allSessions;
     NSData *data = [message dataUsingEncoding:NSUTF8StringEncoding];
     id json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
     
-    //get message type
-    allSessions = [json objectForKey:@"sessions"];
+    // get type of message
+    NSString *messageType = [json objectForKey:@"type"];
     
+    if ([messageType isEqualToString:@"session-listing"]) {
+        //get list of specs
+        allSessions = [json objectForKey:@"sessions"];
+    } else if ([messageType isEqualToString:@"new-spec"]) {
+        specID = [json objectForKey:@"session-id"];
+    }
+    NSLog(@"%@", specID);
     CFRunLoopStop(CFRunLoopGetMain());
 }
 
