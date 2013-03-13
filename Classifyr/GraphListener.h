@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <SRWebSocket.h>
+#import "GraphListenerDelegate.h"
 
-@interface GraphListener : NSObject
+@interface GraphListener : NSObject <SRWebSocketDelegate>
+
+@property(weak, nonatomic) id<GraphListenerDelegate> delegate;
 
 -(void)openConnection:(NSString*)graphId;
 -(void)closeConnection;
 -(void)sendMessage:(NSString*)message;
 
-+ (GraphListener *)mainGraphListenerDelegate;
++ (GraphListener *)mainGraphListener;
 
 @end
 

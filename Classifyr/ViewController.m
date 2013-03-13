@@ -57,7 +57,7 @@
     ServerConnection *newSpec = [[ServerConnection alloc] init];
     NSString *newId = [newSpec startNewGraph:[specNameField text]];
      
-     GraphListener *del = [GraphListener mainGraphListenerDelegate];
+     GraphListener *del = [GraphListener mainGraphListener];
      [del openConnection:newId];
      
      [self performSegueWithIdentifier:@"loadNewSpec" sender:nil];
