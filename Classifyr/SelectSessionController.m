@@ -71,8 +71,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    //indexPath.row
     // Configure the cell.
-    cell.textLabel.text = [self.data objectAtIndex:indexPath.row];
+    id specData = [[self.data objectAtIndex:indexPath.row] objectForKey:@"session-name"];
+    
+    if (specData == [NSNull null]) {
+        specData = @"Unnamed Spec";
+    }
+    
+    cell.textLabel.text = specData;
     return cell;
 }
 
