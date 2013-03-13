@@ -7,14 +7,14 @@
 //
 
 #import "ViewController.h"
-#import "ConnectionDelegate.h"
+#import "ServerConnection.h"
 #import "SelectSessionController.h"
 
 @interface ViewController () <UITextViewDelegate>
 @end
 
 @implementation ViewController {
-    __strong ConnectionDelegate *_web;
+    __strong ServerConnection *_web;
     NSMutableArray *_messages;
 }
 
@@ -23,7 +23,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    _web = [[ConnectionDelegate alloc] init];
+    _web = [[ServerConnection alloc] init];
 }
 
 - (void)didReceiveMemoryWarning

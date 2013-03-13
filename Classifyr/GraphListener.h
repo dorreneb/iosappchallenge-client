@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <SRWebSocket.h>
 
-@interface GraphListenerDelegate : NSObject
+@interface GraphListener : NSObject
 
 -(void)openConnection:(NSString*)graphId;
--(void) closeConnection;
+-(void)closeConnection;
 -(void)sendMessage:(NSString*)message;
 
-+ (GraphListenerDelegate *)mainGraphListenerDelegate;
++ (GraphListener *)mainGraphListenerDelegate;
 
 @end
 

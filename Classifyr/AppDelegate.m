@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "ConnectionDelegate.h"
+#import "ServerConnection.h"
 
 @implementation AppDelegate {
-    ConnectionDelegate *connection;
+    ServerConnection *connection;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5370926616ED0F6B00B51746 /* GraphListenerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5370926516ED0F6B00B51746 /* GraphListenerDelegate.m */; };
+		5370926616ED0F6B00B51746 /* GraphListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 5370926516ED0F6B00B51746 /* GraphListener.m */; };
 		537095C016EEBA2A00B51746 /* Original_218x75.png in Resources */ = {isa = PBXBuildFile; fileRef = 537095BF16EEBA2900B51746 /* Original_218x75.png */; };
 		537095CC16EEC04E00B51746 /* SelectSessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537095CB16EEC04E00B51746 /* SelectSessionController.m */; };
 		53C8818416EC0A52007098C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818316EC0A52007098C9 /* CFNetwork.framework */; };
@@ -16,12 +16,7 @@
 		53C8819116EC0B51007098C9 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = 53C8818A16EC0B51007098C9 /* base64.c */; };
 		53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8818D16EC0B51007098C9 /* NSData+SRB64Additions.m */; };
 		53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819016EC0B51007098C9 /* SRWebSocket.m */; };
-		53C8819616EC203B007098C9 /* ConnectionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819516EC203B007098C9 /* ConnectionDelegate.m */; };
-		53EB95FF16EED85E00A9087B /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 53EB95F616EED85E00A9087B /* loading.gif */; };
-		53EB960016EED85E00A9087B /* UMLComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB95F816EED85E00A9087B /* UMLComponentView.m */; };
-		53EB960116EED85E00A9087B /* UMLComponentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53EB95F916EED85E00A9087B /* UMLComponentView.xib */; };
-		53EB960216EED85E00A9087B /* UMLPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EB95FB16EED85E00A9087B /* UMLPlaceholderView.m */; };
-		53EB960316EED85E00A9087B /* UMLPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53EB95FC16EED85E00A9087B /* UMLPlaceholderView.xib */; };
+		53C8819616EC203B007098C9 /* ServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819516EC203B007098C9 /* ServerConnection.m */; };
 		5854E6FD16EAD0E300068C59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FC16EAD0E300068C59 /* UIKit.framework */; };
 		5854E6FF16EAD0E300068C59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FE16EAD0E300068C59 /* Foundation.framework */; };
 		5854E70116EAD0E300068C59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E70016EAD0E300068C59 /* CoreGraphics.framework */; };
@@ -47,8 +42,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5370926416ED0F6B00B51746 /* GraphListenerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphListenerDelegate.h; sourceTree = "<group>"; };
-		5370926516ED0F6B00B51746 /* GraphListenerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphListenerDelegate.m; sourceTree = "<group>"; };
+		5370926416ED0F6B00B51746 /* GraphListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphListener.h; sourceTree = "<group>"; };
+		5370926516ED0F6B00B51746 /* GraphListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphListener.m; sourceTree = "<group>"; };
 		537095BF16EEBA2900B51746 /* Original_218x75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Original_218x75.png; path = Classifyr/Original_218x75.png; sourceTree = "<group>"; };
 		537095CA16EEC04E00B51746 /* SelectSessionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSessionController.h; sourceTree = "<group>"; };
 		537095CB16EEC04E00B51746 /* SelectSessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSessionController.m; sourceTree = "<group>"; };
@@ -62,15 +57,8 @@
 		53C8818E16EC0B51007098C9 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		53C8818F16EC0B51007098C9 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		53C8819016EC0B51007098C9 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
-		53C8819416EC203B007098C9 /* ConnectionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionDelegate.h; sourceTree = "<group>"; };
-		53C8819516EC203B007098C9 /* ConnectionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionDelegate.m; sourceTree = "<group>"; };
-		53EB95F616EED85E00A9087B /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
-		53EB95F716EED85E00A9087B /* UMLComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLComponentView.h; sourceTree = "<group>"; };
-		53EB95F816EED85E00A9087B /* UMLComponentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLComponentView.m; sourceTree = "<group>"; };
-		53EB95F916EED85E00A9087B /* UMLComponentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMLComponentView.xib; sourceTree = "<group>"; };
-		53EB95FA16EED85E00A9087B /* UMLPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLPlaceholderView.h; sourceTree = "<group>"; };
-		53EB95FB16EED85E00A9087B /* UMLPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLPlaceholderView.m; sourceTree = "<group>"; };
-		53EB95FC16EED85E00A9087B /* UMLPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMLPlaceholderView.xib; sourceTree = "<group>"; };
+		53C8819416EC203B007098C9 /* ServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConnection.h; sourceTree = "<group>"; };
+		53C8819516EC203B007098C9 /* ServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerConnection.m; sourceTree = "<group>"; };
 		5854E6F916EAD0E300068C59 /* Classifyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5854E6FC16EAD0E300068C59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5854E6FE16EAD0E300068C59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -189,10 +177,10 @@
 				5854E71A16EAD0E300068C59 /* ViewController.h */,
 				5854E71B16EAD0E300068C59 /* ViewController.m */,
 				5854E70316EAD0E300068C59 /* Supporting Files */,
-				53C8819416EC203B007098C9 /* ConnectionDelegate.h */,
-				53C8819516EC203B007098C9 /* ConnectionDelegate.m */,
-				5370926416ED0F6B00B51746 /* GraphListenerDelegate.h */,
-				5370926516ED0F6B00B51746 /* GraphListenerDelegate.m */,
+				53C8819416EC203B007098C9 /* ServerConnection.h */,
+				53C8819516EC203B007098C9 /* ServerConnection.m */,
+				5370926416ED0F6B00B51746 /* GraphListener.h */,
+				5370926516ED0F6B00B51746 /* GraphListener.m */,
 				537095CA16EEC04E00B51746 /* SelectSessionController.h */,
 				537095CB16EEC04E00B51746 /* SelectSessionController.m */,
 				5876388016EF9D8100C3C659 /* UMLAddView.h */,
@@ -299,8 +287,8 @@
 				53C8819116EC0B51007098C9 /* base64.c in Sources */,
 				53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */,
 				53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */,
-				53C8819616EC203B007098C9 /* ConnectionDelegate.m in Sources */,
-				5370926616ED0F6B00B51746 /* GraphListenerDelegate.m in Sources */,
+				53C8819616EC203B007098C9 /* ServerConnection.m in Sources */,
+				5370926616ED0F6B00B51746 /* GraphListener.m in Sources */,
 				537095CC16EEC04E00B51746 /* SelectSessionController.m in Sources */,
 				5876387C16EF974B00C3C659 /* UMLComponentView.m in Sources */,
 				5876387E16EF974B00C3C659 /* UMLPlaceholderView.m in Sources */,

@@ -6,16 +6,10 @@
 //  Copyright (c) 2013 B-SQUADRON. All rights reserved.
 //
 
-#import "ConnectionDelegate.h"
-#import <SRWebSocket.h>
-#import "GraphListenerDelegate.h"
+#import "ServerConnection.h"
+#import "GraphListener.h"
 
-@interface ConnectionDelegate() <SRWebSocketDelegate>
-@end
-
-@implementation ConnectionDelegate {
-
-}
+@implementation ServerConnection
 
 #pragma mark - public accessors
 

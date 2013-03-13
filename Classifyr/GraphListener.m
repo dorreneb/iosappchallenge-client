@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 B-SQUADRON. All rights reserved.
 //
 
-#import "GraphListenerDelegate.h"
+#import "GraphListener.h"
 
 typedef enum{
     RED = 0,
@@ -14,22 +14,22 @@ typedef enum{
     Green
 } MessageTypes;
 
-@interface GraphListenerDelegate() <SRWebSocketDelegate>
+@interface GraphListener() <SRWebSocketDelegate>
 @end
 
-@implementation GraphListenerDelegate {
+@implementation GraphListener {
     
 }
 
 #pragma mark - GraphListenerMethods
 SRWebSocket *graphSocket;
 static dispatch_once_t graphGuarantee;
-static GraphListenerDelegate* instance;
+static GraphListener* instance;
 
-+ (GraphListenerDelegate *)mainGraphListenerDelegate
++ (GraphListener *)mainGraphListenerDelegate
 {
     dispatch_once(&graphGuarantee, ^{
-        instance = [[GraphListenerDelegate alloc] init];
+        instance = [[GraphListener alloc] init];
     });
     
     return instance;

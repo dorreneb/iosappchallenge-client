@@ -7,7 +7,7 @@
 //
 
 #import "CanvasViewController.h"
-#import "GraphListenerDelegate.h"
+#import "GraphListener.h"
 #import "EditComponentViewController.h"
 
 @implementation CanvasViewController
@@ -97,7 +97,7 @@
     NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"%@\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", name, uml.center.x, uml.center.y];
      
     //send message to the server
-    GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
+    GraphListener *del = [GraphListener mainGraphListenerDelegate];
     [del sendMessage:x];
 }
 

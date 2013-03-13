@@ -9,8 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SRWebSocket.h>
 
-@interface ConnectionDelegate : NSObject {
-}
+@interface ServerConnection : NSObject <SRWebSocketDelegate>
 
 -(NSArray*) startConnection;
 -(void) closeConnection;
