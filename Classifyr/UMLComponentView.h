@@ -10,6 +10,8 @@
 
 @interface UMLComponentView : UIView
 
+@property (strong, nonatomic) IBOutlet UILabel *classNameLabel;
+
 + (UMLComponentView *)viewFromNib;
 
 - (void)awakeFromNib;

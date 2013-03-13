@@ -124,6 +124,7 @@
                     <toolbarItems/>
                     <connections>
                         <outlet property="scrollView" destination="vb0-P4-vnI" id="vqz-Eg-gY9"/>
+                        <segue destination="WJr-hQ-KFL" kind="modal" identifier="editUMLSegue" id="JAD-wa-Qag"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZg-m5-a40" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -135,34 +136,63 @@
             </objects>
             <point key="canvasLocation" x="1109" y="160"/>
         </scene>
+        <!--Edit Component View Controller-->
+        <scene sceneID="OAw-2G-mtx">
+            <objects>
+                <viewController id="WJr-hQ-KFL" customClass="EditComponentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZIx-y8-ZZ3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cG-eo-NfN">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="73" id="mpi-Lf-Ey5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Done">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="WJr-hQ-KFL" eventType="touchUpInside" id="K65-GH-dz1"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dSz-Qb-mM1">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Class Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bc3-o9-gjB">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Bc3-o9-gjB" firstAttribute="top" secondItem="ZIx-y8-ZZ3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7MI-Ca-hCv"/>
+                            <constraint firstItem="dSz-Qb-mM1" firstAttribute="top" secondItem="Bc3-o9-gjB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Eaz-Of-brB"/>
+                            <constraint firstItem="dSz-Qb-mM1" firstAttribute="centerX" secondItem="4cG-eo-NfN" secondAttribute="centerX" type="default" id="SWX-2D-77n"/>
+                            <constraint firstItem="Bc3-o9-gjB" firstAttribute="leading" secondItem="ZIx-y8-ZZ3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WSg-oq-Prk"/>
+                            <constraint firstItem="4cG-eo-NfN" firstAttribute="top" secondItem="ZIx-y8-ZZ3" secondAttribute="top" constant="135" id="dW4-xL-KRL"/>
+                            <constraint firstAttribute="trailing" secondItem="dSz-Qb-mM1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="k8j-f8-cht"/>
+                            <constraint firstItem="dSz-Qb-mM1" firstAttribute="leading" secondItem="ZIx-y8-ZZ3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="r2n-xl-VSf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="classNameTextField" destination="dSz-Qb-mM1" id="PHr-Fp-quv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Po-j8-Tob" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1594" y="156"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Original_218x75.png" width="218" height="75"/>
     </resources>
-    <classes>
-        <class className="CanvasViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/CanvasViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cavnasTapped:" candidateClass="UITapGestureRecognizer"/>
-                <relationship kind="action" name="newClassTapped:" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="SelectSessionController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectSessionController.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="disconnectAll:"/>
-                <relationship kind="action" name="getExistingSpecs:"/>
-                <relationship kind="action" name="joinButtonPressed:"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

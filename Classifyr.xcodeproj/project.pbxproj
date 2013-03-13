@@ -37,6 +37,8 @@
 		5876387F16EF974B00C3C659 /* UMLPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5876387A16EF974B00C3C659 /* UMLPlaceholderView.xib */; };
 		5876388216EF9D8100C3C659 /* UMLAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5876388116EF9D8100C3C659 /* UMLAddView.m */; };
 		5876388816F011A900C3C659 /* UMLAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5876388716F011A900C3C659 /* UMLAddView.xib */; };
+		5876388B16F016FB00C3C659 /* EditComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5876388A16F016FB00C3C659 /* EditComponentViewController.m */; };
+		5876388F16F01AE500C3C659 /* grid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5876388E16F01AE500C3C659 /* grid.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +88,10 @@
 		5876388016EF9D8100C3C659 /* UMLAddView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLAddView.h; sourceTree = "<group>"; };
 		5876388116EF9D8100C3C659 /* UMLAddView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLAddView.m; sourceTree = "<group>"; };
 		5876388716F011A900C3C659 /* UMLAddView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMLAddView.xib; sourceTree = "<group>"; };
+		5876388916F016FB00C3C659 /* EditComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditComponentViewController.h; sourceTree = "<group>"; };
+		5876388A16F016FB00C3C659 /* EditComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditComponentViewController.m; sourceTree = "<group>"; };
+		5876388E16F01AE500C3C659 /* grid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grid.jpg; path = Classifyr/grid.jpg; sourceTree = "<group>"; };
+		5876389116F0206100C3C659 /* EditComponentViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditComponentViewControllerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +128,7 @@
 		5854E6F016EAD0E300068C59 = {
 			isa = PBXGroup;
 			children = (
+				5876388E16F01AE500C3C659 /* grid.jpg */,
 				537095BF16EEBA2900B51746 /* Original_218x75.png */,
 				53C8818916EC0B51007098C9 /* SocketRocket */,
 				53C8818716EC0A6E007098C9 /* libicucore.dylib */,
@@ -179,6 +186,9 @@
 				5876388016EF9D8100C3C659 /* UMLAddView.h */,
 				5876388116EF9D8100C3C659 /* UMLAddView.m */,
 				5876388716F011A900C3C659 /* UMLAddView.xib */,
+				5876388916F016FB00C3C659 /* EditComponentViewController.h */,
+				5876388A16F016FB00C3C659 /* EditComponentViewController.m */,
+				5876389116F0206100C3C659 /* EditComponentViewControllerDelegate.h */,
 			);
 			path = Classifyr;
 			sourceTree = "<group>";
@@ -259,6 +269,7 @@
 				5876387D16EF974B00C3C659 /* UMLComponentView.xib in Resources */,
 				5876387F16EF974B00C3C659 /* UMLPlaceholderView.xib in Resources */,
 				5876388816F011A900C3C659 /* UMLAddView.xib in Resources */,
+				5876388F16F01AE500C3C659 /* grid.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +293,7 @@
 				5876387C16EF974B00C3C659 /* UMLComponentView.m in Sources */,
 				5876387E16EF974B00C3C659 /* UMLPlaceholderView.m in Sources */,
 				5876388216EF9D8100C3C659 /* UMLAddView.m in Sources */,
+				5876388B16F016FB00C3C659 /* EditComponentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

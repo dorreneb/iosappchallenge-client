@@ -10,8 +10,9 @@
 
 #import "UMLComponentView.h"
 #import "UMLAddView.h"
+#import "EditComponentViewControllerDelegate.h"
 
-@interface CanvasViewController : UIViewController <UIScrollViewDelegate>
+@interface CanvasViewController : UIViewController <UIScrollViewDelegate, EditComponentViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *canvasView;
@@ -19,5 +20,7 @@
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 - (IBAction)newClassTapped:(UIButton *)button;
+
+- (void)editViewController:(id)editViewController updateWithUML:(NSString *)name;
 
 @end

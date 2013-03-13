@@ -8,6 +8,7 @@
 
 #import "CanvasViewController.h"
 #import "GraphListenerDelegate.h"
+#import "EditComponentViewController.h"
 
 @implementation CanvasViewController
 
@@ -30,7 +31,7 @@
     
     // Set up the canvas view
     self.canvasView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 1600.0f, 800.0f)];
-    self.canvasView.backgroundColor = [UIColor whiteColor];
+    self.canvasView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grid.jpg"]];
     
     // Add the add component view / button
     self.addComponentView = [UMLAddView viewFromNib];
@@ -60,6 +61,11 @@
     return self.canvasView;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ((EditComponentViewController *)(segue.destinationViewController)).delegate = self;
+}
+
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 {
     if (recognizer.state == UIGestureRecognizerStateEnded) {
@@ -75,14 +81,21 @@
 
 - (IBAction)newClassTapped:(UIButton *)button
 {
-    NSLog(@"test");
+    [self performSegueWithIdentifier:@"editUMLSegue" sender:nil];
+}
+
+- (void)editViewController:(id)editViewController updateWithUML:(NSString *)name
+{
     self.addComponentView.hidden = YES;
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = self.addComponentView.center;
+    uml.classNameLabel.text = name;
     [self.canvasView addSubview:uml];
-
-    NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"ted\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", uml.center.x, uml.center.y];
-        
+    
+    [editViewController dismissViewControllerAnimated:true completion:nil];
+    
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"%@\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", name, uml.center.x, uml.center.y];
+     
     //send message to the server
     GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
     [del sendMessage:x];
