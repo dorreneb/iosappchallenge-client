@@ -47,6 +47,7 @@
     self.scrollView.maximumZoomScale = 6.0;
     self.scrollView.clipsToBounds = YES;
     self.scrollView.scrollEnabled = YES;
+    [self.scrollView addGestureRecognizer:self.tapGestureRecognizer];
     
     [self.scrollView setContentSize:self.canvasView.bounds.size];
     [self.scrollView addSubview:self.canvasView];
@@ -83,6 +84,7 @@
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 {
+    NSLog(@"hello from canvas tapped");
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         if (self.addComponentView.isHidden == YES) {
             CGPoint location = [recognizer locationInView:self.canvasView];

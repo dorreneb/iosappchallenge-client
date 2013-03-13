@@ -15,6 +15,7 @@
 
 @interface CanvasViewController : UIViewController <UIScrollViewDelegate, EditComponentViewControllerDelegate, GraphListenerDelegate>
 
+@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *canvasView;
 @property (strong, nonatomic) UMLAddView *addComponentView;
