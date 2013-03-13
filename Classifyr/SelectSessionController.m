@@ -71,8 +71,15 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+    //indexPath.row
     // Configure the cell.
-    cell.textLabel.text = [self.data objectAtIndex:indexPath.row];
+    id specData = [[self.data objectAtIndex:indexPath.row] objectForKey:@"session-name"];
+    
+    if (specData == [NSNull null]) {
+        specData = @"Unnamed Spec";
+    }
+    
+    cell.textLabel.text = specData;
     return cell;
 }
 
@@ -119,8 +126,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //get the spec id
+    NSString *specId = [[data objectAtIndex:indexPath.row] objectForKey:@"session-id"];
+    
     GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
-    [del openConnection:[data objectAtIndex:indexPath.row]];
+    [del openConnection:specId];
     [self performSegueWithIdentifier:@"showExistingSpec" sender:nil];
     // Navigation logic may go here. Create and push another view controller.
     /*
