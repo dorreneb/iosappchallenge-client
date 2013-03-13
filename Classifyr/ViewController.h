@@ -11,7 +11,7 @@
 @interface ViewController : UIViewController
 
 - (IBAction)joinButtonPressed:(id)sender;
-- (IBAction)disconnectAll:(id)sender;
 - (IBAction)getExistingSpecs:(id)sender;
+- (IBAction)createNewSpec:(id)sender;
 
 @end

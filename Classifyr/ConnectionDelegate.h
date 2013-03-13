@@ -15,4 +15,6 @@
 -(NSArray*) startConnection;
 -(void) closeConnection;
 
+-(void) startNewGraph;
+
 @end

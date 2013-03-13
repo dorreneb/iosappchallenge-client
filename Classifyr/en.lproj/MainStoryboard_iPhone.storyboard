@@ -25,20 +25,10 @@
                                     <action selector="joinButtonPressed:" destination="2" eventType="touchUpInside" id="aM0-p4-cLt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l78-GE-0Qb">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Disconnect">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="disconnectAll:" destination="2" eventType="touchUpInside" id="ON3-a6-Wmd"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qvQ-Mc-R8f">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="EJT-YF-8xx"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Load Existing Spec">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -52,29 +42,47 @@
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Original_218x75.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vbm-2X-bD2"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0J-Qq-C12">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="QC5-1P-utm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Create New Spec">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createNewSpec:" destination="2" eventType="touchUpInside" id="IG3-Oj-gEV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="leading" secondItem="qvQ-Mc-R8f" secondAttribute="leading" type="default" id="01W-SE-lhk"/>
+                            <constraint firstAttribute="bottom" secondItem="qvQ-Mc-R8f" secondAttribute="bottom" constant="180" id="2uR-Uy-hWW"/>
                             <constraint firstItem="Vbm-2X-bD2" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="65" id="3pm-gm-kIi"/>
-                            <constraint firstItem="qvQ-Mc-R8f" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="175" id="5OI-IA-HbZ"/>
-                            <constraint firstItem="l78-GE-0Qb" firstAttribute="trailing" secondItem="rFF-Nm-cS8" secondAttribute="trailing" type="default" id="6nf-vz-wbe"/>
-                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="centerX" secondItem="yuA-2N-ztx" secondAttribute="centerX" type="default" id="E6F-lX-jem"/>
-                            <constraint firstItem="Vbm-2X-bD2" firstAttribute="centerX" secondItem="qvQ-Mc-R8f" secondAttribute="centerX" type="default" id="HdA-04-P7j"/>
-                            <constraint firstAttribute="bottom" secondItem="rFF-Nm-cS8" secondAttribute="bottom" constant="167" id="IAD-5u-apu"/>
-                            <constraint firstAttribute="bottom" secondItem="l78-GE-0Qb" secondAttribute="bottom" constant="94" id="Ung-dp-t6M"/>
-                            <constraint firstItem="qvQ-Mc-R8f" firstAttribute="trailing" secondItem="rFF-Nm-cS8" secondAttribute="trailing" type="default" id="gaE-6M-btN"/>
-                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="leading" secondItem="l78-GE-0Qb" secondAttribute="leading" type="default" id="hHl-7j-u1B"/>
-                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="leading" secondItem="qvQ-Mc-R8f" secondAttribute="leading" type="default" id="smL-Eb-Xkh"/>
+                            <constraint firstItem="qvQ-Mc-R8f" firstAttribute="leading" secondItem="rFF-Nm-cS8" secondAttribute="leading" type="default" id="GFK-af-djx"/>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="trailing" secondItem="qvQ-Mc-R8f" secondAttribute="trailing" type="default" id="Nca-KP-g5H"/>
+                            <constraint firstItem="qvQ-Mc-R8f" firstAttribute="baseline" secondItem="q0J-Qq-C12" secondAttribute="baseline" type="default" id="U6S-JZ-O2S"/>
+                            <constraint firstAttribute="bottom" secondItem="rFF-Nm-cS8" secondAttribute="bottom" constant="118" id="XLm-vO-cla"/>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="174" id="Y7H-5e-OpO"/>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="centerX" secondItem="Vbm-2X-bD2" secondAttribute="centerX" type="default" id="v0C-JN-B1e"/>
+                            <constraint firstItem="rFF-Nm-cS8" firstAttribute="trailing" secondItem="qvQ-Mc-R8f" secondAttribute="trailing" type="default" id="vUJ-CZ-hSP"/>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="centerX" secondItem="yuA-2N-ztx" secondAttribute="centerX" type="default" id="zMJ-sJ-cbZ"/>
                         </constraints>
                     </view>
                     <connections>
                         <segue destination="vU6-vA-xeA" kind="modal" identifier="canvasSegue" id="kIV-Sh-ASc"/>
                         <segue destination="NzV-fF-Ny0" kind="modal" identifier="selectSession" id="HW6-la-38k"/>
+                        <segue destination="gKl-fd-99q" kind="modal" id="JfK-Fd-8Ik"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="69" y="160"/>
+            <point key="canvasLocation" x="-131" y="260"/>
         </scene>
         <!--Select Session Controller-->
         <scene sceneID="TEy-9L-zox">
@@ -106,7 +114,22 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha5-en-kMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="581" y="741"/>
+            <point key="canvasLocation" x="381" y="841"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Cd3-G7-N9P">
+            <objects>
+                <viewController id="gKl-fd-99q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jev-Y5-TzV">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mfd-tE-jh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="395" y="-292"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="xey-KQ-DIn">
@@ -180,7 +203,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1109" y="160"/>
+            <point key="canvasLocation" x="909" y="260"/>
         </scene>
     </scenes>
     <resources>
@@ -206,7 +229,7 @@
         <class className="ViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
             <relationships>
-                <relationship kind="action" name="disconnectAll:"/>
+                <relationship kind="action" name="createNewSpec:"/>
                 <relationship kind="action" name="getExistingSpecs:"/>
                 <relationship kind="action" name="joinButtonPressed:"/>
             </relationships>
@@ -218,6 +241,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="fVS-mf-8zf"/>
+        <segue reference="kIV-Sh-ASc"/>
     </inferredMetricsTieBreakers>
 </document>

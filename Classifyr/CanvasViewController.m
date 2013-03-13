@@ -71,8 +71,6 @@
     [self.canvasView addSubview:uml];
 
         NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"ted\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", uml.center.x, uml.center.y];
-        
-        
         //send message to the server
         GraphListenerDelegate *del = [GraphListenerDelegate mainGraphListenerDelegate];
         [del sendMessage:x];

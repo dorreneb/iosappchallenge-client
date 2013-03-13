@@ -37,10 +37,6 @@
     [self performSegueWithIdentifier:@"canvasSegue" sender:sender];
 }
 
-- (IBAction)disconnectAll:(id)sender {
-    [_web closeConnection];
-}
-
 - (IBAction)getExistingSpecs:(id)sender {
     NSArray *sessions = [_web startConnection];
     NSLog(@"From view controller: %@", sessions);
@@ -48,6 +44,13 @@
     
     //pull out session names into an array
     [self performSegueWithIdentifier:@"selectSession" sender:sessions];
+}
+
+- (IBAction)createNewSpec:(id)sender {
+    ConnectionDelegate *newSpec = [[ConnectionDelegate alloc] init];
+    [newSpec startNewGraph];
+    
+    [self performSegueWithIdentifier:@"canvasSegue" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
