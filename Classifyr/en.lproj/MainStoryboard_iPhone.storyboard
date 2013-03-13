@@ -188,7 +188,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonPressed:" destination="vU6-vA-xeA" eventType="touchUpInside" id="j9z-u2-kWH"/>
                                     <action selector="settingsButtonPressed:" destination="vU6-vA-xeA" eventType="touchUpInside" id="jaI-6U-3Jm"/>
                                 </connections>
                             </button>
@@ -202,9 +201,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonPressed:" destination="vU6-vA-xeA" eventType="touchUpInside" id="KHd-1e-eBg"/>
                                     <action selector="connectButtonPressed:" destination="vU6-vA-xeA" eventType="touchUpInside" id="ifu-U4-hDC"/>
-                                    <action selector="settingsButtonPressed:" destination="vU6-vA-xeA" eventType="touchUpInside" id="yQO-11-pfY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CEi-gA-QSn">
@@ -221,16 +218,28 @@
                                     <action selector="backButtonPressed:" destination="vU6-vA-xeA" eventType="touchUpInside" id="eGl-Dr-ipj"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Select components to connect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1s9-kZ-Jsz">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Wht-MG-8vd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" red="0.14291779891304346" green="0.14291779891304346" blue="0.14291779891304346" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.96410071330000002" green="0.96410071330000002" blue="0.96410071330000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" red="0.57479194972826086" green="0.57479194972826086" blue="0.57479194972826086" alpha="0.5" colorSpace="calibratedRGB"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XeP-CW-FbR" firstAttribute="top" secondItem="CEi-gA-QSn" secondAttribute="top" type="default" id="1G5-dt-fQO"/>
                             <constraint firstAttribute="trailing" secondItem="Acx-y5-8wZ" secondAttribute="trailing" constant="9" id="8WJ-zW-tk9"/>
+                            <constraint firstAttribute="trailing" secondItem="1s9-kZ-Jsz" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BEe-1n-I9V"/>
                             <constraint firstItem="XeP-CW-FbR" firstAttribute="bottom" secondItem="iSN-P5-yEk" secondAttribute="bottom" type="default" id="GHE-1e-83H"/>
                             <constraint firstItem="Acx-y5-8wZ" firstAttribute="bottom" secondItem="iSN-P5-yEk" secondAttribute="bottom" type="default" id="H4N-jF-OPi"/>
                             <constraint firstItem="G9D-We-zu4" firstAttribute="bottom" secondItem="iSN-P5-yEk" secondAttribute="bottom" type="default" id="IlJ-m5-Lxj"/>
                             <constraint firstItem="G9D-We-zu4" firstAttribute="top" secondItem="iSN-P5-yEk" secondAttribute="top" type="default" id="Io0-Mb-kzS"/>
                             <constraint firstItem="CEi-gA-QSn" firstAttribute="leading" secondItem="iSN-P5-yEk" secondAttribute="leading" type="default" id="JuY-Yk-QF9"/>
+                            <constraint firstItem="1s9-kZ-Jsz" firstAttribute="leading" secondItem="iSN-P5-yEk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LqO-Zl-n7f"/>
+                            <constraint firstItem="1s9-kZ-Jsz" firstAttribute="top" secondItem="iSN-P5-yEk" secondAttribute="top" constant="20" symbolic="YES" type="default" id="XSi-dY-i4N"/>
                             <constraint firstItem="Acx-y5-8wZ" firstAttribute="top" secondItem="XeP-CW-FbR" secondAttribute="top" type="default" id="gRA-bo-TV4"/>
                             <constraint firstItem="XeP-CW-FbR" firstAttribute="leading" secondItem="CEi-gA-QSn" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="gYl-os-M7E"/>
                             <constraint firstItem="G9D-We-zu4" firstAttribute="leading" secondItem="iSN-P5-yEk" secondAttribute="leading" type="default" id="obW-AB-RIT"/>
@@ -240,6 +249,7 @@
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="helpLabel" destination="1s9-kZ-Jsz" id="IXa-sc-lC2"/>
                         <outlet property="scrollView" destination="G9D-We-zu4" id="nvl-qi-0If"/>
                         <segue destination="WJr-hQ-KFL" kind="modal" identifier="editUMLSegue" id="JAD-wa-Qag"/>
                     </connections>
@@ -322,6 +332,7 @@
                 <relationship kind="action" name="connectButtonPressed:"/>
                 <relationship kind="action" name="newClassTapped:" candidateClass="UIButton"/>
                 <relationship kind="action" name="settingsButtonPressed:"/>
+                <relationship kind="outlet" name="helpLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
