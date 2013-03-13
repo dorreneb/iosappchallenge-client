@@ -129,7 +129,7 @@
     //get the spec id
     NSString *specId = [[data objectAtIndex:indexPath.row] objectForKey:@"session-id"];
     
-    GraphListener *del = [GraphListener mainGraphListenerDelegate];
+    GraphListener *del = [GraphListener mainGraphListener];
     [del openConnection:specId];
     [self performSegueWithIdentifier:@"showExistingSpec" sender:nil];
     // Navigation logic may go here. Create and push another view controller.

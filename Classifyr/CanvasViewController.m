@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+    
     }
     return self;
 }
@@ -26,6 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[GraphListener mainGraphListener] setDelegate:self];
     
     self.view.backgroundColor = [UIColor darkGrayColor];
     
@@ -97,8 +99,29 @@
     NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"%@\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", name, uml.center.x, uml.center.y];
      
     //send message to the server
-    GraphListener *del = [GraphListener mainGraphListenerDelegate];
+    GraphListener *del = [GraphListener mainGraphListener];
     [del sendMessage:x];
+}
+
+-(void)graphListener:(id)gl initializeBoardWithJson:(id)json
+{
+    NSArray *components = (NSArray *)json;
+    if (!components) {
+        NSLog(@"Error parsing JSON");
+    } else {
+        for(NSDictionary *item in components) {
+            UMLComponentView *uml = [UMLComponentView viewFromNib];
+            uml.center = self.addComponentView.center;
+            uml.classNameLabel.text = [item objectForKey:@"name"];
+            
+            NSDictionary *location = [item objectForKey:@"location"];
+            NSNumber *x = [location objectForKey:@"x"];
+            NSNumber *y = [location objectForKey:@"y"];
+            uml.center = CGPointMake([x floatValue], [y floatValue]);
+            
+            [self.canvasView addSubview:uml];
+        }
+    }
 }
 
 @end

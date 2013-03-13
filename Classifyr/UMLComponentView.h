@@ -10,6 +10,9 @@
 
 @interface UMLComponentView : UIView
 
+@property (strong, nonatomic) NSString *id;
+@property (strong, nonatomic) NSString *name;
+
 @property (strong, nonatomic) IBOutlet UILabel *classNameLabel;
 
 + (UMLComponentView *)viewFromNib;

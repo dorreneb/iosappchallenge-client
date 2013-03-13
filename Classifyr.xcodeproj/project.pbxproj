@@ -92,6 +92,7 @@
 		5876388A16F016FB00C3C659 /* EditComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditComponentViewController.m; sourceTree = "<group>"; };
 		5876388E16F01AE500C3C659 /* grid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grid.jpg; path = Classifyr/grid.jpg; sourceTree = "<group>"; };
 		5876389116F0206100C3C659 /* EditComponentViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditComponentViewControllerDelegate.h; sourceTree = "<group>"; };
+		5876389516F0C24300C3C659 /* GraphListenerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphListenerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +182,7 @@
 				53C8819516EC203B007098C9 /* ServerConnection.m */,
 				5370926416ED0F6B00B51746 /* GraphListener.h */,
 				5370926516ED0F6B00B51746 /* GraphListener.m */,
+				5876389516F0C24300C3C659 /* GraphListenerDelegate.h */,
 				537095CA16EEC04E00B51746 /* SelectSessionController.h */,
 				537095CB16EEC04E00B51746 /* SelectSessionController.m */,
 				5876388016EF9D8100C3C659 /* UMLAddView.h */,

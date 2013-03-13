@@ -11,8 +11,9 @@
 #import "UMLComponentView.h"
 #import "UMLAddView.h"
 #import "EditComponentViewControllerDelegate.h"
+#import "GraphListenerDelegate.h"
 
-@interface CanvasViewController : UIViewController <UIScrollViewDelegate, EditComponentViewControllerDelegate>
+@interface CanvasViewController : UIViewController <UIScrollViewDelegate, EditComponentViewControllerDelegate, GraphListenerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) UIView *canvasView;
@@ -22,5 +23,7 @@
 - (IBAction)newClassTapped:(UIButton *)button;
 
 - (void)editViewController:(id)editViewController updateWithUML:(NSString *)name;
+
+- (void)graphListener:(id)gl initializeBoardWithJson:(id)json;
 
 @end
