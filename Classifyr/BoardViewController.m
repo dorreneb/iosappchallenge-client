@@ -8,6 +8,7 @@
 
 #import "BoardViewController.h"
 #import "CanvasView.h"
+#import "CanvasViewController.h"
 #import "GraphListener.h"
 #import "EditComponentViewController.h"
 #import "UMLConnection.h"
@@ -25,9 +26,11 @@
     
     if (self.storyboard) {
         // Add the canvas view controller as a child view controller
-        UIViewController *canvasViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"canvasViewController"];
+        CanvasViewController *canvasViewController = (CanvasViewController *)([self.storyboard instantiateViewControllerWithIdentifier:@"canvasViewController"]);
         [self addChildViewController:canvasViewController];
         self.canvasView = canvasViewController.view;
+        [canvasViewController setBoardViewController:self];
+        self.delegate = canvasViewController;
         
         // Set the size of the canvas
         CGRect frame = CGRectMake(0.0f, 0.0f, 1024.0f, 740.0f);
@@ -68,19 +71,15 @@
 
 - (IBAction)connectButtonPressed:(id)sender
 {
-    if (self.connectMode == NO) {
-        self.helpLabel.text = @"Select components to connect";
-        self.helpLabel.hidden = NO;
-        self.connectMode = YES;
-    } else {
-        self.connectMode = NO;
-    }
+    [self setConnectMode:!_connectMode];
 }
 
 - (void)setConnectMode:(BOOL)value
 {
     _connectMode = value;
-    self.helpLabel.hidden = !value;
+    if ([_delegate respondsToSelector:@selector(boardViewController:connectModeToggled:)]) {
+        [_delegate boardViewController:self connectModeToggled:value];
+    }
 }
 
 @end

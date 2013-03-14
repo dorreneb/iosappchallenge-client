@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BoardViewControllerDelegate.h"
 #import "EditComponentViewControllerDelegate.h"
 #import "GraphListenerDelegate.h"
 #import "UMLComponentDelegate.h"
@@ -16,9 +17,9 @@
 @class UMLAddView;
 
 
-@interface CanvasViewController : UIViewController<EditComponentViewControllerDelegate, GraphListenerDelegate, UMLComponentDelegate>
+@interface CanvasViewController : UIViewController<BoardViewControllerDelegate, EditComponentViewControllerDelegate, GraphListenerDelegate, UMLComponentDelegate>
 
-
+@property (weak, nonatomic) BoardViewController *boardViewController;
 @property (strong, nonatomic) IBOutlet CanvasView *canvasView;
 @property (strong, nonatomic) UMLAddView *addComponentView;
 @property (weak, nonatomic) UMLComponentView *selectedComponent;
@@ -26,6 +27,8 @@
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 - (IBAction)newClassTapped:(UIButton *)button;
+
+- (void)boardViewController:(BoardViewController *)vc connectModeToggled:(BOOL)mode;
 
 - (void)editViewController:(EditComponentViewController *)vc addComponentWithName:(NSString *)name;
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name;

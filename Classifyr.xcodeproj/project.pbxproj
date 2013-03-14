@@ -97,6 +97,7 @@
 		5854E72316EB9A3300068C59 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		58701CAF16F222F60020D896 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
 		58701CB016F222F60020D896 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
+		58701CB216F250AD0020D896 /* BoardViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardViewControllerDelegate.h; sourceTree = "<group>"; };
 		5876387416EF974B00C3C659 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		5876387516EF974B00C3C659 /* UMLComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLComponentView.h; sourceTree = "<group>"; };
 		5876387616EF974B00C3C659 /* UMLComponentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLComponentView.m; sourceTree = "<group>"; };
@@ -197,6 +198,7 @@
 				5854E71416EAD0E300068C59 /* MainStoryboard_iPhone.storyboard */,
 				5854E72216EB9A3300068C59 /* BoardViewController.h */,
 				5854E72316EB9A3300068C59 /* BoardViewController.m */,
+				58701CB216F250AD0020D896 /* BoardViewControllerDelegate.h */,
 				58701CAF16F222F60020D896 /* CanvasViewController.h */,
 				58701CB016F222F60020D896 /* CanvasViewController.m */,
 				5854E71716EAD0E300068C59 /* MainStoryboard_iPad.storyboard */,

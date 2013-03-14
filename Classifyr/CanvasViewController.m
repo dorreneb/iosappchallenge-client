@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 B-SQUADRON. All rights reserved.
 //
 
+#import "BoardViewController.h"
 #import "CanvasView.h"
 #import "EditComponentViewController.h"
 #import "GraphListener.h"
@@ -57,7 +58,6 @@
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 {
-    NSLog(@"hello from canvas tapped");
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         if (self.addComponentView.isHidden == YES) {
             CGPoint location = [recognizer locationInView:self.canvasView];
@@ -72,6 +72,20 @@
 - (IBAction)newClassTapped:(UIButton *)button
 {
     [self performSegueWithIdentifier:@"editUMLSegue" sender:nil];
+}
+
+- (void)boardViewController:(BoardViewController *)vc connectModeToggled:(BOOL)mode
+{
+    vc.helpLabel.hidden = !mode;
+    
+    if (mode == NO) {
+        if (self.selectedComponent != nil) {
+            self.selectedComponent.selected = NO;
+            self.selectedComponent = nil;
+        }
+        
+        [self.canvasView setNeedsDisplay];
+    }
 }
 
 - (void)editViewController:(id)editViewController addComponentWithName:(NSString *)name
@@ -177,7 +191,7 @@
 
 - (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer
 {
-    /*if (self.connectMode == YES) {
+    if (self.boardViewController.connectMode == YES) {
         if (self.selectedComponent == nil) {
             component.selected = YES;
             self.selectedComponent = component;
@@ -186,14 +200,14 @@
             [self.canvasView createConnectionWithStart:self.selectedComponent withEnd:component];
             
             component.selected = NO;
-            [self leaveConnectMode];
+            self.boardViewController.connectMode = NO;
         }
         
         [self.canvasView setNeedsDisplay];
-    } else { //just clicked on a box, time to edit!*/
+    } else { //just clicked on a box, time to edit!
         [self performSegueWithIdentifier:@"editUMLSegue" sender:component];
         
-    //}
+    }
 }
 
 

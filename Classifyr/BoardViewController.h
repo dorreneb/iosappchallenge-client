@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "BoardViewControllerDelegate.h"
+
 
 @interface BoardViewController : UIViewController <UIScrollViewDelegate>
 
@@ -18,6 +20,7 @@
 @property (weak, nonatomic) UIView *canvasView;
 
 @property (nonatomic) BOOL connectMode;
+@property (weak, nonatomic) id<BoardViewControllerDelegate> delegate;
 
 
 - (IBAction)backButtonPressed:(id)sender;
