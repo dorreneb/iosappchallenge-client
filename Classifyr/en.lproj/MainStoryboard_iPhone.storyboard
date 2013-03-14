@@ -13,11 +13,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Original_218x75.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vbm-2X-bD2"/>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0J-Qq-C12">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0J-Qq-C12">
+                                <color key="backgroundColor" red="0.85098039215686272" green="0.52156862745098043" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5Mc-XX-etG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Create New Spec">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -26,10 +29,14 @@
                                     <action selector="createNewSpec:" destination="2" eventType="touchUpInside" id="IG3-Oj-gEV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4M-Rn-NAu">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4M-Rn-NAu">
+                                <color key="backgroundColor" red="0.85098039215686272" green="0.52156862745098043" blue="0.3411764705882353" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="8P3-Xf-Ktc"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Load Existing Spec">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -42,14 +49,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="q0J-Qq-C12" firstAttribute="centerX" secondItem="Vbm-2X-bD2" secondAttribute="centerX" type="default" id="2uZ-Vz-yWP"/>
-                            <constraint firstItem="W4M-Rn-NAu" firstAttribute="leading" secondItem="yuA-2N-ztx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Cbt-Ll-lWR"/>
-                            <constraint firstItem="q0J-Qq-C12" firstAttribute="leading" secondItem="yuA-2N-ztx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="YDX-M2-j2X"/>
-                            <constraint firstItem="W4M-Rn-NAu" firstAttribute="top" secondItem="q0J-Qq-C12" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cBm-VU-4FC"/>
-                            <constraint firstItem="q0J-Qq-C12" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="199" id="hBz-S4-dVB"/>
-                            <constraint firstAttribute="trailing" secondItem="q0J-Qq-C12" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="kMI-9S-Ys7"/>
-                            <constraint firstItem="Vbm-2X-bD2" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="64" id="yPp-DS-ByH"/>
-                            <constraint firstAttribute="trailing" secondItem="W4M-Rn-NAu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="zIQ-dH-dsl"/>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="centerX" secondItem="Vbm-2X-bD2" secondAttribute="centerX" type="default" id="1kE-Sq-lY6"/>
+                            <constraint firstAttribute="trailing" secondItem="W4M-Rn-NAu" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BSG-v5-EAE"/>
+                            <constraint firstAttribute="trailing" secondItem="q0J-Qq-C12" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="O5b-Jj-Dzu"/>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="169" id="Rkh-oo-dSA"/>
+                            <constraint firstAttribute="bottom" secondItem="W4M-Rn-NAu" secondAttribute="bottom" constant="164" id="S4s-wO-h68"/>
+                            <constraint firstItem="q0J-Qq-C12" firstAttribute="leading" secondItem="yuA-2N-ztx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="XKi-zk-7us"/>
+                            <constraint firstItem="Vbm-2X-bD2" firstAttribute="top" secondItem="yuA-2N-ztx" secondAttribute="top" constant="47" id="hP4-Hf-4Lg"/>
+                            <constraint firstItem="W4M-Rn-NAu" firstAttribute="leading" secondItem="yuA-2N-ztx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="if1-Od-dY2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Qoc-Bo-dYR"/>
@@ -62,7 +69,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131" y="260"/>
+            <point key="canvasLocation" x="-123" y="260"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eco-r5-IKF">
@@ -122,17 +129,25 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Spec Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B32-Re-ccr">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7rn-FL-j0x">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="7rn-FL-j0x">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="IgH-eW-fFK"/>
+                                </constraints>
+                                <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="generateSpecButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhP-my-NCw">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="generateSpecButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhP-my-NCw">
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.52156862749999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="oGJ-bY-naq"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Submit">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -145,13 +160,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7rn-FL-j0x" firstAttribute="top" secondItem="B32-Re-ccr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="A8g-9I-JtK"/>
                             <constraint firstItem="FhP-my-NCw" firstAttribute="top" secondItem="Jev-Y5-TzV" secondAttribute="top" constant="177" id="ALG-f9-mhW"/>
-                            <constraint firstItem="B32-Re-ccr" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OT8-f3-ghe"/>
-                            <constraint firstAttribute="trailing" secondItem="7rn-FL-j0x" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RbN-5N-hBV"/>
-                            <constraint firstItem="B32-Re-ccr" firstAttribute="top" secondItem="Jev-Y5-TzV" secondAttribute="top" constant="101" id="UCw-Tv-P5H"/>
-                            <constraint firstItem="7rn-FL-j0x" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WK0-wr-hQe"/>
-                            <constraint firstItem="FhP-my-NCw" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="taS-Pn-pWt"/>
+                            <constraint firstItem="7rn-FL-j0x" firstAttribute="top" secondItem="B32-Re-ccr" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Kif-83-sM9"/>
+                            <constraint firstAttribute="trailing" secondItem="FhP-my-NCw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="OOc-AL-P1d"/>
+                            <constraint firstItem="7rn-FL-j0x" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="TXC-hL-rNI"/>
+                            <constraint firstItem="B32-Re-ccr" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Y9g-cN-agS"/>
+                            <constraint firstAttribute="trailing" secondItem="7rn-FL-j0x" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="biI-AP-BTE"/>
+                            <constraint firstItem="FhP-my-NCw" firstAttribute="leading" secondItem="Jev-Y5-TzV" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cgJ-9X-ryN"/>
+                            <constraint firstItem="B32-Re-ccr" firstAttribute="top" secondItem="Jev-Y5-TzV" secondAttribute="top" constant="101" id="eiN-eE-obI"/>
                         </constraints>
                     </view>
                     <connections>
@@ -266,13 +282,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cG-eo-NfN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cG-eo-NfN">
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.52156862749999999" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="73" id="mpi-Lf-Ey5"/>
+                                    <constraint firstAttribute="height" constant="30" id="O2a-1C-Cnt"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Done">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
@@ -282,23 +299,27 @@
                                     <action selector="backButtonPressed:" destination="WJr-hQ-KFL" eventType="touchUpInside" id="K65-GH-dz1"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dSz-Qb-mM1">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dSz-Qb-mM1">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="fC2-SV-lzw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Class Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bc3-o9-gjB">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Bc3-o9-gjB" firstAttribute="top" secondItem="ZIx-y8-ZZ3" secondAttribute="top" constant="20" symbolic="YES" type="default" id="7MI-Ca-hCv"/>
-                            <constraint firstItem="dSz-Qb-mM1" firstAttribute="top" secondItem="Bc3-o9-gjB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Eaz-Of-brB"/>
-                            <constraint firstItem="dSz-Qb-mM1" firstAttribute="centerX" secondItem="4cG-eo-NfN" secondAttribute="centerX" type="default" id="SWX-2D-77n"/>
+                            <constraint firstItem="dSz-Qb-mM1" firstAttribute="top" secondItem="Bc3-o9-gjB" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7Cf-gk-12y"/>
+                            <constraint firstItem="4cG-eo-NfN" firstAttribute="leading" secondItem="ZIx-y8-ZZ3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CoZ-dJ-2vf"/>
+                            <constraint firstItem="4cG-eo-NfN" firstAttribute="top" secondItem="ZIx-y8-ZZ3" secondAttribute="top" constant="177" id="LZb-G0-8bq"/>
+                            <constraint firstAttribute="trailing" secondItem="4cG-eo-NfN" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RH0-bU-UOl"/>
                             <constraint firstItem="Bc3-o9-gjB" firstAttribute="leading" secondItem="ZIx-y8-ZZ3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WSg-oq-Prk"/>
-                            <constraint firstItem="4cG-eo-NfN" firstAttribute="top" secondItem="ZIx-y8-ZZ3" secondAttribute="top" constant="135" id="dW4-xL-KRL"/>
+                            <constraint firstItem="Bc3-o9-gjB" firstAttribute="top" secondItem="ZIx-y8-ZZ3" secondAttribute="top" constant="101" id="cxP-ZA-oOB"/>
                             <constraint firstAttribute="trailing" secondItem="dSz-Qb-mM1" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="k8j-f8-cht"/>
                             <constraint firstItem="dSz-Qb-mM1" firstAttribute="leading" secondItem="ZIx-y8-ZZ3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="r2n-xl-VSf"/>
                         </constraints>
@@ -318,12 +339,54 @@
         <image name="connect.png" width="46" height="30"/>
         <image name="settings.png" width="18" height="20"/>
     </resources>
+    <classes>
+        <class className="CanvasViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CanvasViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="cavnasTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="connectButtonPressed:"/>
+                <relationship kind="action" name="newClassTapped:" candidateClass="UIButton"/>
+                <relationship kind="action" name="settingsButtonPressed:"/>
+                <relationship kind="outlet" name="helpLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="tapGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
+            </relationships>
+        </class>
+        <class className="EditComponentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditComponentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="outlet" name="classNameTextField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="NewSpecController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewSpecController.h"/>
+            <relationships>
+                <relationship kind="action" name="generateSpec:"/>
+                <relationship kind="outlet" name="specNameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SelectSessionController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectSessionController.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createNewSpec:"/>
+                <relationship kind="action" name="getExistingSpecs:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="ckc-zP-Eua"/>
+        <segue reference="kIV-Sh-ASc"/>
     </inferredMetricsTieBreakers>
 </document>
