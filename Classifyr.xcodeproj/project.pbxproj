@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530D8F6016F1480600DDA5D2 /* NewSpecController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530D8F5F16F1480600DDA5D2 /* NewSpecController.m */; };
 		5370926616ED0F6B00B51746 /* GraphListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 5370926516ED0F6B00B51746 /* GraphListener.m */; };
 		537095C016EEBA2A00B51746 /* Original_218x75.png in Resources */ = {isa = PBXBuildFile; fileRef = 537095BF16EEBA2900B51746 /* Original_218x75.png */; };
 		537095CC16EEC04E00B51746 /* SelectSessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537095CB16EEC04E00B51746 /* SelectSessionController.m */; };
@@ -47,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		530D8F5E16F1480600DDA5D2 /* NewSpecController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewSpecController.h; sourceTree = "<group>"; };
+		530D8F5F16F1480600DDA5D2 /* NewSpecController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSpecController.m; sourceTree = "<group>"; };
 		5370926416ED0F6B00B51746 /* GraphListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphListener.h; sourceTree = "<group>"; };
 		5370926516ED0F6B00B51746 /* GraphListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphListener.m; sourceTree = "<group>"; };
 		537095BF16EEBA2900B51746 /* Original_218x75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Original_218x75.png; path = Classifyr/Original_218x75.png; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				58079A6316F1256200178C35 /* UMLConnection.m */,
 				58079A6516F150E400178C35 /* CanvasView.h */,
 				58079A6616F150E400178C35 /* CanvasView.m */,
+				530D8F5E16F1480600DDA5D2 /* NewSpecController.h */,
+				530D8F5F16F1480600DDA5D2 /* NewSpecController.m */,
 			);
 			path = Classifyr;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				5876388B16F016FB00C3C659 /* EditComponentViewController.m in Sources */,
 				58079A6416F1256200178C35 /* UMLConnection.m in Sources */,
 				58079A6716F150E400178C35 /* CanvasView.m in Sources */,
+				530D8F6016F1480600DDA5D2 /* NewSpecController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
