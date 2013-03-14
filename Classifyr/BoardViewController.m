@@ -7,6 +7,7 @@
 //
 
 #import "BoardViewController.h"
+#import "CanvasView.h"
 #import "GraphListener.h"
 #import "EditComponentViewController.h"
 #import "UMLConnection.h"
@@ -15,15 +16,6 @@
 
 @synthesize scrollView;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,22 +23,26 @@
     self.connectMode = NO;
     self.view.backgroundColor = [UIColor darkGrayColor];
     
-    // Set up the scroll view
-    self.scrollView.delegate = self;
-    self.scrollView.minimumZoomScale = 0.5;
-    self.scrollView.maximumZoomScale = 6.0;
-    self.scrollView.clipsToBounds = YES;
-    self.scrollView.scrollEnabled = YES;
-    
-    [self performSegueWithIdentifier:@"canvasViewEmbed" sender:nil];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"canvasViewEmbed"]) {
-        self.canvasViewController = segue.destinationViewController;
-        self.viewToScroll = self.canvasViewController.view;
-        self.scrollView.contentSize = self.viewToScroll.bounds.size;
-        [self.scrollView addSubview:self.viewToScroll];
+    if (self.storyboard) {
+        // Add the canvas view controller as a child view controller
+        UIViewController *canvasViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"canvasViewController"];
+        [self addChildViewController:canvasViewController];
+        self.canvasView = canvasViewController.view;
+        
+        // Set the size of the canvas
+        CGRect frame = CGRectMake(0.0f, 0.0f, 1024.0f, 740.0f);
+        [self.scrollView setContentSize:frame.size];
+        self.canvasView.frame = frame;
+        
+        // Set up the scroll view
+        self.scrollView.minimumZoomScale = 0.5;
+        self.scrollView.maximumZoomScale = 6.0;
+        self.scrollView.clipsToBounds = YES;
+        self.scrollView.scrollEnabled = YES;
+        self.scrollView.delegate = self;
+        
+        // Display the canvas
+        [self.scrollView addSubview:self.canvasView];
     }
 }
 
@@ -58,7 +54,7 @@
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    return self.viewToScroll;
+    return self.canvasView;
 }
 
 - (IBAction)backButtonPressed:(id)sender

@@ -122,7 +122,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ha5-en-kMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="381" y="841"/>
+            <point key="canvasLocation" x="403" y="593"/>
         </scene>
         <!--New Spec Controller-->
         <scene sceneID="Cd3-G7-N9P">
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfd-tE-jh2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="395" y="-292"/>
+            <point key="canvasLocation" x="403" y="-132"/>
         </scene>
         <!--Board View Controller-->
         <scene sceneID="xey-KQ-DIn">
@@ -200,7 +200,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9D-We-zu4"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" translatesAutoresizingMaskIntoConstraints="NO" id="svm-cx-5ax"/>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XeP-CW-FbR" userLabel="Settings Button">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="VjN-1J-NmG"/>
@@ -253,20 +253,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="svm-cx-5ax" firstAttribute="leading" secondItem="iSN-P5-yEk" secondAttribute="leading" type="default" id="03n-Ce-CVh"/>
                             <constraint firstItem="XeP-CW-FbR" firstAttribute="top" secondItem="CEi-gA-QSn" secondAttribute="top" type="default" id="1G5-dt-fQO"/>
                             <constraint firstAttribute="trailing" secondItem="Acx-y5-8wZ" secondAttribute="trailing" constant="9" id="8WJ-zW-tk9"/>
                             <constraint firstAttribute="trailing" secondItem="1s9-kZ-Jsz" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BEe-1n-I9V"/>
                             <constraint firstItem="XeP-CW-FbR" firstAttribute="bottom" secondItem="iSN-P5-yEk" secondAttribute="bottom" type="default" id="GHE-1e-83H"/>
                             <constraint firstItem="Acx-y5-8wZ" firstAttribute="bottom" secondItem="iSN-P5-yEk" secondAttribute="bottom" type="default" id="H4N-jF-OPi"/>
-                            <constraint firstItem="G9D-We-zu4" firstAttribute="bottom" secondItem="iSN-P5-yEk" secondAttribute="bottom" type="default" id="IlJ-m5-Lxj"/>
-                            <constraint firstItem="G9D-We-zu4" firstAttribute="top" secondItem="iSN-P5-yEk" secondAttribute="top" type="default" id="Io0-Mb-kzS"/>
                             <constraint firstItem="CEi-gA-QSn" firstAttribute="leading" secondItem="iSN-P5-yEk" secondAttribute="leading" type="default" id="JuY-Yk-QF9"/>
                             <constraint firstItem="1s9-kZ-Jsz" firstAttribute="leading" secondItem="iSN-P5-yEk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LqO-Zl-n7f"/>
+                            <constraint firstItem="svm-cx-5ax" firstAttribute="bottom" secondItem="iSN-P5-yEk" secondAttribute="bottom" type="default" id="QfG-Ba-yry"/>
+                            <constraint firstItem="svm-cx-5ax" firstAttribute="top" secondItem="iSN-P5-yEk" secondAttribute="top" type="default" id="VWI-2L-FDI"/>
                             <constraint firstItem="1s9-kZ-Jsz" firstAttribute="top" secondItem="iSN-P5-yEk" secondAttribute="top" constant="20" symbolic="YES" type="default" id="XSi-dY-i4N"/>
                             <constraint firstItem="Acx-y5-8wZ" firstAttribute="top" secondItem="XeP-CW-FbR" secondAttribute="top" type="default" id="gRA-bo-TV4"/>
                             <constraint firstItem="XeP-CW-FbR" firstAttribute="leading" secondItem="CEi-gA-QSn" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="gYl-os-M7E"/>
-                            <constraint firstItem="G9D-We-zu4" firstAttribute="leading" secondItem="iSN-P5-yEk" secondAttribute="leading" type="default" id="obW-AB-RIT"/>
-                            <constraint firstItem="G9D-We-zu4" firstAttribute="trailing" secondItem="iSN-P5-yEk" secondAttribute="trailing" type="default" id="wLW-en-qj9"/>
+                            <constraint firstItem="svm-cx-5ax" firstAttribute="trailing" secondItem="iSN-P5-yEk" secondAttribute="trailing" type="default" id="vl1-6I-yYP"/>
                             <constraint firstItem="CEi-gA-QSn" firstAttribute="bottom" secondItem="iSN-P5-yEk" secondAttribute="bottom" type="default" id="yTI-zP-AyI"/>
                         </constraints>
                     </view>
@@ -274,44 +274,19 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="helpLabel" destination="1s9-kZ-Jsz" id="IXa-sc-lC2"/>
-                        <outlet property="scrollView" destination="G9D-We-zu4" id="nvl-qi-0If"/>
-                        <segue destination="veA-7q-T9Z" kind="modal" identifier="canvasViewEmbed" id="eLi-u7-I3G"/>
+                        <outlet property="scrollView" destination="svm-cx-5ax" id="Exg-wQ-GcA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZg-m5-a40" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="909" y="260"/>
-        </scene>
-        <!--Canvas View Controller-->
-        <scene sceneID="tzp-J5-fDr">
-            <objects>
-                <viewController id="veA-7q-T9Z" customClass="CanvasViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OhD-C3-jVL" customClass="CanvasView">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <connections>
-                        <outlet property="canvasView" destination="OhD-C3-jVL" id="C9C-Kb-DZ4"/>
-                        <segue destination="WJr-hQ-KFL" kind="modal" id="2OC-Sa-FJQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wJq-wJ-Ped" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="IeS-0J-hWD">
-                    <connections>
-                        <action selector="cavnasTapped:" destination="veA-7q-T9Z" id="Uh4-6N-wDg"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="1351" y="149"/>
+            <point key="canvasLocation" x="911" y="260"/>
         </scene>
         <!--Edit Component View Controller-->
         <scene sceneID="OAw-2G-mtx">
             <objects>
                 <viewController id="WJr-hQ-KFL" customClass="EditComponentViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZIx-y8-ZZ3">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cG-eo-NfN">
@@ -362,7 +337,32 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Po-j8-Tob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1367" y="1051"/>
+            <point key="canvasLocation" x="-123" y="1224"/>
+        </scene>
+        <!--Canvas View Controller-->
+        <scene sceneID="QSV-2G-OVV">
+            <objects>
+                <viewController storyboardIdentifier="canvasViewController" id="HRi-pI-vuG" customClass="CanvasViewController" sceneMemberID="viewController">
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aKE-bG-Q2F" customClass="CanvasView">
+                        <rect key="frame" x="0.0" y="20" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="canvasView" destination="aKE-bG-Q2F" id="nSE-F6-070"/>
+                        <segue destination="WJr-hQ-KFL" kind="modal" identifier="editUMLSegue" id="q9A-Bq-xl9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QRx-dV-wsV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="G4E-ka-PO4">
+                    <connections>
+                        <action selector="cavnasTapped:" destination="HRi-pI-vuG" id="T8H-Hq-kWJ"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-575" y="1224"/>
         </scene>
     </scenes>
     <resources>
