@@ -13,16 +13,18 @@
 #import "EditComponentViewControllerDelegate.h"
 #import "GraphListenerDelegate.h"
 #import "UMLComponentDelegate.h"
+#import "CanvasView.h"
 
 @interface CanvasViewController : UIViewController <UIScrollViewDelegate, EditComponentViewControllerDelegate, GraphListenerDelegate, UMLComponentDelegate>
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) UIView *canvasView;
+@property (strong, nonatomic) CanvasView *canvasView;
 @property (strong, nonatomic) UMLAddView *addComponentView;
 @property (strong, nonatomic) IBOutlet UILabel *helpLabel;
 
-@property BOOL connectMode;
+@property (nonatomic) BOOL connectMode;
+@property (weak, nonatomic) UMLComponentView *selectedComponent;
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)settingsButtonPressed:(id)sender;
@@ -36,5 +38,7 @@
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json;
 
 - (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer;
+
+- (void)leaveConnectMode;
 
 @end
