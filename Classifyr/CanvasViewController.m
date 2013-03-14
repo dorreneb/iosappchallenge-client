@@ -19,7 +19,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.connectMode = NO;
+        
     }
     return self;
 }
@@ -27,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.connectMode = NO;
+    self.components = [[NSMutableDictionary alloc] init];
     
     [[GraphListener mainGraphListener] setDelegate:self];
     
@@ -134,18 +137,32 @@
         NSLog(@"Error parsing JSON");
     } else {
         for(NSDictionary *item in components) {
-            UMLComponentView *uml = [UMLComponentView viewFromNib];
-            uml.center = self.addComponentView.center;
-            uml.classNameLabel.text = [item objectForKey:@"name"];
-            uml.delegate = self;
+            NSString *type = [item objectForKey:@"type"];
             
-            NSDictionary *location = [item objectForKey:@"location"];
-            NSNumber *x = [location objectForKey:@"x"];
-            NSNumber *y = [location objectForKey:@"y"];
-            uml.center = CGPointMake([x floatValue], [y floatValue]);
+            if ([type isEqual:@"box"]) {
+                UMLComponentView *uml = [UMLComponentView viewFromNib];
+                uml.center = self.addComponentView.center;
+                uml.classNameLabel.text = [item objectForKey:@"name"];
+                uml.id = [item objectForKey:@"id"];
+                NSLog(@"box id: %@", uml.id);
+                uml.delegate = self;
+                
+                NSDictionary *location = [item objectForKey:@"location"];
+                NSNumber *x = [location objectForKey:@"x"];
+                NSNumber *y = [location objectForKey:@"y"];
+                uml.center = CGPointMake([x floatValue], [y floatValue]);
             
-            [self.canvasView addSubview:uml];
+                [self addComponent:uml];
+            } else if ([type isEqual:@"connection"]) {
+                UMLComponentView *startComponent = [self.components objectForKey:[item objectForKey:@"from"]];
+                UMLComponentView *endComponent = [self.components objectForKey:[item objectForKey:@"to"]];
+                NSString *id = [item objectForKey:@"id"];
+                
+                [self.canvasView addConnectionWithId:id withStart:startComponent withEnd:endComponent];
+            }
         }
+        
+        [self.canvasView setNeedsDisplay];
     }
 }
 
@@ -157,11 +174,7 @@
             self.selectedComponent = component;
         } else {
             // Two classes selected, create the connection
-            UMLConnection *connection = [[UMLConnection alloc] init];
-            connection.startComponent = self.selectedComponent;
-            connection.endComponent = component;
-            [connection calculatePath];
-            [self.canvasView.connections addObject:connection];
+            [self.canvasView createConnectionWithStart:self.selectedComponent withEnd:component];
             
             component.selected = NO;
             [self leaveConnectMode];
@@ -169,6 +182,12 @@
         
         [self.canvasView setNeedsDisplay];
     }
+}
+
+- (void)addComponent:(UMLComponentView *)component
+{
+    [self.components setObject:component forKey:component.id];
+    [self.canvasView addSubview:component];
 }
 
 - (void)leaveConnectMode

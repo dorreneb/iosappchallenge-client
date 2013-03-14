@@ -25,6 +25,7 @@
 
 @property (nonatomic) BOOL connectMode;
 @property (weak, nonatomic) UMLComponentView *selectedComponent;
+@property (strong, nonatomic) NSMutableDictionary *components;
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)settingsButtonPressed:(id)sender;

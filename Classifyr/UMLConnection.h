@@ -11,6 +11,8 @@
 
 @interface UMLConnection : NSObject
 
+@property (strong, nonatomic) NSString *id;
+
 @property (weak, nonatomic) UMLComponentView *startComponent;
 @property (weak, nonatomic) UMLComponentView *endComponent;
 

@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@class UMLComponentView;
+@class UMLConnection;
+
 @interface CanvasView : UIView
 
-@property (strong, nonatomic) NSMutableArray *connections;
+@property (strong, nonatomic) NSMutableDictionary *connections;
+@property (strong, nonatomic) NSNumber *nextLocalId;
+
+- (void)createConnectionWithStart:(UMLComponentView *)startComponent withEnd:(UMLComponentView *)endComponent;
+
+- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(UMLComponentView *)startComponent withEnd:(UMLComponentView *)endComponent;
 
 @end
