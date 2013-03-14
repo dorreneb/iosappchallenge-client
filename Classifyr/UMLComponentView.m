@@ -36,9 +36,13 @@
 
 - (void)componentTapped:(UITapGestureRecognizer *)recognizer
 {
+    NSLog(@"hopefully touched box");
+    
     if ([_delegate respondsToSelector:@selector(umlComponent:selected:)]) {
         [_delegate umlComponent:self selected:recognizer];
-    }
+        
+        
+    } 
 }
 
 - (void)setSelected:(BOOL)value

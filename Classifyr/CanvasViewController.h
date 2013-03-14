@@ -43,4 +43,7 @@
 
 - (void)leaveConnectMode;
 
+
+- (void)editViewController:(id)editViewController returnToCanvas:(NSString *)name;
+
 @end

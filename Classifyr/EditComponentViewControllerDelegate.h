@@ -7,11 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UMLComponentView.h"
 
 @class EditComponentViewController;
 
 @protocol EditComponentViewControllerDelegate <NSObject>
 
 - (void)editViewController:(EditComponentViewController *)vc updateWithUML:(NSString *)name;
+
+- (void)editViewController:(EditComponentViewController *)vc returnToCanvas:(NSString *)name:(UMLComponentView*)componentToEdit;
+
 
 @end

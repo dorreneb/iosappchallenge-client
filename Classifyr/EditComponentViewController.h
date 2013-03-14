@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "EditComponentViewControllerDelegate.h"
+#import "UMLComponentView.h"
 
 @interface EditComponentViewController : UIViewController
 
 @property(weak, nonatomic) id<EditComponentViewControllerDelegate> delegate;
+
+@property(weak, nonatomic) id componentToEdit;
 
 @property (strong, nonatomic) IBOutlet UITextField *classNameTextField;
 

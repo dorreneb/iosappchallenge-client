@@ -37,8 +37,15 @@
 
 - (IBAction)backButtonPressed:(id)sender
 {
-    if ([_delegate respondsToSelector:@selector(editViewController:updateWithUML:)]) {
-        [_delegate editViewController:self updateWithUML:self.classNameTextField.text];
+    //if add
+    if (_componentToEdit == nil) {
+        if ([_delegate respondsToSelector:@selector(editViewController:updateWithUML:)]) {
+            [_delegate editViewController:self updateWithUML:self.classNameTextField.text];
+        }
+    } else { //if edit
+        if ([_delegate respondsToSelector:@selector(editViewController:updateWithUML:)]) {
+            [_delegate editViewController:self returnToCanvas:self.classNameTextField.text:self.componentToEdit];
+        }
     }
 }
 @end

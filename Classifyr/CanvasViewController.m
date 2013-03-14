@@ -68,8 +68,13 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+{   //set delegate
     ((EditComponentViewController *)(segue.destinationViewController)).delegate = self;
+    //set component to edit - if null it will create
+    //new box -- if not null it will update component
+    //this assumes that creating a new box sends a nil
+    //and that editing takes a component
+    ((EditComponentViewController *)(segue.destinationViewController)).componentToEdit = sender;
 }
 
 - (IBAction)backButtonPressed:(id)sender
@@ -128,6 +133,12 @@
     GraphListener *del = [GraphListener mainGraphListener];
     [del sendMessage:x];
     del = nil;
+}
+
+- (void)editViewController:(id)editViewController returnToCanvas:(NSString *)name:(UMLComponentView*)componentToEdit {
+    [editViewController dismissViewControllerAnimated:true completion:nil];
+    NSLog(@"ready to edit the given box %@ with the new name %@", componentToEdit, name);
+    componentToEdit.name = @"UMLComponentView";
 }
 
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json
@@ -200,6 +211,9 @@
         }
         
         [self.canvasView setNeedsDisplay];
+    } else { //just clicked on a box, time to edit!
+        [self performSegueWithIdentifier:@"editUMLSegue" sender:component];
+        
     }
 }
 
