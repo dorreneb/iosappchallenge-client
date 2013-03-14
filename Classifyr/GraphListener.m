@@ -80,8 +80,11 @@ static GraphListener* instance;
         if ([_delegate respondsToSelector:@selector(graphListener:initializeBoardWithJson:)]) {
             [_delegate graphListener:self initializeBoardWithJson:[json objectForKey:@"body"]];
         }
-    } else if ([messageType isEqualToString:@"create"]) {
+    } else if ([messageType isEqualToString:@"create-box"]) {
         NSLog(@"Create square");
+        if ([_delegate respondsToSelector:@selector(graphListener:addComponentWithJson:)]) {
+            [_delegate graphListener:self addComponentWithJson:[json objectForKey:@"body"]];
+        }
     }
     
 }

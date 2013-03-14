@@ -14,4 +14,6 @@
 
 -(void)graphListener:(GraphListener *)gl initializeBoardWithJson:(id)json;
 
+-(void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;
+
 @end

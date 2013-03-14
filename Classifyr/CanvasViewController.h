@@ -37,6 +37,7 @@
 - (void)editViewController:(id)editViewController updateWithUML:(NSString *)name;
 
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json;
+- (void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;
 
 - (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer;
 

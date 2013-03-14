@@ -166,6 +166,25 @@
     }
 }
 
+- (void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json
+{
+    NSDictionary *item = (NSDictionary *)json;
+    
+    UMLComponentView *uml = [UMLComponentView viewFromNib];
+    uml.center = self.addComponentView.center;
+    uml.classNameLabel.text = [item objectForKey:@"name"];
+    uml.id = [item objectForKey:@"id"];
+    NSLog(@"box id: %@", uml.id);
+    uml.delegate = self;
+    
+    NSDictionary *location = [item objectForKey:@"location"];
+    NSNumber *x = [location objectForKey:@"x"];
+    NSNumber *y = [location objectForKey:@"y"];
+    uml.center = CGPointMake([x floatValue], [y floatValue]);
+    
+    [self addComponent:uml];
+}
+
 -(void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer
 {
     if (self.connectMode == YES) {
