@@ -207,7 +207,20 @@
     [self addComponent:uml];
 }
 
--(void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer
+- (void)graphListener:(GraphListener *)gl addConnectionWithJson:(id)json
+{
+    NSDictionary *item = (NSDictionary *)json;
+    
+    UMLComponentView *startComponent = [self.components objectForKey:[item objectForKey:@"from"]];
+    UMLComponentView *endComponent = [self.components objectForKey:[item objectForKey:@"to"]];
+    NSString *id = [item objectForKey:@"id"];
+    
+    [self.canvasView addConnectionWithId:id withStart:startComponent withEnd:endComponent];
+    
+    [self.canvasView setNeedsDisplay];
+}
+
+- (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer
 {
     if (self.connectMode == YES) {
         if (self.selectedComponent == nil) {

@@ -85,6 +85,11 @@ static GraphListener* instance;
         if ([_delegate respondsToSelector:@selector(graphListener:addComponentWithJson:)]) {
             [_delegate graphListener:self addComponentWithJson:[json objectForKey:@"body"]];
         }
+    } else if ([messageType isEqualToString:@"create-connection"]) {
+        NSLog(@"Create connection");
+        if ([_delegate respondsToSelector:@selector(graphListener:addConnectionWithJson:)]) {
+            [_delegate graphListener:self addConnectionWithJson:[json objectForKey:@"body"]];
+        }
     }
     
 }
