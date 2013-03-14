@@ -15,7 +15,7 @@
 #import "UMLComponentDelegate.h"
 #import "CanvasView.h"
 
-@interface CanvasViewController : UIViewController <UIScrollViewDelegate, EditComponentViewControllerDelegate, GraphListenerDelegate, UMLComponentDelegate>
+@interface BoardViewController : UIViewController <UIScrollViewDelegate, EditComponentViewControllerDelegate, GraphListenerDelegate, UMLComponentDelegate>
 
 @property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;

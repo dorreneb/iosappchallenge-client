@@ -6,12 +6,12 @@
 //  Copyright (c) 2013 B-SQUADRON. All rights reserved.
 //
 
-#import "CanvasViewController.h"
+#import "BoardViewController.h"
 #import "GraphListener.h"
 #import "EditComponentViewController.h"
 #import "UMLConnection.h"
 
-@implementation CanvasViewController
+@implementation BoardViewController
 
 @synthesize scrollView;
 
