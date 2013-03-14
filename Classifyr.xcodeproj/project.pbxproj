@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		530D8F6016F1480600DDA5D2 /* NewSpecController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530D8F5F16F1480600DDA5D2 /* NewSpecController.m */; };
 		5370926616ED0F6B00B51746 /* GraphListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 5370926516ED0F6B00B51746 /* GraphListener.m */; };
-		537095C016EEBA2A00B51746 /* Original_218x75.png in Resources */ = {isa = PBXBuildFile; fileRef = 537095BF16EEBA2900B51746 /* Original_218x75.png */; };
 		537095CC16EEC04E00B51746 /* SelectSessionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537095CB16EEC04E00B51746 /* SelectSessionController.m */; };
 		53C8818416EC0A52007098C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818316EC0A52007098C9 /* CFNetwork.framework */; };
 		53C8818616EC0A5C007098C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53C8818516EC0A5C007098C9 /* Security.framework */; };
@@ -23,6 +22,7 @@
 		58079A6016F0EF8C00178C35 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5F16F0EF8C00178C35 /* connect.png */; };
 		58079A6416F1256200178C35 /* UMLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 58079A6316F1256200178C35 /* UMLConnection.m */; };
 		58079A6716F150E400178C35 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58079A6616F150E400178C35 /* CanvasView.m */; };
+		58079A6916F17E8B00178C35 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A6816F17E8B00178C35 /* logo.png */; };
 		5854E6FD16EAD0E300068C59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FC16EAD0E300068C59 /* UIKit.framework */; };
 		5854E6FF16EAD0E300068C59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FE16EAD0E300068C59 /* Foundation.framework */; };
 		5854E70116EAD0E300068C59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E70016EAD0E300068C59 /* CoreGraphics.framework */; };
@@ -52,7 +52,6 @@
 		530D8F5F16F1480600DDA5D2 /* NewSpecController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewSpecController.m; sourceTree = "<group>"; };
 		5370926416ED0F6B00B51746 /* GraphListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphListener.h; sourceTree = "<group>"; };
 		5370926516ED0F6B00B51746 /* GraphListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphListener.m; sourceTree = "<group>"; };
-		537095BF16EEBA2900B51746 /* Original_218x75.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Original_218x75.png; path = Classifyr/Original_218x75.png; sourceTree = "<group>"; };
 		537095CA16EEC04E00B51746 /* SelectSessionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectSessionController.h; sourceTree = "<group>"; };
 		537095CB16EEC04E00B51746 /* SelectSessionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectSessionController.m; sourceTree = "<group>"; };
 		53C8818316EC0A52007098C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -75,7 +74,8 @@
 		58079A6316F1256200178C35 /* UMLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLConnection.m; sourceTree = "<group>"; };
 		58079A6516F150E400178C35 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
 		58079A6616F150E400178C35 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
-		5854E6F916EAD0E300068C59 /* Classifyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		58079A6816F17E8B00178C35 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		5854E6F916EAD0E300068C59 /* Jotspec.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotspec.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5854E6FC16EAD0E300068C59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5854E6FE16EAD0E300068C59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5854E70016EAD0E300068C59 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -146,7 +146,6 @@
 			isa = PBXGroup;
 			children = (
 				5876388E16F01AE500C3C659 /* grid.jpg */,
-				537095BF16EEBA2900B51746 /* Original_218x75.png */,
 				53C8818916EC0B51007098C9 /* SocketRocket */,
 				53C8818716EC0A6E007098C9 /* libicucore.dylib */,
 				53C8818516EC0A5C007098C9 /* Security.framework */,
@@ -160,7 +159,7 @@
 		5854E6FA16EAD0E300068C59 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5854E6F916EAD0E300068C59 /* Classifyr.app */,
+				5854E6F916EAD0E300068C59 /* Jotspec.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -178,6 +177,7 @@
 		5854E70216EAD0E300068C59 /* Classifyr */ = {
 			isa = PBXGroup;
 			children = (
+				58079A6816F17E8B00178C35 /* logo.png */,
 				58079A5F16F0EF8C00178C35 /* connect.png */,
 				58079A5B16F0ED1700178C35 /* settings.png */,
 				58079A5916F0EABA00178C35 /* back.png */,
@@ -252,7 +252,7 @@
 			);
 			name = Classifyr;
 			productName = Classifyr;
-			productReference = 5854E6F916EAD0E300068C59 /* Classifyr.app */;
+			productReference = 5854E6F916EAD0E300068C59 /* Jotspec.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -292,7 +292,6 @@
 				5854E71316EAD0E300068C59 /* Default-568h@2x.png in Resources */,
 				5854E71616EAD0E300068C59 /* MainStoryboard_iPhone.storyboard in Resources */,
 				5854E71916EAD0E300068C59 /* MainStoryboard_iPad.storyboard in Resources */,
-				537095C016EEBA2A00B51746 /* Original_218x75.png in Resources */,
 				5876387B16EF974B00C3C659 /* loading.gif in Resources */,
 				5876387D16EF974B00C3C659 /* UMLComponentView.xib in Resources */,
 				5876387F16EF974B00C3C659 /* UMLPlaceholderView.xib in Resources */,
@@ -301,6 +300,7 @@
 				58079A5A16F0EABA00178C35 /* back.png in Resources */,
 				58079A5C16F0ED1700178C35 /* settings.png in Resources */,
 				58079A6016F0EF8C00178C35 /* connect.png in Resources */,
+				58079A6916F17E8B00178C35 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +434,7 @@
 					"\"$(SRCROOT)/UnittWebSocketClient/bin/Release-iphonesimulator\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Jotspec;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -454,7 +454,7 @@
 					"\"$(SRCROOT)/UnittWebSocketClient/bin/Release-iphonesimulator\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Jotspec;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
