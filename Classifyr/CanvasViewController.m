@@ -138,8 +138,8 @@
 - (void)editViewController:(id)editViewController returnToEditCanvas:(NSString *)name:(UMLComponentView*)componentToEdit {
     //talk to server
     
+    
     //remove old outdated box and place new one
-    self.addComponentView.hidden = YES;
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = componentToEdit.center;
     uml.classNameLabel.text = name;
@@ -147,9 +147,8 @@
     [componentToEdit removeFromSuperview];
     [self.canvasView addSubview:uml];
     
+    //transition back to canvas
     [editViewController dismissViewControllerAnimated:true completion:nil];
-    NSLog(@"ready to edit the given box %@ with the new name %@", componentToEdit, name);
-    componentToEdit.name = @"UMLComponentView";
 }
 
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json
