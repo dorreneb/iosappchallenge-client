@@ -275,18 +275,36 @@
                     <connections>
                         <outlet property="helpLabel" destination="1s9-kZ-Jsz" id="IXa-sc-lC2"/>
                         <outlet property="scrollView" destination="G9D-We-zu4" id="nvl-qi-0If"/>
-                        <outlet property="tapGestureRecognizer" destination="zP1-SA-O2a" id="nMg-30-bSp"/>
-                        <segue destination="WJr-hQ-KFL" kind="modal" identifier="editUMLSegue" id="JAD-wa-Qag"/>
+                        <segue destination="veA-7q-T9Z" kind="modal" identifier="canvasViewEmbed" id="eLi-u7-I3G"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZg-m5-a40" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="zP1-SA-O2a">
+            </objects>
+            <point key="canvasLocation" x="909" y="260"/>
+        </scene>
+        <!--Canvas View Controller-->
+        <scene sceneID="tzp-J5-fDr">
+            <objects>
+                <viewController id="veA-7q-T9Z" customClass="CanvasViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OhD-C3-jVL" customClass="CanvasView">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="748"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <action selector="cavnasTapped:" destination="vU6-vA-xeA" id="ANU-CE-e46"/>
+                        <outlet property="canvasView" destination="OhD-C3-jVL" id="C9C-Kb-DZ4"/>
+                        <segue destination="WJr-hQ-KFL" kind="modal" id="2OC-Sa-FJQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wJq-wJ-Ped" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="IeS-0J-hWD">
+                    <connections>
+                        <action selector="cavnasTapped:" destination="veA-7q-T9Z" id="Uh4-6N-wDg"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="909" y="260"/>
+            <point key="canvasLocation" x="1351" y="149"/>
         </scene>
         <!--Edit Component View Controller-->
         <scene sceneID="OAw-2G-mtx">
@@ -344,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Po-j8-Tob" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1383" y="260"/>
+            <point key="canvasLocation" x="1367" y="1051"/>
         </scene>
     </scenes>
     <resources>
@@ -358,13 +376,21 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/BoardViewController.h"/>
             <relationships>
                 <relationship kind="action" name="backButtonPressed:"/>
-                <relationship kind="action" name="cavnasTapped:" candidateClass="UITapGestureRecognizer"/>
                 <relationship kind="action" name="connectButtonPressed:"/>
-                <relationship kind="action" name="newClassTapped:" candidateClass="UIButton"/>
                 <relationship kind="action" name="settingsButtonPressed:"/>
                 <relationship kind="outlet" name="helpLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="tapGestureRecognizer" candidateClass="UITapGestureRecognizer"/>
+            </relationships>
+        </class>
+        <class className="CanvasView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CanvasView.h"/>
+        </class>
+        <class className="CanvasViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CanvasViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cavnasTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="newClassTapped:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="canvasView" candidateClass="CanvasView"/>
             </relationships>
         </class>
         <class className="EditComponentViewController" superclassName="UIViewController">

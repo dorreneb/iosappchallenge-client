@@ -12,10 +12,10 @@
 
 @implementation CanvasView
 
-- (id)initWithFrame:(CGRect)frame
+- (id)initWithCoder:(NSCoder*)aDecoder
 {
-    self = [super initWithFrame:frame];
-    if (self) {
+    self = [super initWithCoder:aDecoder];
+    if (self){
         self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grid.jpg"]];
         self.connections = [[NSMutableDictionary alloc] init];
         self.components = [[NSMutableDictionary alloc] init];

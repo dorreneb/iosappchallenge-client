@@ -8,40 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-#import "UMLComponentView.h"
-#import "UMLAddView.h"
-#import "EditComponentViewControllerDelegate.h"
-#import "GraphListenerDelegate.h"
-#import "UMLComponentDelegate.h"
-#import "CanvasView.h"
+@interface BoardViewController : UIViewController <UIScrollViewDelegate>
 
-@interface BoardViewController : UIViewController <UIScrollViewDelegate, EditComponentViewControllerDelegate, GraphListenerDelegate, UMLComponentDelegate>
-
-@property (strong, nonatomic) IBOutlet UITapGestureRecognizer *tapGestureRecognizer;
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (strong, nonatomic) CanvasView *canvasView;
-@property (strong, nonatomic) UMLAddView *addComponentView;
 @property (strong, nonatomic) IBOutlet UILabel *helpLabel;
 
+@property (weak, nonatomic) UIViewController *canvasViewController;
+@property (weak, nonatomic) UIView *viewToScroll;
+
 @property (nonatomic) BOOL connectMode;
-@property (weak, nonatomic) UMLComponentView *selectedComponent;
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)settingsButtonPressed:(id)sender;
 - (IBAction)connectButtonPressed:(id)sender;
-
-- (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
-- (IBAction)newClassTapped:(UIButton *)button;
-
-- (void)editViewController:(EditComponentViewController *)vc addComponentWithName:(NSString *)name;
-- (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name;
-
-- (void)graphListener:(id)gl initializeBoardWithJson:(id)json;
-- (void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;
-- (void)graphListener:(GraphListener *)gl addConnectionWithJson:(id)json;
-
-- (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer;
-
-- (void)leaveConnectMode;
 
 @end
