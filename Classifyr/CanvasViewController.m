@@ -9,6 +9,7 @@
 #import "CanvasViewController.h"
 #import "GraphListener.h"
 #import "EditComponentViewController.h"
+#import "UMLConnection.h"
 
 @implementation CanvasViewController
 
@@ -32,8 +33,7 @@
     self.view.backgroundColor = [UIColor darkGrayColor];
     
     // Set up the canvas view
-    self.canvasView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 1600.0f, 800.0f)];
-    self.canvasView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grid.jpg"]];
+    self.canvasView = [[CanvasView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 1600.0f, 800.0f)];
     
     // Add the add component view / button
     self.addComponentView = [UMLAddView viewFromNib];
@@ -85,8 +85,7 @@
         self.helpLabel.hidden = NO;
         self.connectMode = YES;
     } else {
-        self.helpLabel.hidden = YES;
-        self.connectMode = NO;
+        [self leaveConnectMode];
     }
 }
 
@@ -153,7 +152,33 @@
 -(void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer
 {
     if (self.connectMode == YES) {
-        component.selected = !component.selected;
+        if (self.selectedComponent == nil) {
+            component.selected = YES;
+            self.selectedComponent = component;
+        } else {
+            // Two classes selected, create the connection
+            UMLConnection *connection = [[UMLConnection alloc] init];
+            connection.startComponent = self.selectedComponent;
+            connection.endComponent = component;
+            [connection calculatePath];
+            [self.canvasView.connections addObject:connection];
+            
+            component.selected = NO;
+            [self leaveConnectMode];
+        }
+        
+        [self.canvasView setNeedsDisplay];
+    }
+}
+
+- (void)leaveConnectMode
+{
+    self.helpLabel.hidden = YES;
+    self.connectMode = NO;
+    
+    if (self.selectedComponent != nil) {
+        self.selectedComponent.selected = NO;
+        self.selectedComponent = nil;
     }
 }
 

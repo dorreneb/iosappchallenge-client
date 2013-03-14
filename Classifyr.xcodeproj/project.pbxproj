@@ -21,6 +21,8 @@
 		58079A5A16F0EABA00178C35 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5916F0EABA00178C35 /* back.png */; };
 		58079A5C16F0ED1700178C35 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5B16F0ED1700178C35 /* settings.png */; };
 		58079A6016F0EF8C00178C35 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5F16F0EF8C00178C35 /* connect.png */; };
+		58079A6416F1256200178C35 /* UMLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 58079A6316F1256200178C35 /* UMLConnection.m */; };
+		58079A6716F150E400178C35 /* CanvasView.m in Sources */ = {isa = PBXBuildFile; fileRef = 58079A6616F150E400178C35 /* CanvasView.m */; };
 		5854E6FD16EAD0E300068C59 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FC16EAD0E300068C59 /* UIKit.framework */; };
 		5854E6FF16EAD0E300068C59 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E6FE16EAD0E300068C59 /* Foundation.framework */; };
 		5854E70116EAD0E300068C59 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5854E70016EAD0E300068C59 /* CoreGraphics.framework */; };
@@ -69,6 +71,10 @@
 		58079A5B16F0ED1700178C35 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		58079A5F16F0EF8C00178C35 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
 		58079A6116F1109700178C35 /* UMLComponentDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UMLComponentDelegate.h; sourceTree = "<group>"; };
+		58079A6216F1256200178C35 /* UMLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLConnection.h; sourceTree = "<group>"; };
+		58079A6316F1256200178C35 /* UMLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLConnection.m; sourceTree = "<group>"; };
+		58079A6516F150E400178C35 /* CanvasView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasView.h; sourceTree = "<group>"; };
+		58079A6616F150E400178C35 /* CanvasView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasView.m; sourceTree = "<group>"; };
 		5854E6F916EAD0E300068C59 /* Classifyr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Classifyr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5854E6FC16EAD0E300068C59 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5854E6FE16EAD0E300068C59 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -205,6 +211,10 @@
 				5876388916F016FB00C3C659 /* EditComponentViewController.h */,
 				5876388A16F016FB00C3C659 /* EditComponentViewController.m */,
 				5876389116F0206100C3C659 /* EditComponentViewControllerDelegate.h */,
+				58079A6216F1256200178C35 /* UMLConnection.h */,
+				58079A6316F1256200178C35 /* UMLConnection.m */,
+				58079A6516F150E400178C35 /* CanvasView.h */,
+				58079A6616F150E400178C35 /* CanvasView.m */,
 				530D8F5E16F1480600DDA5D2 /* NewSpecController.h */,
 				530D8F5F16F1480600DDA5D2 /* NewSpecController.m */,
 			);
@@ -315,6 +325,8 @@
 				5876387E16EF974B00C3C659 /* UMLPlaceholderView.m in Sources */,
 				5876388216EF9D8100C3C659 /* UMLAddView.m in Sources */,
 				5876388B16F016FB00C3C659 /* EditComponentViewController.m in Sources */,
+				58079A6416F1256200178C35 /* UMLConnection.m in Sources */,
+				58079A6716F150E400178C35 /* CanvasView.m in Sources */,
 				530D8F6016F1480600DDA5D2 /* NewSpecController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

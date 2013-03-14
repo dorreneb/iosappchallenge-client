@@ -258,6 +258,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="helpLabel" destination="1s9-kZ-Jsz" id="IXa-sc-lC2"/>
                         <outlet property="scrollView" destination="G9D-We-zu4" id="nvl-qi-0If"/>
