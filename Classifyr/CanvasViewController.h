@@ -21,7 +21,7 @@
 
 @property (weak, nonatomic) BoardViewController *boardViewController;
 @property (strong, nonatomic) IBOutlet CanvasView *canvasView;
-@property (strong, nonatomic) UMLAddView *addComponentView;
+@property (strong, nonatomic) IBOutlet UIView *addComponentView;
 @property (weak, nonatomic) UMLComponentView *selectedComponent;
 
 

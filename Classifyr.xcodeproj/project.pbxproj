@@ -42,8 +42,6 @@
 		5876387D16EF974B00C3C659 /* UMLComponentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5876387716EF974B00C3C659 /* UMLComponentView.xib */; };
 		5876387E16EF974B00C3C659 /* UMLPlaceholderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5876387916EF974B00C3C659 /* UMLPlaceholderView.m */; };
 		5876387F16EF974B00C3C659 /* UMLPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5876387A16EF974B00C3C659 /* UMLPlaceholderView.xib */; };
-		5876388216EF9D8100C3C659 /* UMLAddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5876388116EF9D8100C3C659 /* UMLAddView.m */; };
-		5876388816F011A900C3C659 /* UMLAddView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5876388716F011A900C3C659 /* UMLAddView.xib */; };
 		5876388B16F016FB00C3C659 /* EditComponentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5876388A16F016FB00C3C659 /* EditComponentViewController.m */; };
 		5876388F16F01AE500C3C659 /* grid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5876388E16F01AE500C3C659 /* grid.jpg */; };
 /* End PBXBuildFile section */
@@ -105,9 +103,6 @@
 		5876387816EF974B00C3C659 /* UMLPlaceholderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLPlaceholderView.h; sourceTree = "<group>"; };
 		5876387916EF974B00C3C659 /* UMLPlaceholderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLPlaceholderView.m; sourceTree = "<group>"; };
 		5876387A16EF974B00C3C659 /* UMLPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMLPlaceholderView.xib; sourceTree = "<group>"; };
-		5876388016EF9D8100C3C659 /* UMLAddView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLAddView.h; sourceTree = "<group>"; };
-		5876388116EF9D8100C3C659 /* UMLAddView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLAddView.m; sourceTree = "<group>"; };
-		5876388716F011A900C3C659 /* UMLAddView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UMLAddView.xib; sourceTree = "<group>"; };
 		5876388916F016FB00C3C659 /* EditComponentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditComponentViewController.h; sourceTree = "<group>"; };
 		5876388A16F016FB00C3C659 /* EditComponentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditComponentViewController.m; sourceTree = "<group>"; };
 		5876388E16F01AE500C3C659 /* grid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = grid.jpg; path = Classifyr/grid.jpg; sourceTree = "<group>"; };
@@ -212,9 +207,6 @@
 				5876389516F0C24300C3C659 /* GraphListenerDelegate.h */,
 				537095CA16EEC04E00B51746 /* SelectSessionController.h */,
 				537095CB16EEC04E00B51746 /* SelectSessionController.m */,
-				5876388016EF9D8100C3C659 /* UMLAddView.h */,
-				5876388116EF9D8100C3C659 /* UMLAddView.m */,
-				5876388716F011A900C3C659 /* UMLAddView.xib */,
 				5876388916F016FB00C3C659 /* EditComponentViewController.h */,
 				5876388A16F016FB00C3C659 /* EditComponentViewController.m */,
 				5876389116F0206100C3C659 /* EditComponentViewControllerDelegate.h */,
@@ -302,7 +294,6 @@
 				5876387B16EF974B00C3C659 /* loading.gif in Resources */,
 				5876387D16EF974B00C3C659 /* UMLComponentView.xib in Resources */,
 				5876387F16EF974B00C3C659 /* UMLPlaceholderView.xib in Resources */,
-				5876388816F011A900C3C659 /* UMLAddView.xib in Resources */,
 				5876388F16F01AE500C3C659 /* grid.jpg in Resources */,
 				58079A5A16F0EABA00178C35 /* back.png in Resources */,
 				58079A5C16F0ED1700178C35 /* settings.png in Resources */,
@@ -330,7 +321,6 @@
 				537095CC16EEC04E00B51746 /* SelectSessionController.m in Sources */,
 				5876387C16EF974B00C3C659 /* UMLComponentView.m in Sources */,
 				5876387E16EF974B00C3C659 /* UMLPlaceholderView.m in Sources */,
-				5876388216EF9D8100C3C659 /* UMLAddView.m in Sources */,
 				5876388B16F016FB00C3C659 /* EditComponentViewController.m in Sources */,
 				58079A6416F1256200178C35 /* UMLConnection.m in Sources */,
 				58079A6716F150E400178C35 /* CanvasView.m in Sources */,

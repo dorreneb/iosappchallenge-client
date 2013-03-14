@@ -10,7 +10,6 @@
 #import "CanvasView.h"
 #import "EditComponentViewController.h"
 #import "GraphListener.h"
-#import "UMLAddView.h"
 
 #import "CanvasViewController.h"
 
@@ -32,12 +31,6 @@
     [super viewDidLoad];
     
     [[GraphListener mainGraphListener] setDelegate:self];
-    
-    // Add the add component view / button
-    self.addComponentView = [UMLAddView viewFromNib];
-    [self.addComponentView.addClassButton addTarget:self action:@selector(newClassTapped:) forControlEvents:UIControlEventTouchUpInside];
-    self.addComponentView.hidden = YES;
-    [self.canvasView addSubview:self.addComponentView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -61,6 +54,7 @@
     if (recognizer.state == UIGestureRecognizerStateEnded) {
         if (self.addComponentView.isHidden == YES) {
             CGPoint location = [recognizer locationInView:self.canvasView];
+            //self.addComponentView.frame = CGRectMake(0.0f, 0.0f, 140.0f, 60.0f);
             self.addComponentView.center = location;
             self.addComponentView.hidden = NO;
         } else {
