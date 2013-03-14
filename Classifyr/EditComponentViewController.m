@@ -44,7 +44,7 @@
         }
     } else { //if edit
         if ([_delegate respondsToSelector:@selector(editViewController:updateWithUML:)]) {
-            [_delegate editViewController:self returnToCanvas:self.classNameTextField.text:self.componentToEdit];
+            [_delegate editViewController:self returnToEditCanvas:self.classNameTextField.text:self.componentToEdit];
         }
     }
 }

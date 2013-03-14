@@ -15,7 +15,7 @@
 
 - (void)editViewController:(EditComponentViewController *)vc updateWithUML:(NSString *)name;
 
-- (void)editViewController:(EditComponentViewController *)vc returnToCanvas:(NSString *)name:(UMLComponentView*)componentToEdit;
+- (void)editViewController:(EditComponentViewController *)vc returnToEditCanvas:(NSString *)name:(UMLComponentView*)componentToEdit;
 
 
 @end

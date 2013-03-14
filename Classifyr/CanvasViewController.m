@@ -135,7 +135,18 @@
     del = nil;
 }
 
-- (void)editViewController:(id)editViewController returnToCanvas:(NSString *)name:(UMLComponentView*)componentToEdit {
+- (void)editViewController:(id)editViewController returnToEditCanvas:(NSString *)name:(UMLComponentView*)componentToEdit {
+    //talk to server
+    
+    //remove old outdated box and place new one
+    self.addComponentView.hidden = YES;
+    UMLComponentView *uml = [UMLComponentView viewFromNib];
+    uml.center = componentToEdit.center;
+    uml.classNameLabel.text = name;
+    uml.delegate = self;
+    [componentToEdit removeFromSuperview];
+    [self.canvasView addSubview:uml];
+    
     [editViewController dismissViewControllerAnimated:true completion:nil];
     NSLog(@"ready to edit the given box %@ with the new name %@", componentToEdit, name);
     componentToEdit.name = @"UMLComponentView";
