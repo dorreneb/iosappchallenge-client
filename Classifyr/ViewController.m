@@ -19,14 +19,12 @@
     NSMutableArray *_messages;
 }
 
-@synthesize specNameField;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     
-    self.navigationController.navigationBarHidden = YES;
+    //self.navigationController.navigationBarHidden = YES;
     
     _web = [[ServerConnection alloc] init];
 }
@@ -42,11 +40,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)joinButtonPressed:(id)sender
-{
-    [self performSegueWithIdentifier:@"canvasSegue" sender:sender];
-}
-
 - (IBAction)getExistingSpecs:(id)sender {
     NSArray *sessions = [_web startConnection];
     NSLog(@"From view controller: %@", sessions);
@@ -58,16 +51,6 @@
 
 - (IBAction)createNewSpec:(id)sender {
     [self performSegueWithIdentifier:@"newSpecParams" sender:nil];
-}
-
-- (IBAction)generateSpec:(id)sender {
-    ServerConnection *newSpec = [[ServerConnection alloc] init];
-    NSString *newId = [newSpec startNewGraph:[specNameField text]];
-     
-     GraphListener *del = [GraphListener mainGraphListener];
-     [del openConnection:newId];
-     
-     [self performSegueWithIdentifier:@"loadNewSpec" sender:nil];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
