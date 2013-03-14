@@ -13,9 +13,9 @@
 
 @protocol EditComponentViewControllerDelegate <NSObject>
 
-- (void)editViewController:(EditComponentViewController *)vc updateWithUML:(NSString *)name;
+- (void)editViewController:(EditComponentViewController *)vc addComponentWithName:(NSString *)name;
 
-- (void)editViewController:(EditComponentViewController *)vc returnToEditCanvas:(NSString *)name:(UMLComponentView*)componentToEdit;
+- (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView*)componentToEdit withName:(NSString *)name;
 
 
 @end

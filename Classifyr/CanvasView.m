@@ -18,6 +18,7 @@
     if (self) {
         self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"grid.jpg"]];
         self.connections = [[NSMutableDictionary alloc] init];
+        self.components = [[NSMutableDictionary alloc] init];
         self.nextLocalId = @1;
     }
     return self;
@@ -38,7 +39,7 @@
     NSString *id = [self.nextLocalId stringValue];
     self.nextLocalId = @([self.nextLocalId intValue] + 1);
     
-    UMLConnection *connection = [self addConnectionWithId:id withStart:startComponent withEnd:endComponent];
+    UMLConnection *connection = [self addConnectionWithId:id withStart:startComponent.id withEnd:endComponent.id];
     
     // Send the new connection to the server
     NSString *message = [NSString stringWithFormat:@"{\"type\": \"create-connection\", \"body\": {\"from\": \"%@\", \"to\": \"%@\"}}", connection.startComponent.id, connection.endComponent.id];
@@ -47,16 +48,34 @@
     [server sendMessage:message];
 }
 
-- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(id)startComponent withEnd:(id)endComponent
+- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(NSString *)startId withEnd:(NSString *)endId
 {
     UMLConnection *connection = [[UMLConnection alloc] init];
-    connection.startComponent = startComponent;
-    connection.endComponent = endComponent;
     connection.id = id;
-    [connection calculatePath];
+    connection.startComponent = [_components objectForKey:startId];
+    connection.endComponent = [_components objectForKey:endId];
     
-    [self.connections setObject:connection forKey:connection.id];
+    // Calculate and save the connection
+    [connection calculatePath];
+    [_connections setObject:connection forKey:connection.id];
+    
     return connection;
+}
+
+- (void)createComponent:(UMLComponentView *)component
+{
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"%@\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", component.name, component.center.x, component.center.y];
+    
+    //send message to the server
+    GraphListener *del = [GraphListener mainGraphListener];
+    [del sendMessage:x];
+    del = nil;
+}
+
+- (void)addComponentWithId:(NSString *)id withComponent:(UMLComponentView *)component
+{
+    [self.components setObject:component forKey:id];
+    [self addSubview:component];
 }
 
 @end

@@ -16,8 +16,12 @@
 @property (strong, nonatomic) NSMutableDictionary *connections;
 @property (strong, nonatomic) NSNumber *nextLocalId;
 
-- (void)createConnectionWithStart:(UMLComponentView *)startComponent withEnd:(UMLComponentView *)endComponent;
+@property (strong, nonatomic) NSMutableDictionary *components;
 
-- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(UMLComponentView *)startComponent withEnd:(UMLComponentView *)endComponent;
+- (void)createConnectionWithStart:(UMLComponentView *)startComponent withEnd:(UMLComponentView *)endComponent;
+- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(NSString *)startId withEnd:(NSString *)endId;
+
+- (void)createComponent:(UMLComponentView *)component;
+- (void)addComponentWithId:(NSString *)id withComponent:(UMLComponentView *)component;
 
 @end

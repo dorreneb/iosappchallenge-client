@@ -55,4 +55,10 @@
     }
 }
 
+- (void)setName:(NSString *)value
+{
+    _name = value;
+    self.classNameLabel.text = value;
+}
+
 @end

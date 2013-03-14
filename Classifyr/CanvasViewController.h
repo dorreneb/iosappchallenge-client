@@ -25,7 +25,6 @@
 
 @property (nonatomic) BOOL connectMode;
 @property (weak, nonatomic) UMLComponentView *selectedComponent;
-@property (strong, nonatomic) NSMutableDictionary *components;
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)settingsButtonPressed:(id)sender;
@@ -34,7 +33,8 @@
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 - (IBAction)newClassTapped:(UIButton *)button;
 
-- (void)editViewController:(id)editViewController updateWithUML:(NSString *)name;
+- (void)editViewController:(EditComponentViewController *)vc addComponentWithName:(NSString *)name;
+- (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name;
 
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json;
 - (void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;
@@ -43,8 +43,5 @@
 - (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer;
 
 - (void)leaveConnectMode;
-
-
-- (void)editViewController:(id)editViewController returnToCanvas:(NSString *)name;
 
 @end

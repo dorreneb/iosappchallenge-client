@@ -29,7 +29,6 @@
     [super viewDidLoad];
     
     self.connectMode = NO;
-    self.components = [[NSMutableDictionary alloc] init];
     
     [[GraphListener mainGraphListener] setDelegate:self];
     
@@ -116,39 +115,35 @@
     [self performSegueWithIdentifier:@"editUMLSegue" sender:nil];
 }
 
-- (void)editViewController:(id)editViewController updateWithUML:(NSString *)name
+- (void)editViewController:(id)editViewController addComponentWithName:(NSString *)name
 {
     self.addComponentView.hidden = YES;
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = self.addComponentView.center;
-    uml.classNameLabel.text = name;
+    uml.name = name;
     uml.delegate = self;
     [self.canvasView addSubview:uml];
     
     [editViewController dismissViewControllerAnimated:true completion:nil];
     
-    NSString *x = [NSString stringWithFormat:@"{\"type\": \"create\", \"body\": {\"type\": \"box\", \"name\": \"%@\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", name, uml.center.x, uml.center.y];
-     
-    //send message to the server
-    GraphListener *del = [GraphListener mainGraphListener];
-    [del sendMessage:x];
-    del = nil;
+    [self.canvasView createComponent:uml];
 }
 
-- (void)editViewController:(id)editViewController returnToEditCanvas:(NSString *)name:(UMLComponentView*)componentToEdit {
+- (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name
+{
     //talk to server
     
     
     //remove old outdated box and place new one
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = componentToEdit.center;
-    uml.classNameLabel.text = name;
+    uml.name = name;
     uml.delegate = self;
     [componentToEdit removeFromSuperview];
     [self.canvasView addSubview:uml];
     
     //transition back to canvas
-    [editViewController dismissViewControllerAnimated:true completion:nil];
+    [vc dismissViewControllerAnimated:true completion:nil];
 }
 
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json
@@ -163,9 +158,9 @@
             if ([type isEqual:@"box"]) {
                 UMLComponentView *uml = [UMLComponentView viewFromNib];
                 uml.center = self.addComponentView.center;
-                uml.classNameLabel.text = [item objectForKey:@"name"];
-                uml.id = [item objectForKey:@"id"];
-                NSLog(@"box id: %@", uml.id);
+                uml.name = [item objectForKey:@"name"];
+                NSString *id = [item objectForKey:@"id"];
+                uml.id = id;
                 uml.delegate = self;
                 
                 NSDictionary *location = [item objectForKey:@"location"];
@@ -173,13 +168,13 @@
                 NSNumber *y = [location objectForKey:@"y"];
                 uml.center = CGPointMake([x floatValue], [y floatValue]);
             
-                [self addComponent:uml];
+                [self.canvasView addComponentWithId:id withComponent:uml];
             } else if ([type isEqual:@"connection"]) {
-                UMLComponentView *startComponent = [self.components objectForKey:[item objectForKey:@"from"]];
-                UMLComponentView *endComponent = [self.components objectForKey:[item objectForKey:@"to"]];
-                NSString *id = [item objectForKey:@"id"];
+                NSString *connectionId = [item objectForKey:@"id"];
+                NSString *startId = [item objectForKey:@"from"];
+                NSString *endId = [item objectForKey:@"to"];
                 
-                [self.canvasView addConnectionWithId:id withStart:startComponent withEnd:endComponent];
+                [self.canvasView addConnectionWithId:connectionId withStart:startId withEnd:endId];
             }
         }
         
@@ -193,9 +188,10 @@
     
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = self.addComponentView.center;
-    uml.classNameLabel.text = [item objectForKey:@"name"];
-    uml.id = [item objectForKey:@"id"];
-    NSLog(@"box id: %@", uml.id);
+    uml.name = [item objectForKey:@"name"];
+    
+    NSString *id = [item objectForKey:@"id"];
+    uml.id = id;
     uml.delegate = self;
     
     NSDictionary *location = [item objectForKey:@"location"];
@@ -203,18 +199,19 @@
     NSNumber *y = [location objectForKey:@"y"];
     uml.center = CGPointMake([x floatValue], [y floatValue]);
     
-    [self addComponent:uml];
+    [self.canvasView addComponentWithId:id withComponent:uml];
 }
 
 - (void)graphListener:(GraphListener *)gl addConnectionWithJson:(id)json
 {
     NSDictionary *item = (NSDictionary *)json;
     
-    UMLComponentView *startComponent = [self.components objectForKey:[item objectForKey:@"from"]];
-    UMLComponentView *endComponent = [self.components objectForKey:[item objectForKey:@"to"]];
-    NSString *id = [item objectForKey:@"id"];
+    NSString *connectionId = [item objectForKey:@"id"];
+    NSString *startId = [item objectForKey:@"from"];
+    NSString *endId = [item objectForKey:@"to"];
     
-    [self.canvasView addConnectionWithId:id withStart:startComponent withEnd:endComponent];
+    
+    [self.canvasView addConnectionWithId:connectionId withStart:startId withEnd:endId];
     
     [self.canvasView setNeedsDisplay];
 }
@@ -238,12 +235,6 @@
         [self performSegueWithIdentifier:@"editUMLSegue" sender:component];
         
     }
-}
-
-- (void)addComponent:(UMLComponentView *)component
-{
-    [self.components setObject:component forKey:component.id];
-    [self.canvasView addSubview:component];
 }
 
 - (void)leaveConnectMode

@@ -39,12 +39,12 @@
 {
     //if add
     if (_componentToEdit == nil) {
-        if ([_delegate respondsToSelector:@selector(editViewController:updateWithUML:)]) {
-            [_delegate editViewController:self updateWithUML:self.classNameTextField.text];
+        if ([_delegate respondsToSelector:@selector(editViewController:addComponentWithName:)]) {
+            [_delegate editViewController:self addComponentWithName:self.classNameTextField.text];
         }
     } else { //if edit
-        if ([_delegate respondsToSelector:@selector(editViewController:updateWithUML:)]) {
-            [_delegate editViewController:self returnToEditCanvas:self.classNameTextField.text:self.componentToEdit];
+        if ([_delegate respondsToSelector:@selector(editViewController:updateComponent:withName:)]) {
+            [_delegate editViewController:self updateComponent:self.componentToEdit withName:self.classNameTextField.text];
         }
     }
 }
