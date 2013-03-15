@@ -19,5 +19,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *classNameTextField;
 
 - (IBAction)backButtonPressed:(id)sender;
+- (IBAction)closeKeyboardOnTouch:(id)sender;
 
 @end

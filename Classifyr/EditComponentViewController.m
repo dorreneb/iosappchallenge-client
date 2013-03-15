@@ -48,4 +48,8 @@
         }
     }
 }
+
+- (IBAction)closeKeyboardOnTouch:(id)sender {
+    [self.view endEditing:YES];
+}
 @end

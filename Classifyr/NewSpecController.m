@@ -55,4 +55,7 @@
     [self performSegueWithIdentifier:@"loadNewSpec" sender:nil];
 }
 
+- (IBAction)closeKeyboardOnTouch:(id)sender {
+    [self.view endEditing:YES];
+}
 @end
