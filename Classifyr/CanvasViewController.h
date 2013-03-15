@@ -23,12 +23,14 @@
 @property (strong, nonatomic) IBOutlet CanvasView *canvasView;
 @property (strong, nonatomic) IBOutlet UIView *addComponentView;
 @property (weak, nonatomic) UMLComponentView *selectedComponent;
+@property (weak, nonatomic) UMLComponentView *componentToMove;
 
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 - (IBAction)newClassTapped:(UIButton *)button;
 
 - (void)boardViewController:(BoardViewController *)vc connectModeToggled:(BOOL)mode;
+- (void)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset;
 
 - (void)editViewController:(EditComponentViewController *)vc addComponentWithName:(NSString *)name;
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name;
@@ -37,7 +39,9 @@
 - (void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;
 - (void)graphListener:(GraphListener *)gl addConnectionWithJson:(id)json;
 
-- (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer;
+- (void)umlComponent:(UMLComponentView *)component selected:(UIGestureRecognizer *)recognizer;
 
+- (void)umlComponent:(UMLComponentView *)component moveStarted:(UIGestureRecognizer *)recognizer;
+- (void)umlComponent:(UMLComponentView *)component moveEnded:(UIGestureRecognizer *)recognizer;
 
 @end

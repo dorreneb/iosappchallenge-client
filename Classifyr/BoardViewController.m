@@ -22,6 +22,7 @@
     [super viewDidLoad];
     
     self.connectMode = NO;
+    self.moveMode = NO;
     self.view.backgroundColor = [UIColor darkGrayColor];
     
     if (self.storyboard) {
@@ -43,6 +44,8 @@
         self.scrollView.clipsToBounds = YES;
         self.scrollView.scrollEnabled = YES;
         self.scrollView.delegate = self;
+        
+        // Set up tilt scrolling
         
         // Display the canvas
         [self.scrollView addSubview:self.canvasView];
@@ -67,6 +70,7 @@
 
 - (IBAction)settingsButtonPressed:(id)sender
 {
+    
 }
 
 - (IBAction)connectButtonPressed:(id)sender
@@ -80,6 +84,61 @@
     if ([_delegate respondsToSelector:@selector(boardViewController:connectModeToggled:)]) {
         [_delegate boardViewController:self connectModeToggled:value];
     }
+}
+
+- (CMMotionManager *)motionManager
+{
+    CMMotionManager *motionManager = nil;
+    
+    id appDelegate = [UIApplication sharedApplication].delegate;
+    if ([appDelegate respondsToSelector:@selector(motionManager)]) {
+        motionManager = [appDelegate motionManager];
+    }
+    
+    return motionManager;
+}
+
+- (void)startTiltScrolling
+{
+    self.moveMode = YES;
+    self.scrollView.scrollEnabled = NO;
+    
+    [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler: ^(CMDeviceMotion *motionData, NSError *error) {
+        //NSLog(@"motion data:  roll:  %f  pitch:  %f  yaw:  %f", motionData.attitude.roll, motionData.attitude.pitch, motionData.attitude.yaw);
+        
+        BOOL changed = NO;
+        CGPoint offset = CGPointZero;
+        
+        if (fabs(motionData.attitude.roll) > 0.05) {
+            changed = YES;
+            offset.x += (motionData.attitude.roll * 10.0f);
+        }
+        
+        if (fabs(motionData.attitude.pitch - 0.22) > 0.05) {
+            changed = YES;
+            offset.y += ((motionData.attitude.pitch - 0.22) * 10.0f);
+        }
+        
+        if (changed == YES) {
+            CGPoint scrollLocation = self.scrollView.contentOffset;
+            scrollLocation.x += offset.x;
+            scrollLocation.y += offset.y;
+            
+            [self.scrollView setContentOffset:(scrollLocation) animated:NO];
+            
+            if ([_delegate respondsToSelector:@selector(boardViewController:canvasDidScrollWithOffset:)]) {
+                [_delegate boardViewController:self canvasDidScrollWithOffset:offset];
+            }
+        }
+    }];
+}
+
+- (void)stopTiltScrolling
+{
+    self.moveMode = NO;
+    self.scrollView.scrollEnabled = YES;
+    
+    [self.motionManager stopDeviceMotionUpdates];
 }
 
 @end
