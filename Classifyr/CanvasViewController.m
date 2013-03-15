@@ -88,8 +88,6 @@
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = self.addComponentView.center;
     uml.name = name;
-    uml.delegate = self;
-    [self.canvasView addSubview:uml];
     
     [editViewController dismissViewControllerAnimated:true completion:nil];
     
@@ -240,7 +238,32 @@
     
     //transition back to canvas
     //[UIViewController dismissViewControllerAnimated:true completion:nil];
+}
     
+- (void)umlComponent:(UMLComponentView *)component moveStarted:(UIGestureRecognizer *)recognizer
+{
+    self.componentToMove = component;
+    self.componentToMove.selected = YES;
+    [self.componentToMove setNeedsDisplay];
+    [self.boardViewController startTiltScrolling];
+}
+
+- (void)umlComponent:(UMLComponentView *)component moveEnded:(UIGestureRecognizer *)recognizer
+{
+    [self.boardViewController stopTiltScrolling];
+    self.componentToMove.selected = NO;
+    [self.componentToMove setNeedsDisplay];
+    self.componentToMove = nil;
+}
+
+- (void)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset
+{
+    if (self.componentToMove != nil) {
+        CGPoint location = self.componentToMove.center;
+        location.x += offset.x;
+        location.y += offset.y;
+        self.componentToMove.center = location;
+    }
 }
 
 

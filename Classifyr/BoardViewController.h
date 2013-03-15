@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreMotion/CoreMotion.h>
 
 #import "BoardViewControllerDelegate.h"
 
 
 @interface BoardViewController : UIViewController <UIScrollViewDelegate>
 
+@property (readonly) CMMotionManager *motionManager;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UILabel *helpLabel;
@@ -20,6 +22,7 @@
 @property (weak, nonatomic) UIView *canvasView;
 
 @property (nonatomic) BOOL connectMode;
+@property (nonatomic) BOOL moveMode;
 @property (weak, nonatomic) id<BoardViewControllerDelegate> delegate;
 
 
@@ -27,5 +30,9 @@
 - (IBAction)settingsButtonPressed:(id)sender;
 - (IBAction)connectButtonPressed:(id)sender;
 
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
+
+- (void)startTiltScrolling;
+- (void)stopTiltScrolling;
 
 @end

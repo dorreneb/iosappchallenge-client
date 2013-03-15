@@ -37,6 +37,7 @@
 		5854E71C16EAD0E300068C59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E71B16EAD0E300068C59 /* ViewController.m */; };
 		5854E72416EB9A3400068C59 /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E72316EB9A3300068C59 /* BoardViewController.m */; };
 		58701CB116F222F60020D896 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58701CB016F222F60020D896 /* CanvasViewController.m */; };
+		58701CB416F26D4A0020D896 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58701CB316F26D4A0020D896 /* CoreMotion.framework */; };
 		5876387B16EF974B00C3C659 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5876387416EF974B00C3C659 /* loading.gif */; };
 		5876387C16EF974B00C3C659 /* UMLComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5876387616EF974B00C3C659 /* UMLComponentView.m */; };
 		5876387D16EF974B00C3C659 /* UMLComponentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5876387716EF974B00C3C659 /* UMLComponentView.xib */; };
@@ -96,6 +97,7 @@
 		58701CAF16F222F60020D896 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
 		58701CB016F222F60020D896 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 		58701CB216F250AD0020D896 /* BoardViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardViewControllerDelegate.h; sourceTree = "<group>"; };
+		58701CB316F26D4A0020D896 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		5876387416EF974B00C3C659 /* loading.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading.gif; sourceTree = "<group>"; };
 		5876387516EF974B00C3C659 /* UMLComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMLComponentView.h; sourceTree = "<group>"; };
 		5876387616EF974B00C3C659 /* UMLComponentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UMLComponentView.m; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58701CB416F26D4A0020D896 /* CoreMotion.framework in Frameworks */,
 				53C8818816EC0A6E007098C9 /* libicucore.dylib in Frameworks */,
 				53C8818616EC0A5C007098C9 /* Security.framework in Frameworks */,
 				53C8818416EC0A52007098C9 /* CFNetwork.framework in Frameworks */,
@@ -147,8 +150,6 @@
 				5876388E16F01AE500C3C659 /* grid.jpg */,
 				53C8818916EC0B51007098C9 /* SocketRocket */,
 				53C8818716EC0A6E007098C9 /* libicucore.dylib */,
-				53C8818516EC0A5C007098C9 /* Security.framework */,
-				53C8818316EC0A52007098C9 /* CFNetwork.framework */,
 				5854E70216EAD0E300068C59 /* Classifyr */,
 				5854E6FB16EAD0E300068C59 /* Frameworks */,
 				5854E6FA16EAD0E300068C59 /* Products */,
@@ -166,6 +167,9 @@
 		5854E6FB16EAD0E300068C59 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				53C8818516EC0A5C007098C9 /* Security.framework */,
+				53C8818316EC0A52007098C9 /* CFNetwork.framework */,
+				58701CB316F26D4A0020D896 /* CoreMotion.framework */,
 				5854E6FC16EAD0E300068C59 /* UIKit.framework */,
 				5854E6FE16EAD0E300068C59 /* Foundation.framework */,
 				5854E70016EAD0E300068C59 /* CoreGraphics.framework */,

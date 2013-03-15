@@ -14,4 +14,7 @@
 
 - (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer;
 
+- (void)umlComponent:(UMLComponentView *)component moveStarted:(UIGestureRecognizer *)recognizer;
+- (void)umlComponent:(UMLComponentView *)component moveEnded:(UIGestureRecognizer *)recognizer;
+
 @end
