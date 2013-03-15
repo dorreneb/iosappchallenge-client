@@ -226,13 +226,16 @@
 
 - (void)umlComponent:(UMLComponentView *)component moveStarted:(UIGestureRecognizer *)recognizer
 {
-    // Create a copy of the component just for moving, disable the real one
-    self.componentToMove = component.copy;
-    component.backgroundColor = [UIColor lightGrayColor];
+    // Create a copy of the component just for moving
+    self.componentToMove = [UMLComponentView viewFromNib];
+    self.componentToMove.center = component.center;
+    self.componentToMove.name = component.name;
     self.componentToMove.selected = YES;
-    
-    [component setNeedsDisplay];
     [self.canvasView addSubview:self.componentToMove];
+    
+    // Mark the ghost (real) component view as disabled
+    component.backgroundColor = [UIColor lightGrayColor];
+    [component setNeedsDisplay];
     
     // Enable tilt scrolling
     [self.boardViewController startTiltScrolling];
@@ -249,6 +252,7 @@
     // Remove the temporary component
     [self.componentToMove removeFromSuperview];
     self.componentToMove = nil;
+    [self.canvasView setNeedsDisplay];
 }
 
 - (void)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset
