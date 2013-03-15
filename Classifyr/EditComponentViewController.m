@@ -23,10 +23,20 @@
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    //new view - grey out delete button
+    if (_componentToEdit == nil) {
+        [_deleteButton setAlpha:0.46f];
+        [_deleteButton setBackgroundColor:[UIColor grayColor]];
+        [_deleteButton setEnabled:NO];
+        
+    } else { //new - enable delete button, put name in box
+        UIColor *myColor = [UIColor colorWithRed:(217.0 / 255.0) green:(133.0 / 255.0) blue:(87.0 / 255.0) alpha: 1];
+        _deleteButton.backgroundColor = myColor;
+        [_deleteButton setEnabled:YES];
+        _classNameTextField.text = [_componentToEdit name];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,5 +61,8 @@
 
 - (IBAction)closeKeyboardOnTouch:(id)sender {
     [self.view endEditing:YES];
+}
+
+- (IBAction)deleteClass:(id)sender {
 }
 @end
