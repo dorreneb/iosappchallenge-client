@@ -271,15 +271,24 @@
     [self.canvasView setNeedsDisplay];
 }
 
-- (void)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset
+- (BOOL)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset
 {
     if (self.componentToMove != nil) {
-        CGPoint location = self.componentToMove.center;
-        location.x += offset.x;
-        location.y += offset.y;
-        self.componentToMove.center = location;
+        CGRect frame = self.componentToMove.frame;
+        frame.origin.x += offset.x;
+        frame.origin.y += offset.y;
+        
+        CGRect bounds = CGRectMake(0.0f, 0.0f, self.boardViewController.scrollView.contentSize.width, self.boardViewController.scrollView.contentSize.height);
+        
+        BOOL doScroll = CGRectContainsRect(bounds, frame);
+        if (doScroll) {
+            self.componentToMove.frame = frame;
+        }
+        
+        return doScroll;
     }
+    
+    return NO;
 }
-
 
 @end

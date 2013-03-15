@@ -30,7 +30,7 @@
 - (IBAction)newClassTapped:(UIButton *)button;
 
 - (void)boardViewController:(BoardViewController *)vc connectModeToggled:(BOOL)mode;
-- (void)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset;
+- (BOOL)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset;
 
 - (void)editViewController:(EditComponentViewController *)vc addComponentWithName:(NSString *)name;
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name;

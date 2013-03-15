@@ -14,6 +14,6 @@
 
 - (void)boardViewController:(BoardViewController *)vc connectModeToggled:(BOOL)mode;
 
-- (void)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset;
+- (BOOL)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset;
 
 @end

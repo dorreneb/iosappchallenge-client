@@ -120,14 +120,16 @@
         }
         
         if (changed == YES) {
-            CGPoint scrollLocation = self.scrollView.contentOffset;
-            scrollLocation.x += offset.x;
-            scrollLocation.y += offset.y;
-            
-            [self.scrollView setContentOffset:(scrollLocation) animated:NO];
-            
             if ([_delegate respondsToSelector:@selector(boardViewController:canvasDidScrollWithOffset:)]) {
-                [_delegate boardViewController:self canvasDidScrollWithOffset:offset];
+                BOOL doScroll = [_delegate boardViewController:self canvasDidScrollWithOffset:offset];
+                if (doScroll) {
+                    CGPoint location = self.scrollView.contentOffset;
+                    location.x += offset.x;
+                    location.y += offset.y;
+                    
+                    [self.scrollView setContentOffset:(location) animated:NO];
+                }
+
             }
         }
     }];
