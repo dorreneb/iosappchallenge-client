@@ -28,4 +28,6 @@
 
 - (UMLConnection *)connectionSelected:(CGPoint)touchLocation;
 
+- (void)recalculateConnections;
+
 @end

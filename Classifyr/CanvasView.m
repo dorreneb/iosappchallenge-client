@@ -119,4 +119,13 @@
     return nil;
 }
 
+- (void)recalculateConnections
+{
+    for (UMLConnection *connection in self.connections.allValues) {
+        [connection calculatePath];
+    }
+    
+    [self setNeedsDisplay];
+}
+
 @end

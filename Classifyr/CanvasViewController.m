@@ -264,6 +264,8 @@
     NSNumber *y = [location objectForKey:@"y"];
     
     componentToMove.center = CGPointMake([x floatValue], [y floatValue]);
+    
+    [self.canvasView recalculateConnections];
 }
 
 - (void)graphListener:(GraphListener *)gl deleteClass :(id)json
