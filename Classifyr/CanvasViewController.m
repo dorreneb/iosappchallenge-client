@@ -226,17 +226,28 @@
 
 - (void)umlComponent:(UMLComponentView *)component moveStarted:(UIGestureRecognizer *)recognizer
 {
-    self.componentToMove = component;
+    // Create a copy of the component just for moving, disable the real one
+    self.componentToMove = component.copy;
+    component.backgroundColor = [UIColor lightGrayColor];
     self.componentToMove.selected = YES;
-    [self.componentToMove setNeedsDisplay];
+    
+    [component setNeedsDisplay];
+    [self.canvasView addSubview:self.componentToMove];
+    
+    // Enable tilt scrolling
     [self.boardViewController startTiltScrolling];
 }
 
 - (void)umlComponent:(UMLComponentView *)component moveEnded:(UIGestureRecognizer *)recognizer
 {
     [self.boardViewController stopTiltScrolling];
-    self.componentToMove.selected = NO;
-    [self.componentToMove setNeedsDisplay];
+    
+    // Re-enable the disabled component, move it to the destination
+    component.center = self.componentToMove.center;
+    component.backgroundColor = [UIColor whiteColor];
+    
+    // Remove the temporary component
+    [self.componentToMove removeFromSuperview];
     self.componentToMove = nil;
 }
 
