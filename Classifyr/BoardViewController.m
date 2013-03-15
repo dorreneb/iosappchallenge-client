@@ -104,19 +104,19 @@
     self.scrollView.scrollEnabled = NO;
     
     [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler: ^(CMDeviceMotion *motionData, NSError *error) {
-        //NSLog(@"motion data:  roll:  %f  pitch:  %f  yaw:  %f", motionData.attitude.roll, motionData.attitude.pitch, motionData.attitude.yaw);
+        //NSLog(@"motion data:  x:  %f  y:  %f  z:  %f", motionData.gravity.x, motionData.gravity.y, motionData.gravity.z);
         
         BOOL changed = NO;
         CGPoint offset = CGPointZero;
         
-        if (fabs(motionData.attitude.roll) > 0.05) {
+        if (fabs(motionData.gravity.x) > 0.05) {
             changed = YES;
-            offset.x += (motionData.attitude.roll * 10.0f);
+            offset.x += (motionData.gravity.x * 7.0f);
         }
         
-        if (fabs(motionData.attitude.pitch - 0.22) > 0.05) {
+        if (fabs(motionData.gravity.y + 0.15) > 0.05) {
             changed = YES;
-            offset.y += ((motionData.attitude.pitch - 0.22) * 10.0f);
+            offset.y -= ((motionData.gravity.y + 0.15) * 7.0f);
         }
         
         if (changed == YES) {
