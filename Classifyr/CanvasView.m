@@ -36,13 +36,8 @@
 
 - (void)createConnectionWithStart:(UMLComponentView *)startComponent withEnd:(UMLComponentView *)endComponent
 {
-    NSString *id = [self.nextLocalId stringValue];
-    self.nextLocalId = @([self.nextLocalId intValue] + 1);
-    
-    UMLConnection *connection = [self addConnectionWithId:id withStart:startComponent.id withEnd:endComponent.id];
-    
     // Send the new connection to the server
-    NSString *message = [NSString stringWithFormat:@"{\"type\": \"create-connection\", \"body\": {\"from\": \"%@\", \"to\": \"%@\"}}", connection.startComponent.id, connection.endComponent.id];
+    NSString *message = [NSString stringWithFormat:@"{\"type\": \"create-connection\", \"body\": {\"from\": \"%@\", \"to\": \"%@\"}}", startComponent.id, endComponent.id];
     
     GraphListener *server = [GraphListener mainGraphListener];
     [server sendMessage:message];
