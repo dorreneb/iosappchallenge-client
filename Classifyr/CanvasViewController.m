@@ -88,8 +88,6 @@
     UMLComponentView *uml = [UMLComponentView viewFromNib];
     uml.center = self.addComponentView.center;
     uml.name = name;
-    uml.delegate = self;
-    [self.canvasView addSubview:uml];
     
     [editViewController dismissViewControllerAnimated:true completion:nil];
     
