@@ -97,6 +97,7 @@
 		5854E72316EB9A3300068C59 /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		58577D9716F39F2E003D7CA7 /* EditConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditConnectionViewController.h; sourceTree = "<group>"; };
 		58577D9816F39F2E003D7CA7 /* EditConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditConnectionViewController.m; sourceTree = "<group>"; };
+		58577D9A16F3A1BD003D7CA7 /* EditConnectionViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditConnectionViewControllerDelegate.h; sourceTree = "<group>"; };
 		58701CAF16F222F60020D896 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
 		58701CB016F222F60020D896 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 		58701CB216F250AD0020D896 /* BoardViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardViewControllerDelegate.h; sourceTree = "<group>"; };
@@ -225,6 +226,7 @@
 				530D8F5F16F1480600DDA5D2 /* NewSpecController.m */,
 				58577D9716F39F2E003D7CA7 /* EditConnectionViewController.h */,
 				58577D9816F39F2E003D7CA7 /* EditConnectionViewController.m */,
+				58577D9A16F3A1BD003D7CA7 /* EditConnectionViewControllerDelegate.h */,
 			);
 			path = Classifyr;
 			sourceTree = "<group>";

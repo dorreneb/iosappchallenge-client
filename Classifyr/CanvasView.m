@@ -88,6 +88,16 @@
     del = nil;
 }
 
+- (void)deleteConnection:(UMLConnection *)connection
+{
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"delete-connection\", \"id\": \"%@\"}", connection.id];
+    
+    //send message to the server
+    GraphListener *del = [GraphListener mainGraphListener];
+    [del sendMessage:x];
+    del = nil;
+}
+
 - (UMLConnection *)connectionSelected:(CGPoint)touchLocation
 {
     CGContextRef cgContext = CGBitmapContextCreate(nil, self.frame.size.width, self.frame.size.height, 8, 4 * self.frame.size.width, CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedLast);

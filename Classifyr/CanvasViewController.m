@@ -9,6 +9,7 @@
 #import "BoardViewController.h"
 #import "CanvasView.h"
 #import "EditComponentViewController.h"
+#import "EditConnectionViewController.h"
 #import "GraphListener.h"
 #import "UMLConnection.h"
 
@@ -51,7 +52,8 @@
         //and that editing takes a component
         ((EditComponentViewController *)(segue.destinationViewController)).componentToEdit = sender;
     } else if ([segue.identifier isEqualToString:@"editConnectionSegue"]) {
-        
+        ((EditConnectionViewController *)(segue.destinationViewController)).connectionToEdit = sender;
+        ((EditConnectionViewController *)(segue.destinationViewController)).delegate = self;
     }
 }
 
@@ -65,8 +67,7 @@
             UMLConnection *connectionTapped = [self.canvasView connectionSelected:location];
         
             if (connectionTapped != nil) {
-                NSLog(@"connection selected: %@", connectionTapped.id);
-                [self performSegueWithIdentifier:@"editConnectionSegue" sender:nil];
+                [self performSegueWithIdentifier:@"editConnectionSegue" sender:connectionTapped];
             } else {
                 self.addComponentView.center = location;
                 self.addComponentView.hidden = NO;
@@ -131,6 +132,11 @@
     
     //transition back to canvas
     [vc dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)editViewController:(EditConnectionViewController *)vc deleteConnection:(UMLConnection *)connection
+{
+    [self.canvasView deleteConnection:connection];
 }
 
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json
@@ -218,6 +224,12 @@
     
     [self.canvasView addComponentWithId:classId withComponent:box];
     
+    [self.canvasView setNeedsDisplay];
+}
+
+- (void)graphListener:(GraphListener *)gl deleteConnection:(NSString *)id
+{
+    [self.canvasView.connections removeObjectForKey:id];
     [self.canvasView setNeedsDisplay];
 }
 

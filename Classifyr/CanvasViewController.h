@@ -10,6 +10,7 @@
 
 #import "BoardViewControllerDelegate.h"
 #import "EditComponentViewControllerDelegate.h"
+#import "EditConnectionViewControllerDelegate.h"
 #import "GraphListenerDelegate.h"
 #import "UMLComponentDelegate.h"
 
@@ -17,7 +18,7 @@
 @class UMLAddView;
 
 
-@interface CanvasViewController : UIViewController<BoardViewControllerDelegate, EditComponentViewControllerDelegate, GraphListenerDelegate, UMLComponentDelegate>
+@interface CanvasViewController : UIViewController<BoardViewControllerDelegate, EditComponentViewControllerDelegate, EditConnectionViewControllerDelegate, GraphListenerDelegate, UMLComponentDelegate>
 
 @property (weak, nonatomic) BoardViewController *boardViewController;
 @property (strong, nonatomic) IBOutlet CanvasView *canvasView;
@@ -35,11 +36,14 @@
 - (void)editViewController:(EditComponentViewController *)vc addComponentWithName:(NSString *)name;
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name;
 
+- (void)editViewController:(EditConnectionViewController *)vc deleteConnection:(UMLConnection *)connection;
+
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json;
 - (void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;
 - (void)graphListener:(GraphListener *)gl addConnectionWithJson:(id)json;
 - (void)graphListener:(GraphListener *)gl componentMoved:(id)json;
 - (void)graphListener:(GraphListener *)gl deleteClass:(id)json;
+- (void)graphListener:(GraphListener *)gl deleteConnection:(NSString *)id;
 
 - (void)umlComponent:(UMLComponentView *)component selected:(UIGestureRecognizer *)recognizer;
 

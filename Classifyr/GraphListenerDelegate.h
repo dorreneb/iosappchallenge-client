@@ -18,6 +18,6 @@
 -(void)graphListener:(GraphListener *)gl updateClass:(id)json;
 -(void)graphListener:(GraphListener *)gl componentMoved:(id)json;
 -(void)graphListener:(GraphListener *)gl deleteClass:(id)json;
-
+-(void)graphListener:(GraphListener *)gl deleteConnection:(NSString *)id;
 
 @end

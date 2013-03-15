@@ -24,6 +24,7 @@
 - (void)createComponent:(UMLComponentView *)component;
 - (void)addComponentWithId:(NSString *)id withComponent:(UMLComponentView *)component;
 - (void)moveComponent:(UMLComponentView *)component withPoint:(CGPoint)point;
+- (void)deleteConnection:(UMLConnection *)connection;
 
 - (UMLConnection *)connectionSelected:(CGPoint)touchLocation;
 

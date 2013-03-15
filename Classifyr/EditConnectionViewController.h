@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "EditConnectionViewControllerDelegate.h"
+
 @interface EditConnectionViewController : UIViewController
+
+@property(weak, nonatomic) id<EditConnectionViewControllerDelegate> delegate;
+
+@property(weak, nonatomic) UMLConnection *connectionToEdit;
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)deleteConnectionPressed:(id)sender;

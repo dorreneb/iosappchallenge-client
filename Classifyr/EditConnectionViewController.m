@@ -38,7 +38,10 @@
 
 - (IBAction)deleteConnectionPressed:(id)sender
 {
-    
+    if (self.connectionToEdit != nil && [_delegate respondsToSelector:@selector(editViewController:deleteConnection:)]) {
+        [_delegate editViewController:self deleteConnection:self.connectionToEdit];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

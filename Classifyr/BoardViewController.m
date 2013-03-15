@@ -66,6 +66,10 @@
 - (IBAction)backButtonPressed:(id)sender
 {
     [self dismissViewControllerAnimated:true completion:nil];
+    
+    // Close the server connection
+    GraphListener *del = [GraphListener mainGraphListener];
+    [del closeConnection];
 }
 
 - (IBAction)settingsButtonPressed:(id)sender
