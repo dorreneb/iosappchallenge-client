@@ -29,7 +29,7 @@
     [[UIColor blackColor] setStroke];
     
     // Draw all the bezier paths
-    for (UMLConnection *connection in [self.connections allValues]) {
+    for (UMLConnection *connection in [self.connections allValues]) {        
         [connection.path stroke];
     }
 }
