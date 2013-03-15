@@ -22,8 +22,8 @@
     [super viewDidLoad];
     
     self.connectMode = NO;
+    self.moveMode = NO;
     self.view.backgroundColor = [UIColor darkGrayColor];
-    self.tiltScrollEnabled = NO;
     
     if (self.storyboard) {
         // Add the canvas view controller as a child view controller
@@ -70,11 +70,7 @@
 
 - (IBAction)settingsButtonPressed:(id)sender
 {
-    if (self.tiltScrollEnabled == YES) {
-        [self stopTiltScrolling];
-    } else {
-        [self startTiltScrolling];
-    }
+    
 }
 
 - (IBAction)connectButtonPressed:(id)sender
@@ -104,22 +100,23 @@
 
 - (void)startTiltScrolling
 {
-    //NSTimeInterval updateRate = 0.05;
-    //[self.motionManager setDeviceMotionUpdateInterval:updateRate];
+    self.moveMode = YES;
+    self.scrollView.scrollEnabled = NO;
+    
     [self.motionManager startDeviceMotionUpdatesToQueue:[NSOperationQueue mainQueue] withHandler: ^(CMDeviceMotion *motionData, NSError *error) {
         //NSLog(@"motion data:  roll:  %f  pitch:  %f  yaw:  %f", motionData.attitude.roll, motionData.attitude.pitch, motionData.attitude.yaw);
         
         BOOL changed = NO;
         CGPoint offset = CGPointZero;
         
-        if (fabs(motionData.attitude.roll) > 0.15) {
+        if (fabs(motionData.attitude.roll) > 0.05) {
             changed = YES;
-            offset.x += (motionData.attitude.roll * 6.5f);
+            offset.x += (motionData.attitude.roll * 10.0f);
         }
         
-        if (fabs(motionData.attitude.pitch - 0.22) > 0.15) {
+        if (fabs(motionData.attitude.pitch - 0.22) > 0.05) {
             changed = YES;
-            offset.y += ((motionData.attitude.pitch - 0.22) * 6.5f);
+            offset.y += ((motionData.attitude.pitch - 0.22) * 10.0f);
         }
         
         if (changed == YES) {
@@ -138,6 +135,9 @@
 
 - (void)stopTiltScrolling
 {
+    self.moveMode = NO;
+    self.scrollView.scrollEnabled = YES;
+    
     [self.motionManager stopDeviceMotionUpdates];
 }
 

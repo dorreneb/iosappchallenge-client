@@ -204,14 +204,29 @@
     }
 }
 
+- (void)umlComponent:(UMLComponentView *)component moveStarted:(UIGestureRecognizer *)recognizer
+{
+    self.componentToMove = component;
+    self.componentToMove.selected = YES;
+    [self.componentToMove setNeedsDisplay];
+    [self.boardViewController startTiltScrolling];
+}
+
+- (void)umlComponent:(UMLComponentView *)component moveEnded:(UIGestureRecognizer *)recognizer
+{
+    [self.boardViewController stopTiltScrolling];
+    self.componentToMove.selected = NO;
+    [self.componentToMove setNeedsDisplay];
+    self.componentToMove = nil;
+}
+
 - (void)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset
 {
-    if (self.selectedComponent != nil) {
-        CGPoint location = self.selectedComponent.center;
+    if (self.componentToMove != nil) {
+        CGPoint location = self.componentToMove.center;
         location.x += offset.x;
         location.y += offset.y;
-        self.selectedComponent.center = location;
-        //[self.canvasView setNeedsDisplay];
+        self.componentToMove.center = location;
     }
 }
 

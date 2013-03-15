@@ -23,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet CanvasView *canvasView;
 @property (strong, nonatomic) IBOutlet UIView *addComponentView;
 @property (weak, nonatomic) UMLComponentView *selectedComponent;
+@property (weak, nonatomic) UMLComponentView *componentToMove;
 
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
@@ -38,7 +39,9 @@
 - (void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;
 - (void)graphListener:(GraphListener *)gl addConnectionWithJson:(id)json;
 
-- (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer;
+- (void)umlComponent:(UMLComponentView *)component selected:(UIGestureRecognizer *)recognizer;
 
+- (void)umlComponent:(UMLComponentView *)component moveStarted:(UIGestureRecognizer *)recognizer;
+- (void)umlComponent:(UMLComponentView *)component moveEnded:(UIGestureRecognizer *)recognizer;
 
 @end
