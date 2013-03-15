@@ -95,7 +95,7 @@
 
 - (UMLConnection *)connectionSelected:(CGPoint)touchLocation
 {
-    CGContextRef cgContext = CGBitmapContextCreate(nil, self.frame.size.width, self.frame.size.height, 8, 4 * self.frame.size.width, CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedLast);
+    CGContextRef cgContext = CGBitmapContextCreate(nil, (int)self.frame.size.width, (int)self.bounds.size.height, 8, 4 * (int)self.frame.size.width, CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedLast);
     
     // Check each connection on the canvas
     for (UMLConnection *connection in [self.connections allValues]) {
