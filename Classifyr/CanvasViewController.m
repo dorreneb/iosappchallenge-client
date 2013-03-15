@@ -230,7 +230,19 @@
     }
 }
 
--(void)graphListener:(GraphListener *)gl deleteClass :(id)json
+- (void)graphListener:(GraphListener *)gl componentMoved:(id)json
+{
+    NSLog(@"boop");
+    UMLComponentView *componentToMove = [self.canvasView.components objectForKey:[json objectForKey:@"id"]];
+    
+    NSDictionary *location = [json objectForKey:@"location"];
+    NSNumber *x = [location objectForKey:@"x"];
+    NSNumber *y = [location objectForKey:@"y"];
+    
+    componentToMove.center = CGPointMake([x floatValue], [y floatValue]);
+}
+
+- (void)graphListener:(GraphListener *)gl deleteClass :(id)json
 {
     UMLComponentView *boxToDelete = [self.canvasView.components objectForKey:json];
     [boxToDelete removeFromSuperview];
@@ -261,14 +273,16 @@
 {
     [self.boardViewController stopTiltScrolling];
     
-    // Re-enable the disabled component, move it to the destination
-    component.center = self.componentToMove.center;
+    // Re-enable the disabled component
     component.backgroundColor = [UIColor whiteColor];
+    [component setNeedsDisplay];
+    
+    // Send the move to the server
+    [self.canvasView moveComponent:component withPoint:self.componentToMove.center];
     
     // Remove the temporary component
     [self.componentToMove removeFromSuperview];
     self.componentToMove = nil;
-    [self.canvasView setNeedsDisplay];
 }
 
 - (BOOL)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset

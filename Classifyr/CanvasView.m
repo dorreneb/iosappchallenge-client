@@ -78,4 +78,14 @@
     [self addSubview:component];
 }
 
+- (void)moveComponent:(UMLComponentView *)component withPoint:(CGPoint)point
+{
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"move-box\", \"body\": {\"id\": \"%@\", \"location\": {\"x\": \"%f\", \"y\": \"%f\"}}}", component.id, point.x, point.y];
+    
+    //send message to the server
+    GraphListener *del = [GraphListener mainGraphListener];
+    [del sendMessage:x];
+    del = nil;
+}
+
 @end

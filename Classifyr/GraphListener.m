@@ -98,6 +98,10 @@ static GraphListener* instance;
         if ([_delegate respondsToSelector:@selector(graphListener:deleteClass:)]) {
             [_delegate graphListener:self deleteClass:[json objectForKey:@"id"]];
         }
+    } else if ([messageType isEqualToString:@"move-box"]) {
+        if ([_delegate respondsToSelector:@selector(graphListener:componentMoved:)]) {
+            [_delegate graphListener:self componentMoved:[json objectForKey:@"body"]];
+        }
     }
     
 }

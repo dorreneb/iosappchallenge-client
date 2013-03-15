@@ -23,5 +23,6 @@
 
 - (void)createComponent:(UMLComponentView *)component;
 - (void)addComponentWithId:(NSString *)id withComponent:(UMLComponentView *)component;
+- (void)moveComponent:(UMLComponentView *)component withPoint:(CGPoint)point;
 
 @end
