@@ -204,5 +204,16 @@
     }
 }
 
+- (void)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset
+{
+    if (self.selectedComponent != nil) {
+        CGPoint location = self.selectedComponent.center;
+        location.x += offset.x;
+        location.y += offset.y;
+        self.selectedComponent.center = location;
+        //[self.canvasView setNeedsDisplay];
+    }
+}
+
 
 @end
