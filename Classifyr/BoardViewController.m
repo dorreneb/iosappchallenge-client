@@ -39,8 +39,8 @@
         self.canvasView.frame = frame;
         
         // Set up the scroll view
-        self.scrollView.minimumZoomScale = 0.5;
-        self.scrollView.maximumZoomScale = 6.0;
+        self.scrollView.minimumZoomScale = 0.3;
+        self.scrollView.maximumZoomScale = 1.0;
         self.scrollView.clipsToBounds = YES;
         self.scrollView.scrollEnabled = YES;
         self.scrollView.delegate = self;
