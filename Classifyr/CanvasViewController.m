@@ -41,13 +41,18 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{   //set delegate
-    ((EditComponentViewController *)(segue.destinationViewController)).delegate = self;
-    //set component to edit - if null it will create
-    //new box -- if not null it will update component
-    //this assumes that creating a new box sends a nil
-    //and that editing takes a component
-    ((EditComponentViewController *)(segue.destinationViewController)).componentToEdit = sender;
+{
+    if ([segue.identifier isEqualToString:@"editUMLSegue"]) {
+        //set delegate
+        ((EditComponentViewController *)(segue.destinationViewController)).delegate = self;
+        //set component to edit - if null it will create
+        //new box -- if not null it will update component
+        //this assumes that creating a new box sends a nil
+        //and that editing takes a component
+        ((EditComponentViewController *)(segue.destinationViewController)).componentToEdit = sender;
+    } else if ([segue.identifier isEqualToString:@"editConnectionSegue"]) {
+        
+    }
 }
 
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
@@ -61,6 +66,7 @@
         
             if (connectionTapped != nil) {
                 NSLog(@"connection selected: %@", connectionTapped.id);
+                [self performSegueWithIdentifier:@"editConnectionSegue" sender:nil];
             } else {
                 self.addComponentView.center = location;
                 self.addComponentView.hidden = NO;
