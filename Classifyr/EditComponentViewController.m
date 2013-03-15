@@ -65,5 +65,8 @@
 }
 
 - (IBAction)deleteClass:(id)sender {
+    if ([_delegate respondsToSelector:@selector(editViewController:deleteClass:)]) {
+        [_delegate editViewController:self deleteClass:[self.componentToEdit id]];
+    }
 }
 @end

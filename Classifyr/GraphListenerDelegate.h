@@ -16,5 +16,7 @@
 -(void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;
 -(void)graphListener:(GraphListener *)gl addConnectionWithJson:(id)json;
 -(void)graphListener:(GraphListener *)gl updateClass:(id)json;
+-(void)graphListener:(GraphListener *)gl deleteClass:(id)json;
+
 
 @end

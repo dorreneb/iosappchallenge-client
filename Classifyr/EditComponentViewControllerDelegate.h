@@ -17,5 +17,8 @@
 
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView*)componentToEdit withName:(NSString *)name;
 
+- (void)editViewController:(EditComponentViewController *)vc deleteClass:(id)classId;
+
+
 
 @end

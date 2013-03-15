@@ -96,6 +96,14 @@
     [self.canvasView createComponent:uml];
 }
 
+- (void)editViewController:(EditComponentViewController *)vc deleteClass:(id)classId {
+    GraphListener *listener = [GraphListener mainGraphListener];
+    [listener deleteClass:classId];
+    //transition back to canvas
+    [vc dismissViewControllerAnimated:true completion:nil];
+    
+}
+
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name
 {
     //talk to server
@@ -222,6 +230,17 @@
         [self performSegueWithIdentifier:@"editUMLSegue" sender:component];
         
     }
+}
+
+-(void)graphListener:(GraphListener *)gl deleteClass :(id)json
+{
+    UMLComponentView *boxToDelete = [self.canvasView.components objectForKey:json];
+    [boxToDelete removeFromSuperview];
+    [self.canvasView setNeedsDisplay];
+    
+    //transition back to canvas
+    //[UIViewController dismissViewControllerAnimated:true completion:nil];
+    
 }
 
 

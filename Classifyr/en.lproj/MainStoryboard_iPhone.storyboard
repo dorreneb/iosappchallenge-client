@@ -283,7 +283,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backButtonPressed:" destination="WJr-hQ-KFL" eventType="touchUpInside" id="KC9-T4-EuA"/>
                                     <action selector="deleteClass:" destination="WJr-hQ-KFL" eventType="touchUpInside" id="hef-sJ-JVe"/>
                                 </connections>
                             </button>

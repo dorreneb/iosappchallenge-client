@@ -38,6 +38,7 @@
 - (void)graphListener:(GraphListener *)gl addConnectionWithJson:(id)json;
 
 - (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer;
+- (void)graphListener:(GraphListener *)gl deleteClass:(id)json;
 
 
 @end

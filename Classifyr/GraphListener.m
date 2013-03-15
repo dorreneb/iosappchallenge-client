@@ -94,6 +94,10 @@ static GraphListener* instance;
         if ([_delegate respondsToSelector:@selector(graphListener:addConnectionWithJson:)]) {
             [_delegate graphListener:self updateClass:[json objectForKey:@"body"]];
         }
+    } else if ([messageType isEqualToString:@"delete-box"]) {
+        if ([_delegate respondsToSelector:@selector(graphListener:deleteClass:)]) {
+            [_delegate graphListener:self deleteClass:[json objectForKey:@"id"]];
+        }
     }
     
 }
@@ -109,6 +113,14 @@ static GraphListener* instance;
     NSString *jsonString = [NSString stringWithFormat:@"{\"type\": \"rename-box\", \"body\": {\"id\": \"%@\", \"name\": \"%@\"}};", classId, newName];
     NSLog(@"about to send %@", jsonString);
     [graphSocket send:jsonString];
+}
+
+-(void)deleteClass:(id)classId
+{
+    NSString *jsonScreen = [NSString stringWithFormat:@"{\"type\":\"delete-box\",\"id\":\"%@\"}", classId];
+    [graphSocket send:jsonScreen];
+    //make json
+    NSLog(@"from listener %@", classId);
 }
 
 @end
