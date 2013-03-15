@@ -284,6 +284,7 @@
                                 </state>
                                 <connections>
                                     <action selector="backButtonPressed:" destination="WJr-hQ-KFL" eventType="touchUpInside" id="KC9-T4-EuA"/>
+                                    <action selector="deleteClass:" destination="WJr-hQ-KFL" eventType="touchUpInside" id="hef-sJ-JVe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -291,16 +292,22 @@
                         <gestureRecognizers/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="fEl-SZ-7qQ" appends="YES" id="0bg-Hv-Z6L"/>
+                            <outletCollection property="gestureRecognizers" destination="fEl-SZ-7qQ" appends="YES" id="LbK-ou-1pA"/>
                         </connections>
                     </view>
                     <connections>
                         <outlet property="classNameTextField" destination="dSz-Qb-mM1" id="PHr-Fp-quv"/>
+                        <outlet property="deleteButton" destination="Hi0-vb-o2C" id="nPG-zT-RMi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Po-j8-Tob" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="fEl-SZ-7qQ"/>
+                <tapGestureRecognizer id="fEl-SZ-7qQ">
+                    <connections>
+                        <action selector="closeKeyboardOnTouch:" destination="WJr-hQ-KFL" id="a8s-rs-3jV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-123" y="1224"/>
+            <point key="canvasLocation" x="-123" y="1234"/>
         </scene>
         <!--Canvas View Controller-->
         <scene sceneID="QSV-2G-OVV">
@@ -363,6 +370,58 @@
         <image name="logo.png" width="250" height="50"/>
         <image name="settings.png" width="18" height="20"/>
     </resources>
+    <classes>
+        <class className="BoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BoardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="connectButtonPressed:"/>
+                <relationship kind="action" name="settingsButtonPressed:"/>
+                <relationship kind="outlet" name="helpLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="CanvasView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CanvasView.h"/>
+        </class>
+        <class className="CanvasViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CanvasViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cavnasTapped:" candidateClass="UITapGestureRecognizer"/>
+                <relationship kind="action" name="newClassTapped:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="addComponentView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="canvasView" candidateClass="CanvasView"/>
+            </relationships>
+        </class>
+        <class className="EditComponentViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EditComponentViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="backButtonPressed:"/>
+                <relationship kind="action" name="closeKeyboardOnTouch:"/>
+                <relationship kind="action" name="deleteClass:"/>
+                <relationship kind="outlet" name="classNameTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="deleteButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="NewSpecController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewSpecController.h"/>
+            <relationships>
+                <relationship kind="action" name="closeKeyboardOnTouch:"/>
+                <relationship kind="action" name="generateSpec:"/>
+                <relationship kind="outlet" name="specNameField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SelectSessionController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectSessionController.h"/>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="createNewSpec:"/>
+                <relationship kind="action" name="getExistingSpecs:"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

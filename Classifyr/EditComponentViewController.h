@@ -20,5 +20,7 @@
 
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)closeKeyboardOnTouch:(id)sender;
+- (IBAction)deleteClass:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 @end
