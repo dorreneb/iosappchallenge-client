@@ -99,7 +99,9 @@
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name
 {
     //talk to server
-    
+    //NSString *edit = "";
+    NSLog(@"%@", componentToEdit.id);
+    [[GraphListener mainGraphListener] editClass:name classId:componentToEdit.id];
     
     //remove old outdated box and place new one
     UMLComponentView *uml = [UMLComponentView viewFromNib];
@@ -179,6 +181,24 @@
     
     
     [self.canvasView addConnectionWithId:connectionId withStart:startId withEnd:endId];
+    
+    [self.canvasView setNeedsDisplay];
+}
+
+- (void)graphListener:(GraphListener *)gl updateClass:(id)json
+{
+    NSDictionary *item = (NSDictionary *)json;
+    
+    NSString *classId = [item objectForKey:@"id"];
+    NSString *name = [item objectForKey:@"name"];
+    
+    UMLComponentView *box = [self.canvasView.components objectForKey:classId];
+    
+    //edit
+    box.name = name;
+    box.id = classId;
+    
+    [self.canvasView addComponentWithId:classId withComponent:box];
     
     [self.canvasView setNeedsDisplay];
 }

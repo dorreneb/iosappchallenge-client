@@ -17,6 +17,7 @@
 -(void)openConnection:(NSString*)graphId;
 -(void)closeConnection;
 -(void)sendMessage:(NSString*)message;
+-(void)editClass:(NSString*)newName classId:(id)classId;
 
 + (GraphListener *)mainGraphListener;
 

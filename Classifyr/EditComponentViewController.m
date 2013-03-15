@@ -53,6 +53,7 @@
             [_delegate editViewController:self addComponentWithName:self.classNameTextField.text];
         }
     } else { //if edit
+        NSLog(@"from edit view controller: change id %@", [self.componentToEdit id]);
         if ([_delegate respondsToSelector:@selector(editViewController:updateComponent:withName:)]) {
             [_delegate editViewController:self updateComponent:self.componentToEdit withName:self.classNameTextField.text];
         }

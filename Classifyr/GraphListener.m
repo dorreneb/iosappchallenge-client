@@ -90,6 +90,10 @@ static GraphListener* instance;
         if ([_delegate respondsToSelector:@selector(graphListener:addConnectionWithJson:)]) {
             [_delegate graphListener:self addConnectionWithJson:[json objectForKey:@"body"]];
         }
+    } else if ([messageType isEqualToString:@"rename-box"]) {
+        if ([_delegate respondsToSelector:@selector(graphListener:addConnectionWithJson:)]) {
+            [_delegate graphListener:self updateClass:[json objectForKey:@"body"]];
+        }
     }
     
 }
@@ -100,6 +104,12 @@ static GraphListener* instance;
     socket = nil;
 }
 
+-(void)editClass:(NSString*)newName classId:(id)classId
+{
+    NSString *jsonString = [NSString stringWithFormat:@"{\"type\": \"rename-box\", \"body\": {\"id\": \"%@\", \"name\": \"%@\"}};", classId, newName];
+    NSLog(@"about to send %@", jsonString);
+    [graphSocket send:jsonString];
+}
 
 @end
 
