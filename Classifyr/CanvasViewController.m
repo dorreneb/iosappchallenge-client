@@ -10,6 +10,7 @@
 #import "CanvasView.h"
 #import "EditComponentViewController.h"
 #import "GraphListener.h"
+#import "UMLConnection.h"
 
 #import "CanvasViewController.h"
 
@@ -52,13 +53,18 @@
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 {
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-        if (self.addComponentView.isHidden == YES) {
-            CGPoint location = [recognizer locationInView:self.canvasView];
-            //self.addComponentView.frame = CGRectMake(0.0f, 0.0f, 140.0f, 60.0f);
-            self.addComponentView.center = location;
-            self.addComponentView.hidden = NO;
-        } else {
+        if (self.addComponentView.hidden == NO) {
             self.addComponentView.hidden = YES;
+        } else {
+            CGPoint location = [recognizer locationInView:self.canvasView];
+            UMLConnection *connectionTapped = [self.canvasView connectionSelected:location];
+        
+            if (connectionTapped != nil) {
+                NSLog(@"connection selected: %@", connectionTapped.id);
+            } else {
+                self.addComponentView.center = location;
+                self.addComponentView.hidden = NO;
+            }
         }
     }
 }

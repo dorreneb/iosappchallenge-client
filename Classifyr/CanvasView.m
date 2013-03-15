@@ -88,4 +88,30 @@
     del = nil;
 }
 
+- (UMLConnection *)connectionSelected:(CGPoint)touchLocation
+{
+    CGContextRef cgContext = CGBitmapContextCreate(nil, self.frame.size.width, self.frame.size.height, 8, 4 * self.frame.size.width, CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedLast);
+    
+    // Check each connection on the canvas
+    for (UMLConnection *connection in [self.connections allValues]) {
+        // Create a path thicker than the actual path for touch detection
+        CGPathRef path = CGPathCreateCopyByStrokingPath(connection.path.CGPath, NULL, 50.0f, kCGLineCapButt, kCGLineJoinBevel, 0.0f);
+        
+        // Save the current graphics context so it can be restored and add the path
+        CGContextSaveGState(cgContext);
+        CGContextAddPath(cgContext, path);
+        
+        BOOL isHit = CGContextPathContainsPoint(cgContext, touchLocation, kCGPathFill);
+        
+        // Restore the graphics context
+        CGContextRestoreGState(cgContext);
+        
+        if (isHit) {
+            return connection;
+        }
+    }
+    
+    return nil;
+}
+
 @end
