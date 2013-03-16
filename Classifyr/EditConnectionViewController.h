@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *startArrowButton;
 @property (weak, nonatomic) IBOutlet UIButton *endArrowButton;
 
+@property (nonatomic) BOOL arrowsChanged;
+
 - (IBAction)showStartArrowPressed:(id)sender;
 - (IBAction)showEndArrowPressed:(id)sender;
 

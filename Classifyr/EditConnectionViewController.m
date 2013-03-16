@@ -29,6 +29,8 @@
     
     self.startClassLabel.text = self.connectionToEdit.startComponent.name;
     self.endClassLabel.text = self.connectionToEdit.endComponent.name;
+    
+    self.arrowsChanged = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,14 +43,11 @@
 {
     NSString *text = (state) ? @"Remove arrow" : @"Add arrow";
     [button setTitle:text forState:UIControlStateNormal];
-    
-    if (self.connectionToEdit != nil && [_delegate respondsToSelector:@selector(arrowsChangedForEditViewController:)]) {
-        [_delegate arrowsChangedForEditViewController:self];
-    }
 }
 
 - (IBAction)showStartArrowPressed:(id)sender
 {
+    self.arrowsChanged = YES;
     self.connectionToEdit.startArrowEnabled = !self.connectionToEdit.startArrowEnabled;
     
     [self toggleArrowButtonText:self.connectionToEdit.startArrowEnabled withButton:(UIButton *)sender];
@@ -57,7 +56,8 @@
 }
 
 - (IBAction)showEndArrowPressed:(id)sender
-{    
+{
+    self.arrowsChanged = YES;
     self.connectionToEdit.endArrowEnabled = !self.connectionToEdit.endArrowEnabled;
     
     [self toggleArrowButtonText:self.connectionToEdit.endArrowEnabled withButton:(UIButton *)sender];
@@ -67,6 +67,12 @@
 
 - (IBAction)backButtonPressed:(id)sender
 {
+    if (self.arrowsChanged == YES) {
+        if (self.connectionToEdit != nil && [_delegate respondsToSelector:@selector(arrowsChangedForEditViewController:withConnection:)]) {
+            [_delegate arrowsChangedForEditViewController:self withConnection:self.connectionToEdit];
+        }
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

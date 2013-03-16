@@ -132,8 +132,20 @@
     [self.canvasView deleteConnection:connection];
 }
 
-- (void)arrowsChangedForEditViewController:(EditConnectionViewController *)vc
+- (NSString *)boolToString:(BOOL)value
 {
+    return (value) ? @"yes" : @"no";
+}
+
+- (void)arrowsChangedForEditViewController:(EditConnectionViewController *)vc withConnection:(UMLConnection *)connection
+{
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"update-connection\", \"body\": {\"id\": \"%@\", \"startArrow\": \"%@\", \"endArrow\": \"%@\"}}", connection.id, [self boolToString:connection.startArrowEnabled], [self boolToString:connection.endArrowEnabled]];
+    
+    //send message to the server
+    GraphListener *del = [GraphListener mainGraphListener];
+    [del sendMessage:x];
+    del = nil;
+    
     [self.canvasView setNeedsDisplay];
 }
 
@@ -229,6 +241,23 @@
 {
     [self.canvasView.connections removeObjectForKey:id];
     [self.canvasView setNeedsDisplay];
+}
+
+- (BOOL)stringToBool:(NSString *)string
+{
+    return [string isEqualToString:@"yes"];
+}
+
+- (void)graphListener:(GraphListener *)gl updateConnection:(id)json
+{
+    NSDictionary *connection = (NSDictionary *)json;
+    
+    NSString *id = [connection objectForKey:@"id"];
+    
+    BOOL startArrowEnabled = [self stringToBool: [connection objectForKey:@"startArrow"]];
+    BOOL endArrowEnabled = [self stringToBool: [connection objectForKey:@"endArrow"]];
+    
+    [self.canvasView updateConnectionWithId:id startArrow:startArrowEnabled endArrow: endArrowEnabled];
 }
 
 - (void)umlComponent:(UMLComponentView *)component selected:(UITapGestureRecognizer *)recognizer

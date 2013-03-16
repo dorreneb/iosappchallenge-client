@@ -15,6 +15,6 @@
 
 - (void)editViewController:(EditConnectionViewController *)vc deleteConnection:(UMLConnection *)connection;
 
-- (void)arrowsChangedForEditViewController:(EditConnectionViewController *)vc;
+- (void)arrowsChangedForEditViewController:(EditConnectionViewController *)vc withConnection:(UMLConnection *)connection;
 
 @end

@@ -106,6 +106,10 @@ static GraphListener* instance;
         if ([_delegate respondsToSelector:@selector(graphListener:deleteConnection:)]) {
             [_delegate graphListener:self deleteConnection:[json objectForKey:@"id"]];
         }
+    } else if (([messageType isEqualToString:@"update-connection"])) {
+        if ([_delegate respondsToSelector:@selector(graphListener:updateConnection:)]) {
+            [_delegate graphListener:self deleteConnection:[json objectForKey:@"body"]];
+        }
     }
     
 }
