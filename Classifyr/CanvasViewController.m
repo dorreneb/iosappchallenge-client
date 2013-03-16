@@ -123,17 +123,10 @@
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name
 {
     //talk to server
-    //NSString *edit = "";
-    NSLog(@"%@", componentToEdit.id);
     [[GraphListener mainGraphListener] editClass:name classId:componentToEdit.id];
     
     //remove old outdated box and place new one
-    UMLComponentView *uml = [UMLComponentView viewFromNib];
-    uml.center = componentToEdit.center;
-    uml.name = name;
-    uml.delegate = self;
-    [componentToEdit removeFromSuperview];
-    [self.canvasView addSubview:uml];
+    componentToEdit.name = name;
     
     //transition back to canvas
     [vc dismissViewControllerAnimated:true completion:nil];
@@ -261,7 +254,6 @@
 
 - (void)graphListener:(GraphListener *)gl componentMoved:(id)json
 {
-    NSLog(@"boop");
     UMLComponentView *componentToMove = [self.canvasView.components objectForKey:[json objectForKey:@"id"]];
     
     NSDictionary *location = [json objectForKey:@"location"];

@@ -17,6 +17,8 @@
 @property (weak, nonatomic) UMLComponentView *endComponent;
 
 @property (strong, nonatomic) UIBezierPath *path;
+@property (strong, nonatomic) UIBezierPath *startArrow;
+@property (strong, nonatomic) UIBezierPath *endArrow;
 
 - (void)calculatePath;
 
