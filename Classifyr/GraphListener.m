@@ -106,6 +106,9 @@ static GraphListener* instance;
         if ([_delegate respondsToSelector:@selector(graphListener:deleteConnection:)]) {
             [_delegate graphListener:self deleteConnection:[json objectForKey:@"id"]];
         }
+    } else if (([messageType isEqualToString:@"revisions"])) {
+        _revisions = [json objectForKey:@"revisions"];
+        CFRunLoopStop(CFRunLoopGetMain());
     }
     
 }
@@ -129,6 +132,13 @@ static GraphListener* instance;
     [graphSocket send:jsonScreen];
     //make json
     NSLog(@"from listener %@", classId);
+}
+
+-(void) getRevisions
+{
+    NSString* jsonString = @"{\"type\": \"revisions\"}";
+    [graphSocket send:jsonString];
+    CFRunLoopRun();
 }
 
 @end

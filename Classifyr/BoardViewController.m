@@ -147,4 +147,11 @@
     [self.motionManager stopDeviceMotionUpdates];
 }
 
+- (IBAction)revisionsButtonPressed:(id)sender
+{
+    NSLog(@"revisions");
+    //showRevisions
+    [_delegate boardViewController:self showRevisions:@""];
+}
+
 @end

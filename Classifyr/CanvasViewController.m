@@ -12,6 +12,7 @@
 #import "EditConnectionViewController.h"
 #import "GraphListener.h"
 #import "UMLConnection.h"
+#import "ViewRevisionsController.h"
 
 #import "CanvasViewController.h"
 
@@ -54,6 +55,9 @@
     } else if ([segue.identifier isEqualToString:@"editConnectionSegue"]) {
         ((EditConnectionViewController *)(segue.destinationViewController)).connectionToEdit = sender;
         ((EditConnectionViewController *)(segue.destinationViewController)).delegate = self;
+    } else if ([segue.identifier isEqualToString:@"showRevisions"]){
+        NSLog(@"about to segue to revisions %@", sender);
+        ((ViewRevisionsController *)(segue.destinationViewController)).data = sender;
     }
 }
 
@@ -329,6 +333,15 @@
     }
     
     return NO;
+}
+
+- (void)boardViewController:(BoardViewController *)vc showRevisions:(NSString*)id
+{
+    GraphListener *listener = [GraphListener mainGraphListener];
+    [listener getRevisions];
+    NSArray* revisions = listener.revisions;
+    
+    [self performSegueWithIdentifier:@"showRevisions" sender:revisions];
 }
 
 @end
