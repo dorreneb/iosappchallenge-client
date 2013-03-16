@@ -108,7 +108,7 @@ static GraphListener* instance;
         }
     } else if (([messageType isEqualToString:@"update-connection"])) {
         if ([_delegate respondsToSelector:@selector(graphListener:updateConnection:)]) {
-            [_delegate graphListener:self deleteConnection:[json objectForKey:@"body"]];
+            [_delegate graphListener:self updateConnection:[json objectForKey:@"body"]];
         }
     } else if (([messageType isEqualToString:@"revisions"])) {
         _revisions = [json objectForKey:@"revisions"];

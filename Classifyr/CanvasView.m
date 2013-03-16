@@ -138,6 +138,8 @@
     UMLConnection *connection = [self.connections objectForKey:id];
     connection.startArrowEnabled = startArrow;
     connection.endArrowEnabled = endArrow;
+    
+    [connection calculatePath];
     [self setNeedsDisplay];
 }
 
