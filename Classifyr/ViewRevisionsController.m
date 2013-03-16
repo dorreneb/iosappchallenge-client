@@ -60,12 +60,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    id stamp = [_data objectAtIndex:indexPath.row];
-    //NSLog(@"%@", [stamp objectForKey:@"timestamp"]);
+    id stamps = [_data objectAtIndex:indexPath.row];
     
     // Configure the cell...
-    cell.textLabel.text = [stamp objectForKey:@"timestamp"];
-    
+    cell.textLabel.text = [stamps objectForKey:@"timestamp"];
     return cell;
 }
 
@@ -112,6 +110,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *specId = [[_data objectAtIndex:indexPath.row] objectForKey:@"transaction-id"];
+    NSLog(@"%@", specId);
+    
+    [_controller resetBoard:specId];
+    
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -120,5 +126,7 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+
 
 @end

@@ -21,6 +21,7 @@
 -(void)editClass:(NSString*)newName classId:(id)classId;
 -(void)deleteClass:(id)classId;
 -(void) getRevisions;
+-(void)getRevisionState:(id)transactionId;
 
 + (GraphListener *)mainGraphListener;
 

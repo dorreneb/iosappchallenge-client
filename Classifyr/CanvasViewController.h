@@ -30,6 +30,9 @@
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 - (IBAction)newClassTapped:(UIButton *)button;
 
+- (void)resetBoard:(id)transactionId;
+
+
 - (void)boardViewController:(BoardViewController *)vc connectModeToggled:(BOOL)mode;
 - (BOOL)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset;
 

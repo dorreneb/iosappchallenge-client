@@ -19,6 +19,7 @@
 -(void)graphListener:(GraphListener *)gl componentMoved:(id)json;
 -(void)graphListener:(GraphListener *)gl deleteClass:(id)json;
 -(void)graphListener:(GraphListener *)gl deleteConnection:(NSString *)id;
+-(void)graphListener:(GraphListener *)gl resetBoard:(id)json;
 
 
 @end

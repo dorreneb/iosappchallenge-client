@@ -109,6 +109,11 @@ static GraphListener* instance;
     } else if (([messageType isEqualToString:@"revisions"])) {
         _revisions = [json objectForKey:@"revisions"];
         CFRunLoopStop(CFRunLoopGetMain());
+    } else if (([messageType isEqualToString:@"revert"]))
+    {
+            if ([_delegate respondsToSelector:@selector(graphListener:resetBoard:)]) {
+                [_delegate graphListener:self resetBoard:[json objectForKey:@"revert"]];
+            }
     }
     
 }
@@ -141,5 +146,10 @@ static GraphListener* instance;
     CFRunLoopRun();
 }
 
+-(void)getRevisionState:(id)transactionId
+{
+    NSString* jsonString = [NSString stringWithFormat:@"{\"type\": \"revert\", \"transaction-id\": %@}", transactionId];
+    [graphSocket send:jsonString];
+}
 @end
 

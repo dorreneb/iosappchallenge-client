@@ -58,6 +58,7 @@
     } else if ([segue.identifier isEqualToString:@"showRevisions"]){
         NSLog(@"about to segue to revisions %@", sender);
         ((ViewRevisionsController *)(segue.destinationViewController)).data = sender;
+        ((ViewRevisionsController *)(segue.destinationViewController)).controller = self;
     }
 }
 
@@ -342,6 +343,18 @@
     NSArray* revisions = listener.revisions;
     
     [self performSegueWithIdentifier:@"showRevisions" sender:revisions];
+}
+
+- (void)resetBoard:(id)transactionId
+{
+    NSLog(@"Should reset board now");
+    GraphListener *listener = [GraphListener mainGraphListener];
+    [listener getRevisionState:transactionId];
+}
+
+-(void)graphListener:(GraphListener *)gl resetBoard:(id)json
+{
+    NSLog(@"should reset board with json %@", json);
 }
 
 @end

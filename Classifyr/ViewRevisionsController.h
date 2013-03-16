@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CanvasViewController.h"
 
 @interface ViewRevisionsController : UITableViewController
 @property (strong, nonatomic) NSArray *data;
+@property (weak, nonatomic) CanvasViewController *controller;
 @end
 
