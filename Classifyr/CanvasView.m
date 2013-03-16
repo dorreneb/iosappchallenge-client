@@ -133,7 +133,6 @@
     [self setNeedsDisplay];
 }
 
-<<<<<<< HEAD
 - (void)updateConnectionWithId:(NSString *)id startArrow:(BOOL)startArrow endArrow:(BOOL)endArrow
 {
     UMLConnection *connection = [self.connections objectForKey:id];

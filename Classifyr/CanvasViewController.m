@@ -144,7 +144,7 @@
 
 - (void)arrowsChangedForEditViewController:(EditConnectionViewController *)vc withConnection:(UMLConnection *)connection
 {
-    NSString *x = [NSString stringWithFormat:@"{\"type\": \"update-connection\", \"body\": {\"id\": \"%@\", \"startArrow\": \"%@\", \"endArrow\": \"%@\"}}", connection.id, [self boolToString:connection.startArrowEnabled], [self boolToString:connection.endArrowEnabled]];
+    NSString *x = [NSString stringWithFormat:@"{\"type\": \"update-connection\", \"body\": {\"id\": \"%@\", \"start-arrow\": \"%@\", \"end-arrow\": \"%@\"}}", connection.id, [self boolToString:connection.startArrowEnabled], [self boolToString:connection.endArrowEnabled]];
     
     //send message to the server
     GraphListener *del = [GraphListener mainGraphListener];
@@ -259,8 +259,8 @@
     
     NSString *id = [connection objectForKey:@"id"];
     
-    BOOL startArrowEnabled = [self stringToBool: [connection objectForKey:@"startArrow"]];
-    BOOL endArrowEnabled = [self stringToBool: [connection objectForKey:@"endArrow"]];
+    BOOL startArrowEnabled = [self stringToBool: [connection objectForKey:@"start-arrow"]];
+    BOOL endArrowEnabled = [self stringToBool: [connection objectForKey:@"end-arrow"]];
     
     [self.canvasView updateConnectionWithId:id startArrow:startArrowEnabled endArrow: endArrowEnabled];
 }
