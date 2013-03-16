@@ -38,6 +38,8 @@
 		5854E71C16EAD0E300068C59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E71B16EAD0E300068C59 /* ViewController.m */; };
 		5854E72416EB9A3400068C59 /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5854E72316EB9A3300068C59 /* BoardViewController.m */; };
 		58577D9916F39F2F003D7CA7 /* EditConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58577D9816F39F2E003D7CA7 /* EditConnectionViewController.m */; };
+		58577D9C16F42260003D7CA7 /* logo-iphone-large.png in Resources */ = {isa = PBXBuildFile; fileRef = 58577D9B16F42260003D7CA7 /* logo-iphone-large.png */; };
+		58577D9E16F42276003D7CA7 /* logo-iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 58577D9D16F42276003D7CA7 /* logo-iphone.png */; };
 		58701CB116F222F60020D896 /* CanvasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58701CB016F222F60020D896 /* CanvasViewController.m */; };
 		58701CB416F26D4A0020D896 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 58701CB316F26D4A0020D896 /* CoreMotion.framework */; };
 		5876387B16EF974B00C3C659 /* loading.gif in Resources */ = {isa = PBXBuildFile; fileRef = 5876387416EF974B00C3C659 /* loading.gif */; };
@@ -101,6 +103,8 @@
 		58577D9716F39F2E003D7CA7 /* EditConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditConnectionViewController.h; sourceTree = "<group>"; };
 		58577D9816F39F2E003D7CA7 /* EditConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditConnectionViewController.m; sourceTree = "<group>"; };
 		58577D9A16F3A1BD003D7CA7 /* EditConnectionViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditConnectionViewControllerDelegate.h; sourceTree = "<group>"; };
+		58577D9B16F42260003D7CA7 /* logo-iphone-large.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-iphone-large.png"; sourceTree = "<group>"; };
+		58577D9D16F42276003D7CA7 /* logo-iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-iphone.png"; sourceTree = "<group>"; };
 		58701CAF16F222F60020D896 /* CanvasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanvasViewController.h; sourceTree = "<group>"; };
 		58701CB016F222F60020D896 /* CanvasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanvasViewController.m; sourceTree = "<group>"; };
 		58701CB216F250AD0020D896 /* BoardViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoardViewControllerDelegate.h; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 		5854E6F016EAD0E300068C59 = {
 			isa = PBXGroup;
 			children = (
+				58577D9D16F42276003D7CA7 /* logo-iphone.png */,
+				58577D9B16F42260003D7CA7 /* logo-iphone-large.png */,
 				5876388E16F01AE500C3C659 /* grid.jpg */,
 				53C8818916EC0B51007098C9 /* SocketRocket */,
 				53C8818716EC0A6E007098C9 /* libicucore.dylib */,
@@ -315,6 +321,8 @@
 				58079A5C16F0ED1700178C35 /* settings.png in Resources */,
 				58079A6016F0EF8C00178C35 /* connect.png in Resources */,
 				58079A6916F17E8B00178C35 /* logo.png in Resources */,
+				58577D9C16F42260003D7CA7 /* logo-iphone-large.png in Resources */,
+				58577D9E16F42276003D7CA7 /* logo-iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
