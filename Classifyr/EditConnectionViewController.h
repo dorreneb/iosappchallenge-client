@@ -16,7 +16,18 @@
 
 @property(weak, nonatomic) UMLConnection *connectionToEdit;
 
+@property (strong, nonatomic) IBOutlet UILabel *startClassLabel;
+@property (strong, nonatomic) IBOutlet UILabel *endClassLabel;
+
+@property (weak, nonatomic) IBOutlet UIButton *startArrowButton;
+@property (weak, nonatomic) IBOutlet UIButton *endArrowButton;
+
+- (IBAction)showStartArrowPressed:(id)sender;
+- (IBAction)showEndArrowPressed:(id)sender;
+
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)deleteConnectionPressed:(id)sender;
+
+- (void) toggleArrowButtonText: (BOOL)state withButton:(UIButton *)button;
 
 @end

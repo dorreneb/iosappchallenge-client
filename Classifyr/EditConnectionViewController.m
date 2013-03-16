@@ -7,6 +7,7 @@
 //
 
 #import "EditConnectionViewController.h"
+#import "UMLConnection.h"
 
 @implementation EditConnectionViewController
 
@@ -22,13 +23,46 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    [self toggleArrowButtonText:self.connectionToEdit.startArrowEnabled withButton: self.startArrowButton];
+    [self toggleArrowButtonText:self.connectionToEdit.endArrowEnabled withButton: self.endArrowButton];
+    
+    self.startClassLabel.text = self.connectionToEdit.startComponent.name;
+    self.endClassLabel.text = self.connectionToEdit.endComponent.name;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)toggleArrowButtonText: (BOOL)state withButton:(UIButton *)button
+{
+    NSString *text = (state) ? @"Remove arrow" : @"Add arrow";
+    [button setTitle:text forState:UIControlStateNormal];
+    
+    if (self.connectionToEdit != nil && [_delegate respondsToSelector:@selector(arrowsChangedForEditViewController:)]) {
+        [_delegate arrowsChangedForEditViewController:self];
+    }
+}
+
+- (IBAction)showStartArrowPressed:(id)sender
+{
+    self.connectionToEdit.startArrowEnabled = !self.connectionToEdit.startArrowEnabled;
+    
+    [self toggleArrowButtonText:self.connectionToEdit.startArrowEnabled withButton:(UIButton *)sender];
+    
+    [self.connectionToEdit calculatePath];
+}
+
+- (IBAction)showEndArrowPressed:(id)sender
+{    
+    self.connectionToEdit.endArrowEnabled = !self.connectionToEdit.endArrowEnabled;
+    
+    [self toggleArrowButtonText:self.connectionToEdit.endArrowEnabled withButton:(UIButton *)sender];
+    
+    [self.connectionToEdit calculatePath];
 }
 
 - (IBAction)backButtonPressed:(id)sender

@@ -37,6 +37,7 @@
 - (void)editViewController:(EditComponentViewController *)vc updateComponent:(UMLComponentView *)componentToEdit withName:(NSString *)name;
 
 - (void)editViewController:(EditConnectionViewController *)vc deleteConnection:(UMLConnection *)connection;
+- (void)arrowsChangedForEditViewController:(EditConnectionViewController *)vc;
 
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json;
 - (void)graphListener:(GraphListener *)gl addComponentWithJson:(id)json;

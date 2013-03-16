@@ -132,6 +132,11 @@
     [self.canvasView deleteConnection:connection];
 }
 
+- (void)arrowsChangedForEditViewController:(EditConnectionViewController *)vc
+{
+    [self.canvasView setNeedsDisplay];
+}
+
 - (void)graphListener:(id)gl initializeBoardWithJson:(id)json
 {
     NSArray *components = (NSArray *)json;

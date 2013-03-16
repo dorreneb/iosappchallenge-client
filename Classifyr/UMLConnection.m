@@ -18,7 +18,8 @@
     if (self) {
         self.path = [[UIBezierPath alloc] init];
         
-        self.startArrow = [self makeArrow];
+        self.startArrowEnabled = YES;
+        self.endArrowEnabled = NO;
     }
     return self;
 }
@@ -49,26 +50,28 @@
     
     self.path.lineWidth = 3;
     
-    // Move and rotate arrows
-    if (self.startArrow != nil) {
+    // Make start arrow
+    if (self.startArrowEnabled == YES) {
+        self.startArrowPath = [self makeArrow];
+        
         float theta = atan((endPoint.x - startPoint.x)/ (endPoint.y - startPoint.y));
         if (startPoint.y > endPoint.y) {
             theta += M_PI;
         }
         
-        self.startArrow = [self makeArrow];
-        [self.startArrow applyTransform: CGAffineTransformRotate(CGAffineTransformMakeTranslation(startPoint.x, startPoint.y), -theta)];
+        [self.startArrowPath applyTransform: CGAffineTransformRotate(CGAffineTransformMakeTranslation(startPoint.x, startPoint.y), -theta)];
     }
     
-    // Move and rotate arrows
-    if (self.endArrow != nil) {
+    // Make end arrow
+    if (self.endArrowEnabled == YES) {
+        self.endArrowPath = [self makeArrow];
+        
         float theta = atan((endPoint.x - startPoint.x)/ (endPoint.y - startPoint.y));
         if (startPoint.y < endPoint.y) {
             theta += M_PI;
         }
         
-        self.endArrow = [self makeArrow];
-        [self.endArrow applyTransform: CGAffineTransformRotate(CGAffineTransformMakeTranslation(endPoint.x, endPoint.y), -theta)];
+        [self.endArrowPath applyTransform: CGAffineTransformRotate(CGAffineTransformMakeTranslation(endPoint.x, endPoint.y), -theta)];
     }
 }
 
