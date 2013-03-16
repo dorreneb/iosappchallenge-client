@@ -31,6 +31,11 @@
     // Draw all the bezier paths
     for (UMLConnection *connection in [self.connections allValues]) {        
         [connection.path stroke];
+        
+        if (connection.startArrow != nil)
+            [connection.startArrow fill];
+        if (connection.endArrow != nil)
+            [connection.endArrow fill];
     }
 }
 

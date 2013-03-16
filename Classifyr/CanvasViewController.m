@@ -249,7 +249,6 @@
 
 - (void)graphListener:(GraphListener *)gl componentMoved:(id)json
 {
-    NSLog(@"boop");
     UMLComponentView *componentToMove = [self.canvasView.components objectForKey:[json objectForKey:@"id"]];
     
     NSDictionary *location = [json objectForKey:@"location"];
