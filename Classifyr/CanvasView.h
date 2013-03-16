@@ -19,7 +19,7 @@
 @property (strong, nonatomic) NSMutableDictionary *components;
 
 - (void)createConnectionWithStart:(UMLComponentView *)startComponent withEnd:(UMLComponentView *)endComponent;
-- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(NSString *)startId withEnd:(NSString *)endId;
+- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(NSString *)startId withEnd:(NSString *)endId withStartArrow:(BOOL)startArrow withEndArrow:(BOOL)endArrow;
 
 - (void)createComponent:(UMLComponentView *)component;
 - (void)addComponentWithId:(NSString *)id withComponent:(UMLComponentView *)component;

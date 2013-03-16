@@ -48,12 +48,14 @@
     [server sendMessage:message];
 }
 
-- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(NSString *)startId withEnd:(NSString *)endId
+- (UMLConnection *)addConnectionWithId:(NSString *)id withStart:(NSString *)startId withEnd:(NSString *)endId withStartArrow:(BOOL)startArrow withEndArrow:(BOOL)endArrow
 {
     UMLConnection *connection = [[UMLConnection alloc] init];
     connection.id = id;
     connection.startComponent = [_components objectForKey:startId];
     connection.endComponent = [_components objectForKey:endId];
+    connection.startArrowEnabled = startArrow;
+    connection.endArrowEnabled = endArrow;
     
     // Calculate and save the connection
     [connection calculatePath];

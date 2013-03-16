@@ -182,7 +182,19 @@
                 NSString *startId = [item objectForKey:@"from"];
                 NSString *endId = [item objectForKey:@"to"];
                 
-                [self.canvasView addConnectionWithId:connectionId withStart:startId withEnd:endId];
+                BOOL startArrowEnabled = YES;
+                NSString* startString = [item objectForKey:@"start-arrow"];
+                if (startString != nil) {
+                    startArrowEnabled = [self stringToBool: startString];
+                }
+                
+                BOOL endArrowEnabled = NO;
+                NSString* endString = [item objectForKey:@"end-arrow"];
+                if (endString != nil) {
+                    endArrowEnabled = [self stringToBool: endString];
+                }
+                
+                [self.canvasView addConnectionWithId:connectionId withStart:startId withEnd:endId withStartArrow:startArrowEnabled withEndArrow:endArrowEnabled];
             }
         }
         
@@ -218,8 +230,19 @@
     NSString *startId = [item objectForKey:@"from"];
     NSString *endId = [item objectForKey:@"to"];
     
+    BOOL startArrowEnabled = YES;
+    NSString* startString = [item objectForKey:@"start-arrow"];
+    if (startString != nil) {
+        startArrowEnabled = [self stringToBool: startString];
+    }
     
-    [self.canvasView addConnectionWithId:connectionId withStart:startId withEnd:endId];
+    BOOL endArrowEnabled = NO;
+    NSString* endString = [item objectForKey:@"end-arrow"];
+    if (endString != nil) {
+        endArrowEnabled = [self stringToBool: endString];
+    }
+    
+    [self.canvasView addConnectionWithId:connectionId withStart:startId withEnd:endId withStartArrow:startArrowEnabled withEndArrow:endArrowEnabled];
     
     [self.canvasView setNeedsDisplay];
 }
