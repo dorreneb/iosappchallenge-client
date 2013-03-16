@@ -30,5 +30,6 @@
 
 - (void)recalculateConnections;
 - (void)updateConnectionWithId:(NSString *)id startArrow:(BOOL)startArrow endArrow:(BOOL)endArrow;
+- (void) clearBoard;
 
 @end

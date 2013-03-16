@@ -29,6 +29,9 @@
 - (IBAction)backButtonPressed:(id)sender;
 - (IBAction)settingsButtonPressed:(id)sender;
 - (IBAction)connectButtonPressed:(id)sender;
+- (IBAction)revisionsButtonPressed:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UIImageView *revisionsButtonPressed;
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
 

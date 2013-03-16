@@ -133,11 +133,25 @@
     [self setNeedsDisplay];
 }
 
+<<<<<<< HEAD
 - (void)updateConnectionWithId:(NSString *)id startArrow:(BOOL)startArrow endArrow:(BOOL)endArrow
 {
     UMLConnection *connection = [self.connections objectForKey:id];
     connection.startArrowEnabled = startArrow;
     connection.endArrowEnabled = endArrow;
+    [self setNeedsDisplay];
+}
+
+-(void)clearBoard {
+    NSLog(@"Should clear board now");
+    
+    [self.connections removeAllObjects];
+    for (UMLComponentView* comp in self.components.allValues)
+    {
+        [comp removeFromSuperview];
+        
+    }
+    [self.components removeAllObjects];
     [self setNeedsDisplay];
 }
 

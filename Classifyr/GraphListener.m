@@ -110,6 +110,14 @@ static GraphListener* instance;
         if ([_delegate respondsToSelector:@selector(graphListener:updateConnection:)]) {
             [_delegate graphListener:self deleteConnection:[json objectForKey:@"body"]];
         }
+    } else if (([messageType isEqualToString:@"revisions"])) {
+        _revisions = [json objectForKey:@"revisions"];
+        CFRunLoopStop(CFRunLoopGetMain());
+    } else if (([messageType isEqualToString:@"revert"]))
+    {
+            if ([_delegate respondsToSelector:@selector(graphListener:resetBoard:)]) {
+                [_delegate graphListener:self resetBoard:[json objectForKey:@"revert"]];
+            }
     }
     
 }
@@ -135,5 +143,17 @@ static GraphListener* instance;
     NSLog(@"from listener %@", classId);
 }
 
+-(void) getRevisions
+{
+    NSString* jsonString = @"{\"type\": \"revisions\"}";
+    [graphSocket send:jsonString];
+    CFRunLoopRun();
+}
+
+-(void)getRevisionState:(id)transactionId
+{
+    NSString* jsonString = [NSString stringWithFormat:@"{\"type\": \"revert\", \"transaction-id\": %@}", transactionId];
+    [graphSocket send:jsonString];
+}
 @end
 

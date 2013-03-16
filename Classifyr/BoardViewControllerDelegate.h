@@ -16,4 +16,6 @@
 
 - (BOOL)boardViewController:(BoardViewController *)vc canvasDidScrollWithOffset:(CGPoint)offset;
 
+- (void)boardViewController:(BoardViewController *)vc showRevisions:(NSString*)id;
+
 @end

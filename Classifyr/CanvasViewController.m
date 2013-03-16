@@ -12,6 +12,7 @@
 #import "EditConnectionViewController.h"
 #import "GraphListener.h"
 #import "UMLConnection.h"
+#import "ViewRevisionsController.h"
 
 #import "CanvasViewController.h"
 
@@ -54,6 +55,10 @@
     } else if ([segue.identifier isEqualToString:@"editConnectionSegue"]) {
         ((EditConnectionViewController *)(segue.destinationViewController)).connectionToEdit = sender;
         ((EditConnectionViewController *)(segue.destinationViewController)).delegate = self;
+    } else if ([segue.identifier isEqualToString:@"showRevisions"]){
+        NSLog(@"about to segue to revisions %@", sender);
+        ((ViewRevisionsController *)(segue.destinationViewController)).data = sender;
+        ((ViewRevisionsController *)(segue.destinationViewController)).controller = self;
     }
 }
 
@@ -355,6 +360,29 @@
     }
     
     return NO;
+}
+
+- (void)boardViewController:(BoardViewController *)vc showRevisions:(NSString*)id
+{
+    GraphListener *listener = [GraphListener mainGraphListener];
+    [listener getRevisions];
+    NSArray* revisions = listener.revisions;
+    
+    [self performSegueWithIdentifier:@"showRevisions" sender:revisions];
+}
+
+- (void)resetBoard:(id)transactionId
+{
+    NSLog(@"Should reset board now");
+    GraphListener *listener = [GraphListener mainGraphListener];
+    [listener getRevisionState:transactionId];
+}
+
+-(void)graphListener:(GraphListener *)gl resetBoard:(id)json
+{
+    NSLog(@"should reset board with json %@", json);
+    [self.canvasView clearBoard];
+    [self graphListener:gl initializeBoardWithJson:json];
 }
 
 @end

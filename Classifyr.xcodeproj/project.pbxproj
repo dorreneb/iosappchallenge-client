@@ -17,6 +17,7 @@
 		53C8819216EC0B51007098C9 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8818D16EC0B51007098C9 /* NSData+SRB64Additions.m */; };
 		53C8819316EC0B51007098C9 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819016EC0B51007098C9 /* SRWebSocket.m */; };
 		53C8819616EC203B007098C9 /* ServerConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 53C8819516EC203B007098C9 /* ServerConnection.m */; };
+		53D76ECC16F3DB01007F62A0 /* ViewRevisionsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53D76ECB16F3DB01007F62A0 /* ViewRevisionsController.m */; };
 		58079A5A16F0EABA00178C35 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5916F0EABA00178C35 /* back.png */; };
 		58079A5C16F0ED1700178C35 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5B16F0ED1700178C35 /* settings.png */; };
 		58079A6016F0EF8C00178C35 /* connect.png in Resources */ = {isa = PBXBuildFile; fileRef = 58079A5F16F0EF8C00178C35 /* connect.png */; };
@@ -67,6 +68,8 @@
 		53C8819016EC0B51007098C9 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		53C8819416EC203B007098C9 /* ServerConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConnection.h; sourceTree = "<group>"; };
 		53C8819516EC203B007098C9 /* ServerConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerConnection.m; sourceTree = "<group>"; };
+		53D76ECA16F3DB00007F62A0 /* ViewRevisionsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewRevisionsController.h; sourceTree = "<group>"; };
+		53D76ECB16F3DB01007F62A0 /* ViewRevisionsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewRevisionsController.m; sourceTree = "<group>"; };
 		58079A5916F0EABA00178C35 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		58079A5B16F0ED1700178C35 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 		58079A5F16F0EF8C00178C35 /* connect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connect.png; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				58577D9716F39F2E003D7CA7 /* EditConnectionViewController.h */,
 				58577D9816F39F2E003D7CA7 /* EditConnectionViewController.m */,
 				58577D9A16F3A1BD003D7CA7 /* EditConnectionViewControllerDelegate.h */,
+				53D76ECA16F3DB00007F62A0 /* ViewRevisionsController.h */,
+				53D76ECB16F3DB01007F62A0 /* ViewRevisionsController.m */,
 			);
 			path = Classifyr;
 			sourceTree = "<group>";
@@ -338,6 +343,7 @@
 				530D8F6016F1480600DDA5D2 /* NewSpecController.m in Sources */,
 				58701CB116F222F60020D896 /* CanvasViewController.m in Sources */,
 				58577D9916F39F2F003D7CA7 /* EditConnectionViewController.m in Sources */,
+				53D76ECC16F3DB01007F62A0 /* ViewRevisionsController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +451,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Jotspec;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -465,6 +472,7 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = Jotspec;
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
