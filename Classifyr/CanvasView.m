@@ -128,4 +128,17 @@
     [self setNeedsDisplay];
 }
 
+-(void)clearBoard {
+    NSLog(@"Should clear board now");
+    
+    [self.connections removeAllObjects];
+    for (UMLComponentView* comp in self.components.allValues)
+    {
+        [comp removeFromSuperview];
+        
+    }
+    [self.components removeAllObjects];
+    [self setNeedsDisplay];
+}
+
 @end

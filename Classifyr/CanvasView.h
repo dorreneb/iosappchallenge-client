@@ -29,5 +29,6 @@
 - (UMLConnection *)connectionSelected:(CGPoint)touchLocation;
 
 - (void)recalculateConnections;
+- (void) clearBoard;
 
 @end

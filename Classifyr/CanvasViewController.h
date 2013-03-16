@@ -30,7 +30,7 @@
 - (IBAction)cavnasTapped:(UITapGestureRecognizer *)recognizer;
 - (IBAction)newClassTapped:(UIButton *)button;
 
-- (void)resetBoard:(id)transactionId;
+- (void)resetBoard:(id)specId;
 
 
 - (void)boardViewController:(BoardViewController *)vc connectModeToggled:(BOOL)mode;

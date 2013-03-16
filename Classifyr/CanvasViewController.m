@@ -355,6 +355,8 @@
 -(void)graphListener:(GraphListener *)gl resetBoard:(id)json
 {
     NSLog(@"should reset board with json %@", json);
+    [self.canvasView clearBoard];
+    [self graphListener:gl initializeBoardWithJson:json];
 }
 
 @end
